@@ -1,0 +1,14 @@
+{
+    "name": "grasmash/drupal-project-browser",
+    "description": "A project browser embedded in the Drupal UI.",
+    "type": "drupal-module",
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "Matthew Grasmick",
+            "email": "matt.grasmick@gmail.com"
+        }
+    ],
+    "minimum-stability": "beta",
+    "require": {}
+}
