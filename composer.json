@@ -12,7 +12,7 @@
     "minimum-stability": "beta",
     "prefer-stable": true,
     "require": {
-        "guzzlehttp/guzzle": "^7.3",
+        "guzzlehttp/guzzle": "^6",
         "composer/semver": "^3.2",
         "kevinrob/guzzle-cache-middleware": "^3.3",
         "doctrine/cache": "^2.0"
