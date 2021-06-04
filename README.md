@@ -31,9 +31,19 @@
   ```
 1. Fork https://github.com/grasmash/project-browser:
   ```
-  gh repo fork https://github.com/grasmash/project-browser
+  gh repo fork grasmash/project-browser
   ```
 2. Add your fork to the cloned repo in the IDE:
   ```
   cd /home/ide/project-browser
-  git remote add myfork [your fork url]
+  git remote add [your-fork-name] [your-fork-url]
+  git checkout master
+  git branch --set-upstream-to [my-fork-name] master
+  ```
+3. Make your changes and commit:
+  ```
+  // Do a thing.
+  git add -A
+  git commit -m "I did a thing"
+  gh pr create
+  ```
