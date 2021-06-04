@@ -49,16 +49,21 @@ class DrupalOrgProxyController extends ControllerBase {
    *   Throws exception expected.
    */
   public function getAllProjects() {
-    $drupal_org_client = new DrupalOrgClient();
-    $projects = $drupal_org_client->getProjects();
-    if ($projects) {
-      $response = new JsonResponse($projects, Response::HTTP_ACCEPTED);
-      if ($response instanceof CacheableResponseInterface) {
-        $response->addCacheableDependency($projects);
+    try {
+      $drupal_org_client = new DrupalOrgClient();
+      $projects = $drupal_org_client->getProjects();
+      if ($projects) {
+        $response = new JsonResponse($projects, Response::HTTP_ACCEPTED);
+        if ($response instanceof CacheableResponseInterface) {
+          $response->addCacheableDependency($projects);
+        }
+        return $response;
       }
-      return $response;
+      return new Response('Could not find any projects', 400);
+     } catch (\Exception $exception) {
+      $this->logger->error($exception->getMessage());
+      return new Response($exception->getMessage(), Response::HTTP_BAD_REQUEST);
     }
-    return new Response('Could not find any projects', 400);
   }
 
   /**
