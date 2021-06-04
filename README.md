@@ -1,6 +1,6 @@
 
 
-## Setup on Cloud IDE
+## Setup on Acquia Cloud IDE
 
 1. Create your IDE and log in to it:
   ```
