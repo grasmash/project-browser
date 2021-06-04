@@ -1,0 +1,4 @@
+services:
+  logger.channel.project_browser:
+    parent: logger.channel_base
+    arguments: ['project_browser']

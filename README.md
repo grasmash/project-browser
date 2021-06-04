@@ -1,6 +1,6 @@
 
 
-## Setup on Cloud IDE 
+## Setup on Cloud IDE
 
 ```
 cd /home/ide
@@ -11,10 +11,10 @@ composer config repositories.project-browser '{"type": "path", "url": "'../proje
 composer require grasmash/drupal-project-browser
 drush si -y
 drush en project_browser -y
-# turn on error reporting
-# download and install restui, enable rest endpoint
-# grant permissions
-# visit	/drupalorgproxy/v1/project
+drush cset system.logging error_level verbose -y
+drush uli
+# visit	/drupal-org-proxy/project to see all projects
+# visit /drupal-org-proxy/project/ctools to see ctools project
 ```
 
 Suggest that you select "File => Open Workspace" and select `/home/ide` so you can view both the `project-browser` and `project` directories in the same workspace.

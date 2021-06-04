@@ -65,24 +65,25 @@ class DrupalOrgClient {
 
   /**
    * Get a list of all Drupal.org nodes of type 'project_module'.
-   * 
+   *
+   * @see https://www.drupal.org/drupalorg/docs/apis/rest-and-other-apis
+   *
    * @return array
    */
-  public function getProjects(): array {
+  public function getProjects($query = []): array {
     $client = $this->getGuzzleClient();
+    $query['type'] = 'project_module';
     $response = $client->request('GET', "https://www.drupal.org/api-d7/node.json", [
       'on_stats' => static function (TransferStats $stats) use (&$url) {
         $url = $stats->getEffectiveUri();
       },
-      'query' => [
-        'type' => 'project_module',
-      ],
+      'query' => $query
     ]);
     if ($response->getStatusCode() !== 200) {
       throw new \RuntimeException("Request to $url failed, returned {$response->getStatusCode()} with reason: {$response->getReasonPhrase()}");
     }
     $body = json_decode($response->getBody()->getContents(), TRUE);
-  
+
     return $body;
   }
 
