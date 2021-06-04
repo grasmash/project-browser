@@ -10,5 +10,11 @@
         }
     ],
     "minimum-stability": "beta",
-    "require": {}
+    "prefer-stable": true,
+    "require": {
+        "guzzlehttp/guzzle": "^7.3",
+        "composer/semver": "^3.2",
+        "kevinrob/guzzle-cache-middleware": "^3.3",
+        "doctrine/cache": "^2.0"
+    }
 }
