@@ -15,6 +15,7 @@
         "guzzlehttp/guzzle": "^6",
         "composer/semver": "^3.2",
         "kevinrob/guzzle-cache-middleware": "^3.3",
-        "doctrine/cache": "^2.0"
+        "doctrine/cache": "^1.10",
+        "doctrine/common": "^3.1"
     }
 }

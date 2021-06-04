@@ -1,0 +1,18 @@
+uuid: 39d3491d-c607-4620-8e27-850353178bd0
+langcode: en
+status: true
+dependencies:
+  module:
+    - project_browser
+    - serialization
+    - user
+id: drupal_org_project_list
+plugin_id: drupal_org_project_list
+granularity: resource
+configuration:
+  methods:
+    - GET
+  formats:
+    - json
+  authentication:
+    - cookie
