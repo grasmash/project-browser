@@ -54,6 +54,10 @@
     export let comment;
     export let book_ancestors;
     export let author = {};
+    // @todo Add stability level.
+    // @todo
+    // @todo
+    // @todo
 </script>
 <div class="project">
     <div class="title"><a href="{url}">{title}</a></div>

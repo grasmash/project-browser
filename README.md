@@ -19,9 +19,9 @@
       drush en project_browser -y
       drush cset system.logging error_level verbose -y
       drush uli
-      # visit	/drupal-org-proxy/project to see all projects
-      # visit /drupal-org-proxy/project/ctools to see ctools project
       # visit /admin/modules/browse 
+      # visit /drupal-org-proxy/project to see all projects
+      # visit /drupal-org-proxy/project/ctools to see ctools project
       ```
 
 # Contributing
@@ -63,3 +63,11 @@ Run:
     cd sveltejs
     npm dev
     ```
+
+# Why Svelte?
+
+This module uses Svelte as a "frontend" framework. There are many reasons to choose Svelte, but the primary reason is
+that it does not require this module (or Drupal Core for that matter) to "ship" a frontend framework. Svelte is only 
+used during the development process. Before "shipping," the Svelte code is compiled into "vanilla" HTML, CSS, and JS.
+This avoids many of the issues that have historically arisen from shipping jQuery with Drupal and also obviates the need
+to ship a framework like React or Vue with Drupal.

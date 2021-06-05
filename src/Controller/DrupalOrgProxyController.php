@@ -56,6 +56,7 @@ class DrupalOrgProxyController extends ControllerBase {
       if ($projects) {
         // @todo Add 'enabled/uninstalled' status to each project.
         // @todo Remove Access-Control-Allow-Origin: * header when not in dev mode.
+        // @todo Map each $projects to a Project object defined by this module.
         $response = new JsonResponse($projects, Response::HTTP_ACCEPTED, ['Access-Control-Allow-Origin' => '*']);
         if ($response instanceof CacheableResponseInterface) {
           $response->addCacheableDependency($projects);
@@ -78,6 +79,8 @@ class DrupalOrgProxyController extends ControllerBase {
     try {
       $drupal_org_client = new DrupalOrgClient();
       // @todo Filters for status 1, field_project_type full,
+      // @todo Determine current major version and filter modules by compatibility.
+      // @todo Add sort order according to various criteria.
       $project = $drupal_org_client->getProjects(['field_project_machine_name' => $name]);
       if ($project) {
         $response = new JsonResponse($project, Response::HTTP_ACCEPTED);
