@@ -1,2 +1,5 @@
 .idea
 vendor
+node_modules
+vendor
+composer.lock
