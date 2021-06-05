@@ -20,3 +20,11 @@ project_browser.api_project_get:
     _user_is_logged_in: 'TRUE'
   options:
     no_cache: 'TRUE'
+project_browser.browse:
+  path: '/admin/modules/browse'
+  defaults:
+    _controller: '\Drupal\project_browser\Controller\BrowserController::browse'
+    _title: 'Browse Drupal.org projects'
+  requirements:
+    #_permission: 'manage own subscriptions+administer subscriptions'
+    _user_is_logged_in: 'TRUE'
