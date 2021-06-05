@@ -21,6 +21,7 @@
   drush uli
   # visit	/drupal-org-proxy/project to see all projects
   # visit /drupal-org-proxy/project/ctools to see ctools project
+  # visit /admin/modules/browse 
   ```
 
 # Contributing

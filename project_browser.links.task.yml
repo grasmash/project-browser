@@ -1,5 +1,5 @@
 project_browser.browse:
-  route_name: project_browser.browser
+  route_name: project_browser.browse
   base_route: system.modules_list
   title: 'Browse'
   weight: 20
