@@ -51,8 +51,10 @@ class DrupalOrgProxyController extends ControllerBase {
   public function getAllProjects() {
     try {
       $drupal_org_client = new DrupalOrgClient();
+      // @todo Pass through all query parameters from request.
       $projects = $drupal_org_client->getProjects();
       if ($projects) {
+        // @todo Add 'enabled/uninstalled' status to each project.
         $response = new JsonResponse($projects, Response::HTTP_ACCEPTED);
         if ($response instanceof CacheableResponseInterface) {
           $response->addCacheableDependency($projects);
