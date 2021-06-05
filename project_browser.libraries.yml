@@ -1,0 +1,7 @@
+svelte:
+  js:
+    # @todo Add "defer" propecty to generated <script> tag.
+    sveltejs/public/build/bundle.js: {}
+  css:
+    theme:
+      sveltejs/public/build/bundle.css: {}
