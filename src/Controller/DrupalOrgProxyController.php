@@ -84,30 +84,4 @@ class DrupalOrgProxyController extends ControllerBase {
     }
   }
 
-    /**
-     * @param string $name The machine name of the project.
-     *
-     * @return \Drupal\Core\Cache\CacheableResponseInterface|mixed|\Symfony\Component\HttpFoundation\JsonResponse|\Symfony\Component\HttpFoundation\Response
-     */
-  public function getProject($name = NULL) {
-    try {
-      $drupal_org_client = new DrupalOrgClient();
-      // @todo Determine current major version and filter modules by compatibility.
-      $project = $drupal_org_client->getProjects(['field_project_machine_name' => $name]);
-      if ($project) {
-        $response = new JsonResponse($project, Response::HTTP_ACCEPTED);
-        // Configure caching for results.
-        if ($response instanceof CacheableResponseInterface) {
-          $response->addCacheableDependency($project);
-        }
-        return $response;
-      }
-      return new Response('Could not find any projects', Response::HTTP_BAD_REQUEST);
-    }
-    catch (\Exception $exception) {
-        $this->logger->error($exception->getMessage());
-        return new Response($exception->getMessage(), Response::HTTP_BAD_REQUEST);
-    }
-  }
-
 }

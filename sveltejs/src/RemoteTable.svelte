@@ -2,7 +2,7 @@
     import { onMount } from "svelte";
     import Table, { Pagination, Row, Search, Sort } from "./Table.svelte";
     import { sortNumber, sortString } from "./sorting.js";
-    import InstallButton from './InstallButton.svelte';
+    import DownloadButton from './DownloadButton.svelte';
 
     let data;
     let rows = [];
@@ -143,12 +143,13 @@
                 <div><a href="{row.url}" target="_blank">{row.title}</a></div>
                 <div>{@html String(row.body.summary).substring(0, 200) + '...'}</div>
                 <div class="status">Status:
-                    {#if projectIsEnabled(row.project_machine_name)}
+                    {#if projectIsEnabled(row.field_project_machine_name)}
                         Installed
-                    {:else if projectIsDownloaded(row.project_machine_name)}
-                        Downloaded, not installed.
+                    {:else if projectIsDownloaded(row.field_project_machine_name)}
+                        Downloaded, <a href="/admin/modules#module-{row.field_project_machine_name}" target="_blank">not installed</a>
                     {:else}
                         Not downloaded
+                        <DownloadButton project={row} />
                     {/if}
                 </div>
                 <div class="images">Images:
@@ -158,7 +159,6 @@
                     {/each}
                     </ul>
                 </div>
-                <InstallButton project={row} />
             </td>
             <td data-label="Maintenance status">
                 {#if row.taxonomy_vocabulary_44}

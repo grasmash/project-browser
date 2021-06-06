@@ -1,7 +1,7 @@
 <script>
     import { fly } from 'svelte/transition';
     import { bind } from './Modal.svelte';
-    import ComposerPopup from './ComposerPopup.svelte';
+    import ComposerPopup from './DownloadPopup.svelte';
     import { modal } from './stores.js';
 
     let opening = false;
@@ -19,7 +19,7 @@
     };
 </script>
 
-<button on:click={showPopupWithProps}>Install</button>
+<button on:click={showPopupWithProps}>Download</button>
 
 <style>
 </style>
