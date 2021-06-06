@@ -7,7 +7,7 @@ use Drupal\project_browser\DrupalOrg\Taxonomy\MaintenanceStatus;
 
 class DrupalOrgProject
 {
-    // Public properties.
+    // Public properties. These are the properties that are exposed to JS.
     public $author;
     public $body;
     public $created;
@@ -18,17 +18,20 @@ class DrupalOrgProject
     public $type;
     public $title;
     public $url;
+    public $project_usage;
+    public $field_security_advisory_coverage;
+    public $field_project_components = [];
 
     // Module categories.
     public $taxonomy_vocabulary_3;
 
     // Maintenance status.
     public $taxonomy_vocabulary_44;
-    public $maintenance_status;
+    public ?string $maintenance_status;
 
     // Development status.
     public $taxonomy_vocabulary_46;
-    public $development_status;
+    public ?string $development_status;
 
     // Non-public properties.
     protected $sticky;
@@ -42,7 +45,6 @@ class DrupalOrgProject
     protected $field_replaced_by;
     protected $field_next_major_version_info;
     protected $field_project_ecosystem;
-    protected $field_security_advisory_coverage;
     protected $field_project_issue_version_opts;
     protected $field_project_docs;
     protected $field_supporting_organizations = [];
@@ -51,8 +53,6 @@ class DrupalOrgProject
     protected $field_project_documentation;
     protected $field_project_demo;
     protected $upload = [];
-    protected $field_project_components = [];
-    protected $project_usage;
     protected $field_project_changelog;
     protected $field_project_homepage;
     protected $field_release_version_format;
@@ -75,9 +75,9 @@ class DrupalOrgProject
     protected $book_ancestors;
 
     /**
-     * @param object $project
+     * @param array $project
      */
-    public function __construct($project)
+    public function __construct(array $project)
     {
         $this->created = $project['created'];
         $this->changed = $project['changed'];
@@ -99,7 +99,7 @@ class DrupalOrgProject
         $this->field_project_issue_version_opts = $project['field_project_issue_version_opts'];
         $this->field_project_docs = $project['field_project_docs'];
         $this->field_supporting_organizations = $project['field_supporting_organizations'];
-        $this->field_project_images = $project['images'];
+        $this->field_project_images = $project['field_project_images'];
         $this->field_project_license = $project['field_project_license'];
         $this->field_project_screenshots = $project['field_project_screenshots'];
         $this->field_project_documentation = $project['field_project_documentation'];
@@ -109,7 +109,6 @@ class DrupalOrgProject
         $this->url = $project['url'];
         $this->body = $project['body'];
         $this->field_project_components = $project['field_project_components'];
-        $this->project_usage = $project['project_usage'];
         $this->field_project_changelog = $project['field_project_changelog'];
         $this->field_project_homepage = $project['field_project_homepage'];
         $this->field_release_version_format = $project['field_release_version_format'];
@@ -132,16 +131,24 @@ class DrupalOrgProject
         $this->book_ancestors = $project['book_ancestors'];
         $this->author = $project['author'];
 
+        if (array_key_exists('project_usage', $project)) {
+            $this->project_usage = $project['project_usage'];
+        }
+
         // Module categories
         $this->taxonomy_vocabulary_3 = $project['taxonomy_vocabulary_3'];
 
         // Maintenance status
-        $this->taxonomy_vocabulary_44 = $project['taxonomy_vocabulary_44'];
-        $this->maintenance_status = MaintenanceStatus::getStatusString($this->taxonomy_vocabulary_44['id']);
+        if (array_key_exists('taxonomy_vocabulary_44', $project) && $project['taxonomy_vocabulary_44']) {
+            $this->taxonomy_vocabulary_44 = $project['taxonomy_vocabulary_44'];
+            $this->maintenance_status = MaintenanceStatus::getStatusString($this->taxonomy_vocabulary_44['id']);
+        }
 
         // Development status
-        $this->taxonomy_vocabulary_46 = $project['taxonomy_vocabulary_46'];
-        $this->development_status = DevelopmentStatus::getStatusString($this->taxonomy_vocabulary_46['id']);
+        if (array_key_exists('taxonomy_vocabulary_46', $project) && $project['taxonomy_vocabulary_46']) {
+            $this->taxonomy_vocabulary_46 = $project['taxonomy_vocabulary_46'];
+            $this->development_status = DevelopmentStatus::getStatusString($this->taxonomy_vocabulary_46['id']);
+        }
 
         // @todo Add getters.
         // @todo Add _toArray() method that only returns the data we think we need. Then remove extraneous.

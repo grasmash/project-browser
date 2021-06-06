@@ -1,6 +1,4 @@
 <script>
-    // Row component is optional and only serves to render odd/even row, you can use <tr> instead.
-    // Sort component is optional
     import { onMount } from "svelte";
     import Table, { Pagination, Row, Search, Sort } from "./Table.svelte";
     import { sortNumber, sortString } from "./sorting.js";
@@ -9,7 +7,7 @@
     let rows = [];
     let page = 0; // first page
     let pageIndex = 0; // first row
-    let pageSize = 25;
+    let pageSize = 5;
 
     let loading = true;
     // Total result set size.
@@ -19,15 +17,20 @@
     let sortKeys = 'title';
     let sortDirection = 'ASC';
 
+    /**
+     * Load remote data when the Svelte component is mounted.
+     */
     onMount(async () => {
         await load(page);
     });
 
+    /**
+     * Load data from Drupal.org API.
+     */
     async function load(_page) {
         loading = true;
-        // const data = await getData(_page, pageSize, text, sorting);
-        // @todo Add {text} property to URL for search string.
-        // Other query parameters are hardcoded in DrupalOrgProxyController::getAll();
+        // @todo Add {text} property to URL for search string. E.g., add "&title={text}*".
+        // Additional query parameters are hardcoded in DrupalOrgProxyController::getAll();
         let url = "http://local.project-browser.com/drupal-org-proxy/project?page=" + _page + "&limit=" + pageSize + "&sort=" + sortKeys + "&direction=" + sortDirection;
         console.log(url);
         const res = await fetch(url);
@@ -40,6 +43,12 @@
         console.log(rowsCount);
     }
 
+    /**
+     * @todo Make this accurate. It's currently an approximation because it assumes even the last
+     * page of results contains a full 25 rows. It's possible the last page contains fewer.
+     * @param data
+     * @returns {number}
+     */
     function getRowCount(data) {
         var last_page_num = getParameterByName('page', data.last);
         return last_page_num * pageSize;
@@ -63,10 +72,20 @@
         page = event.detail.page;
     }
 
+    /**
+     * Determine is a project is present in the local Drupal codebase.
+     * @param project_name
+     * @returns {boolean}
+     */
     function projectIsDownloaded(project_name) {
         return typeof drupalSettings !== 'undefined' && project_name in drupalSettings.project_browser.modules;
     }
 
+    /**
+     * Determine if a project is enabled/installed in the local Drupal codebase.
+     * @param project_name
+     * @returns {boolean}
+     */
     function projectIsEnabled(project_name) {
         return typeof drupalSettings !== 'undefined' && project_name in drupalSettings.project_browser.modules && drupalSettings.project_browser.modules === 1;
     }
@@ -79,7 +98,7 @@
 
     async function onSort(event) {
         sortKeys = event.detail.key;
-        sortDirection = event.detail.dir;
+        sortDirection = String(event.detail.dir).toUpperCase();
         await load(page);
     }
 </script>
@@ -110,6 +129,10 @@
             Usage
             <Sort key="project_usage" on:sort={onSort} />
         </th>
+        <th>
+            Security
+            <Sort key="field_security_advisory_coverage;" on:sort={onSort} />
+        </th>
     </tr>
     </thead>
     <tbody>
@@ -118,7 +141,7 @@
             <td data-label="Title">
                 <div><a href="{row.url}" target="_blank">{row.title}</a></div>
                 <div>{@html String(row.body.summary).substring(0, 200) + '...'}</div>
-                <div class="status">
+                <div class="status">Status:
                     {#if projectIsEnabled(row.project_machine_name)}
                         Installed
                     {:else if projectIsDownloaded(row.project_machine_name)}
@@ -127,7 +150,7 @@
                         Not downloaded
                     {/if}
                 </div>
-                <div class="screenshots">
+                <div class="images">Images:
                     <ul>
                     {#each row.field_project_images || [] as image}
                         <li><img alt="{image.alt}" />{image.file.uri}</li>
@@ -166,6 +189,9 @@
                 {:else}
                     <span>No reported usage.</span>
                 {/if}
+            </td>
+            <td data-label="Security">
+                {row.field_security_advisory_coverage}
             </td>
         </Row>
     {/each}

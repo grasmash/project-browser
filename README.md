@@ -71,3 +71,15 @@ that it does not require this module (or Drupal Core for that matter) to "ship" 
 used during the development process. Before "shipping," the Svelte code is compiled into "vanilla" HTML, CSS, and JS.
 This avoids many of the issues that have historically arisen from shipping jQuery with Drupal and also obviates the need
 to ship a framework like React or Vue with Drupal.
+
+
+## Issues to address:
+
+1. Add a "curated" or "suggested" modules section on top of the full module list.
+1. Get the "search" field to work.
+1. Add a bunch of filters to the project browser.   
+1. Figure out how to use Drupal.org to:
+    * Filter projects by core compatibility.
+    * Filter projects using a text string.
+    * List project releases without a ton of requests.
+    * Sort using multiple criteria.
