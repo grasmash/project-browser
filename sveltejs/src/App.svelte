@@ -3,7 +3,7 @@
 	import ProjectListing from './projectListing.svelte';
 	let data = [];
 	onMount(async () => {
-		const res = await fetch(`http://local.project-browser.com/drupal-org-proxy/project`);
+		const res = await fetch(`/drupal-org-proxy/project`);
 		data = await res.json();
 		console.log(data);
 	});
