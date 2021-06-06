@@ -21,6 +21,7 @@ class DrupalOrgProject
     public $project_usage;
     public $field_security_advisory_coverage;
     public $field_project_components = [];
+    public $field_project_machine_name;
 
     // Module categories.
     public $taxonomy_vocabulary_3;
@@ -60,7 +61,6 @@ class DrupalOrgProject
     protected $field_project_issue_guidelines;
     protected $field_project_default_component;
     protected $field_project_has_issue_queue;
-    protected $field_project_machine_name;
     protected $field_project_type;
     protected $last_comment_timestamp;
     protected $has_new_content;

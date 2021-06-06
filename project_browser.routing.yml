@@ -9,8 +9,8 @@ project_browser.api_project_get_all:
     #_user_is_logged_in: 'TRUE'
     # @todo Undo this access bypass!
     _access: 'TRUE'
-  options:
-    no_cache: 'TRUE'
+  #options:
+  #  no_cache: 'TRUE'
 project_browser.api_project_get:
   path: '/drupal-org-proxy/project/{name}'
   methods: [GET]

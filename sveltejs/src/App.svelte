@@ -1,7 +1,8 @@
 <script>
-	import LocalTable from "./LocalTable.svelte";
 	import RemoteTable from "./RemoteTable.svelte";
 	import { onMount } from "svelte";
+	import Modal from './Modal.svelte';
+	import { modal } from './stores.js';
 	let data = [];
 	onMount(async () => {
 		// todo Make this URL dynamic. It would work to simply change this to
@@ -13,8 +14,9 @@
 </script>
 
 <main>
-	<h1>Project Browser</h1>
 	<div id="project-browser">
 		<RemoteTable />
 	</div>
+	<Modal show={$modal}>
+	</Modal>
 </main>

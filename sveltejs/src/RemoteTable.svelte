@@ -2,6 +2,7 @@
     import { onMount } from "svelte";
     import Table, { Pagination, Row, Search, Sort } from "./Table.svelte";
     import { sortNumber, sortString } from "./sorting.js";
+    import InstallButton from './InstallButton.svelte';
 
     let data;
     let rows = [];
@@ -157,6 +158,7 @@
                     {/each}
                     </ul>
                 </div>
+                <InstallButton project={row} />
             </td>
             <td data-label="Maintenance status">
                 {#if row.taxonomy_vocabulary_44}
