@@ -2,6 +2,10 @@
 
 namespace Drupal\project_browser\Controller;
 
+use Drupal\project_browser\DrupalOrg\DrupalOrgProjects;
+use Drupal\project_browser\DrupalOrg\Taxonomy\MaintenanceStatus;
+use Drupal\project_browser\DrupalOrg\Taxonomy\Vocabularies;
+use Symfony\Component\HttpFoundation\Request;
 use Drupal\Core\Cache\CacheableResponseInterface;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Logger\LoggerChannelInterface;
@@ -40,24 +44,34 @@ class DrupalOrgProxyController extends ControllerBase {
     );
   }
 
-  /**
-   * Responds to GET requests.
-   *
-   * Returns a list of bundles for specified entity.
-   *
-   * @throws \Symfony\Component\HttpKernel\Exception\HttpException
-   *   Throws exception expected.
-   */
-  public function getAllProjects() {
+    /**
+     * Responds to GET requests.
+     *
+     * Returns a list of bundles for specified entity.
+     *
+     * @param \Symfony\Component\HttpFoundation\Request $request
+     *
+     * @return \Drupal\Core\Cache\CacheableResponseInterface|mixed|\Symfony\Component\HttpFoundation\JsonResponse|\Symfony\Component\HttpFoundation\Response
+     * @throws \GuzzleHttp\Exception\GuzzleException Throws exception expected.
+     */
+  public function getAllProjects(Request $request) {
     try {
       $drupal_org_client = new DrupalOrgClient();
-      // @todo Pass through all query parameters from request.
-      $projects = $drupal_org_client->getProjects();
+      // Forward query parameters from request to Drupal.org Client.
+      $query = $request->query->all();
+      $query['type'] = 'project_module';
+      $query['status'] = '1';
+      $query['field_project_type'] = 'full';
+      // @todo Show all but unsupported and obsolete.
+      $query['taxonomy_vocabulary_' . Vocabularies::MAINTENANCE_STATUS] = MaintenanceStatus::ACTIVELY_MAINTAINED;
+      // taxonomy_vocabulary_6 = Core compatibility
+      $drupal_org_response = $drupal_org_client->getProjects($query);
+      $projects = new DrupalOrgProjects($drupal_org_response['list']);
       if ($projects) {
-        // @todo Add 'enabled/uninstalled' status to each project.
         // @todo Remove Access-Control-Allow-Origin: * header when not in dev mode.
-        // @todo Map each $projects to a Project object defined by this module.
-        $response = new JsonResponse($projects, Response::HTTP_ACCEPTED, ['Access-Control-Allow-Origin' => '*']);
+        // @todo Add 'count' property.
+        $drupal_org_response['list'] = (array) $projects;
+        $response = new JsonResponse($drupal_org_response, Response::HTTP_ACCEPTED, ['Access-Control-Allow-Origin' => '*']);
         if ($response instanceof CacheableResponseInterface) {
           $response->addCacheableDependency($projects);
         }
@@ -78,9 +92,7 @@ class DrupalOrgProxyController extends ControllerBase {
   public function getProject($name = NULL) {
     try {
       $drupal_org_client = new DrupalOrgClient();
-      // @todo Filters for status 1, field_project_type full,
       // @todo Determine current major version and filter modules by compatibility.
-      // @todo Add sort order according to various criteria.
       $project = $drupal_org_client->getProjects(['field_project_machine_name' => $name]);
       if ($project) {
         $response = new JsonResponse($project, Response::HTTP_ACCEPTED);
