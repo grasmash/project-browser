@@ -13,7 +13,7 @@
     let loading = true;
     // Total result set size.
     let rowsCount = 0;
-    let text;
+    let text = '';
     let sorting = 'title';
     let sortKeys = 'title';
     let sortDirection = 'ASC';
@@ -28,20 +28,19 @@
     /**
      * Load data from Drupal.org API.
      */
-    async function load(_page) {
+    async function load(_page, text) {
         loading = true;
         // @todo Add {text} property to URL for search string. E.g., add "&title={text}*".
         // Additional query parameters are hardcoded in DrupalOrgProxyController::getAll();
-        let url = "http://local.project-browser.com/drupal-org-proxy/project?page=" + _page + "&limit=" + pageSize + "&sort=" + sortKeys + "&direction=" + sortDirection;
-        console.log(url);
+        let url = "/drupal-org-proxy/project?page=" + _page + "&limit=" + pageSize + "&sort=" + sortKeys + "&direction=" + sortDirection;
+        if (text) {
+          url = url + "&title=" + text;
+        }
         const res = await fetch(url);
-        console.log(res);
         data = await res.json();
-        console.log(data);
         rows = data.list;
         rowsCount = getRowCount(data);
         loading = false;
-        console.log(rowsCount);
     }
 
     /**
@@ -91,9 +90,10 @@
         return typeof drupalSettings !== 'undefined' && project_name in drupalSettings.project_browser.modules && drupalSettings.project_browser.modules === 1;
     }
 
+    // @TODO: Need to debounce this so it waits for the typing to end.
     async function onSearch(event) {
         text = event.detail.text;
-        await load(page);
+        await load(page, text);
         page = 0;
     }
 

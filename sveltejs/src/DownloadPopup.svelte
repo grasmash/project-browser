@@ -3,10 +3,6 @@
 </script>
 
 <style>
-    h1 {
-        font-size: 2rem;
-        text-align: center;
-    }
     h2 {
         font-size: 1.25rem;
     }
