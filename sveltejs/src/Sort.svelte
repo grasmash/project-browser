@@ -42,9 +42,7 @@
 
 <style>
     .sort {
-        right: 0;
         cursor: pointer;
-        position: absolute;
         padding: 0 0.25em;
         color: #999;
     }

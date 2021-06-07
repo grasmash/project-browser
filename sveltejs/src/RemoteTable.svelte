@@ -13,7 +13,7 @@
     let loading = true;
     // Total result set size.
     let rowsCount = 0;
-    let text;
+    let text = '';
     let sorting = 'title';
     let sortKeys = 'title';
     let sortDirection = 'ASC';
@@ -33,6 +33,9 @@
         // @todo Add {text} property to URL for search string. E.g., add "&title={text}*".
         // Additional query parameters are hardcoded in DrupalOrgProxyController::getAll();
         let url = "http://local.project-browser.com/drupal-org-proxy/project?page=" + _page + "&limit=" + pageSize + "&sort=" + sortKeys + "&direction=" + sortDirection;
+        if (text) {
+            url = url + "&title=" + text;
+        }
         console.log(url);
         const res = await fetch(url);
         console.log(res);

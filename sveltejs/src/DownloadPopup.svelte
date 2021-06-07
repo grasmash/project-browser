@@ -3,12 +3,27 @@
 </script>
 
 <style>
-    h1 {
-        font-size: 2rem;
-        text-align: center;
-    }
     h2 {
         font-size: 1.25rem;
+        margin-bottom: 2em;
+    }
+    pre {
+        background-color: #282c34;
+        border-radius: 6px;
+        font-size: 1em;
+        text-align: left;
+        white-space: pre;
+        word-spacing: normal;
+        word-break: normal;
+        word-wrap: normal;
+        color: #ccc;
+        font-family: Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;
+        tab-size: 4;
+        hyphens: none;
+        line-height: 1.4;
+        padding: 1.25rem 1.5rem;
+        margin: .85rem 0;
+        overflow: auto;
     }
 </style>
 

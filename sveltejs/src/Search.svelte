@@ -66,6 +66,7 @@
     .search {
         width: 33.3%;
         float: right;
+        margin-bottom: 1rem;
     }
     .search input {
         width: 100%;
