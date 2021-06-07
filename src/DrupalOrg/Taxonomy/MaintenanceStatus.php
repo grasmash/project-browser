@@ -7,7 +7,8 @@ namespace Drupal\project_browser\DrupalOrg\Taxonomy;
  * @package Drupal\project_browser\DrupalOrg\Taxonomy
  * @see https://www.drupal.org/drupalorg/docs/apis/rest-and-other-apis#s-filtering-on-issue-data
  */
-abstract class MaintenanceStatus {
+abstract class MaintenanceStatus
+{
 
     public const ACTIVELY_MAINTAINED = 13028;
     public const MINIMALLY_MAINTAINED = 19370;

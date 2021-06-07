@@ -18,13 +18,13 @@ class DrupalOrgProjects extends \ArrayObject
     public function __construct($projects)
     {
         parent::__construct(
-          array_map(
-            function ($project) {
-                return new DrupalOrgProject($project);
-            },
-            $projects
-          ),
-          self::ARRAY_AS_PROPS
+            array_map(
+                function ($project) {
+                    return new DrupalOrgProject($project);
+                },
+                $projects
+            ),
+            self::ARRAY_AS_PROPS
         );
     }
 }

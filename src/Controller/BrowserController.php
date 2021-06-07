@@ -6,9 +6,11 @@ use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Extension\InfoParserException;
 use Drupal\Core\Extension\ModuleExtensionList;
 
-class BrowserController extends ControllerBase {
+class BrowserController extends ControllerBase
+{
 
-    public function browse() {
+    public function browse()
+    {
 
         /** @var ModuleExtensionList $module_service */
         $module_service = \Drupal::service('extension.list.module');
@@ -18,14 +20,15 @@ class BrowserController extends ControllerBase {
             // any new modules that may have been added directly into the filesystem.
             $modules = $module_service->reset()->getList();
             uasort($modules, 'system_sort_modules_by_info_name');
-        }
-        catch (InfoParserException $e) {
-            $this->messenger()->addError($this->t('Modules could not be listed due to an error: %error',
-              ['%error' => $e->getMessage()]));
+        } catch (InfoParserException $e) {
+            $this->messenger()->addError($this->t(
+                'Modules could not be listed due to an error: %error',
+                ['%error' => $e->getMessage()]
+            ));
             $modules = [];
         }
 
-        $modules_status = array_map(function($value) {
+        $modules_status = array_map(function ($value) {
             return $value->status;
         }, $modules);
         return [
@@ -42,5 +45,4 @@ class BrowserController extends ControllerBase {
             ],
         ];
     }
-
 }
