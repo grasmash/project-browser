@@ -2,10 +2,9 @@
     import Pagination, {
         setLabels as _setPaginationLabels
     } from "./Pagination.svelte";
-    import Row from "./Row.svelte";
     import Search, { setLabels as _setSearchLabels } from "./Search.svelte";
     import Sort, { setLabels as _setSortLabels } from "./Sort.svelte";
-    export { Pagination, Row, Search, Sort };
+    export { Pagination, Search, Sort };
 
     let globalLabels;
 
@@ -25,7 +24,7 @@
     export let loading = false;
     export let page = 0;
     export let pageIndex = 0;
-    export let pageSize = 10;
+    export let pageSize = 12;
     export let responsive = true;
     export let rows;
     export let serverSide = false;
@@ -66,19 +65,13 @@
 </script>
 
 <style>
-    .table {
-        width: 100%;
-        border-collapse: collapse;
+    .grid {
+        display: flex;
+        clear: both;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin: 2em;
     }
-
-    .table :global(th, td) {
-        position: relative;
-    }
-
-    .table :global(td) {
-        padding: 0.3em 0.3em;
-    }
-
     .center {
         text-align: center;
         font-style: italic;
@@ -96,57 +89,11 @@
         width: 100%;
         margin-top: 1em;
     }
-
-    @media screen and (max-width: 767px) {
-        table.responsive {
-            border: 0;
-        }
-
-        table.responsive :global(thead) {
-            border: none;
-            clip: rect(0 0 0 0);
-            height: 1px;
-            margin: -1px;
-            overflow: hidden;
-            padding: 0;
-            position: absolute;
-            width: 1px;
-        }
-
-        table.responsive :global(tr) {
-            border-bottom: 2px solid #ddd;
-            display: block;
-            padding-bottom: 0.3em;
-            margin-bottom: 0.3em;
-        }
-
-        table.responsive :global(td) {
-            border-bottom: 1px solid #ddd;
-            display: block;
-            font-size: 0.8em;
-            text-align: right;
-        }
-
-        table.responsive :global(td::before) {
-            /*
-          * aria-label has no advantage, it won't be read inside a table content: attr(aria-label);
-          */
-            content: attr(data-label);
-            float: left;
-            font-weight: bold;
-        }
-
-        table.responsive :global(td[data-label-normal]::before) {
-            font-weight: normal;
-        }
-
-        table.responsive :global(td[data-label-upper]::before) {
-            text-transform: uppercase;
-        }
-
-        table.responsive :global(td:last-child) {
-            border-bottom: 0;
-        }
+    .loading {
+        min-height: 100px;
+        text-align: center;
+        margin: 2em;
+        width: 100%;
     }
 </style>
 
@@ -156,33 +103,17 @@
     </div>
 </slot>
 
-<table class={'table ' + $$props.class} class:responsive>
+<div class={'grid ' + $$props.class} class:responsive>
     <slot name="head" />
     {#if loading}
-        <tbody>
-        <tr>
-            <td class="center" colspan="100%">
-          <span>
-            {@html labels.loading}
-          </span>
-            </td>
-        </tr>
-        </tbody>
+        <div class="loading">{@html labels.loading}</div>
     {:else if visibleRows.length === 0}
-        <tbody>
-        <tr>
-            <td class="center" colspan="100%">
-          <span>
-            {@html labels.empty}
-          </span>
-            </td>
-        </tr>
-        </tbody>
+        <div>{@html labels.empty}</div>
     {:else}
         <slot rows={visibleRows} />
     {/if}
     <slot name="foot" />
-</table>
+</div>
 
 <slot name="bottom">
     <div class="slot-bottom">

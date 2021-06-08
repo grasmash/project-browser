@@ -31,7 +31,7 @@
 1. Authenticate the IDE with GitHub:
       ```bash
       gh auth login
-    ```
+       ```
 1. Fork https://github.com/grasmash/project-browser:
       ```bash
       gh repo fork grasmash/project-browser
@@ -44,11 +44,11 @@
       git branch --set-upstream-to [my-fork-name] master
       ```
 3. Install Svelte dependencies and start a "watch" process~
-    ```bash
-    cd sveltejs
-    npm install
-    npm run dev  
-    ```
+      ```bash
+      cd sveltejs
+      npm install
+      npm run dev  
+      ```
 4. Disable Drupal's various caching mechanisms:
    ```bash
       # Disable caching for development.
@@ -87,16 +87,17 @@ that it does not require this module (or Drupal Core for that matter) to "ship" 
 used during the development process. Before "shipping," the Svelte code is compiled into "vanilla" HTML, CSS, and JS.
 
 This avoids many of the security and deprecation issues that have historically arisen from shipping jQuery with Drupal.
-It also avoids many of the licensing, performance, and dependency concerts posed by possibility of using frameworks 
+It also avoids many of the licensing, performance, and dependency concerns posed by possibility of using frameworks 
 like React or Vue.
 
 ## Issues to address:
 
 1. Add a "curated" or "suggested" modules section on top of the full module list.
-1. Get the "search" field to work.
+1. Get the "search" field to work against multiple fields and partial values.
 1. Add a bunch of filters to the project browser.   
 1. Figure out how to use Drupal.org to:
     * Filter projects by core compatibility.
     * Filter projects using a text string.
     * List project releases without a ton of requests.
     * Sort using multiple criteria.
+1. Get the URL of a file in field_images

@@ -27,14 +27,24 @@
     }
 </style>
 
-<h2>Download {project.title}</h2>
+<h2>{project.title}</h2>
 
-<p>The recommended way to download any Drupal module is with Composer. If you already manage your Drupal application
-    dependencies with Composer, simply open your CLI and run the following command from the Composer root directory
+<h3>1. Download</h3>
+
+<p>The <a href="https://www.drupal.org/docs/develop/using-composer/using-composer-to-install-drupal-and-manage-dependencies#managing-contributed" target="_blank">recommended way to download any Drupal module</a> is with <a href="https://getcomposer.org/" target="_blank">Composer</a>.</p>
+
+<p>If you already manage your Drupal application dependencies with Composer, simply open your CLI and run the following command from the Composer root directory
 for your application:</p>
 <pre>
     composer require drupal/{project.field_project_machine_name} --with-all-dependencies
 </pre>
 
-This will add the module to your codebase. You will then need to enable it via Drupal. You can either use `drush` from
-the CLI, or you can visit the <a href="/admin/modules">modules page</a>.
+<p>This will download the module to your codebase.</p>
+
+<h3>2. Install</h3>
+
+<p>To use the module you must next install/enable it. Visit the <a href="/admin/modules#module-{project.field_project_machine_name}" target="_blank">modules page</a> to install the module using your web browser.</p>
+<p>Alternatively, you can use <a href="https://www.drush.org/latest/" target="_blank">drush</a> to enable it via the CLI:</p>
+<pre>
+    drush pm-enable {project.field_project_machine_name}
+</pre>

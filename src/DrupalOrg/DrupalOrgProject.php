@@ -20,7 +20,6 @@ class DrupalOrgProject
     public $url;
     public $project_usage;
     public $field_security_advisory_coverage;
-    public $field_project_components = [];
     public $field_project_machine_name;
 
     // Module categories.
@@ -47,6 +46,7 @@ class DrupalOrgProject
     protected $field_next_major_version_info;
     protected $field_project_ecosystem;
     protected $field_project_issue_version_opts;
+    protected $field_project_components = [];
     protected $field_project_docs;
     protected $field_supporting_organizations = [];
     protected $field_project_license;
@@ -107,6 +107,7 @@ class DrupalOrgProject
         $this->upload = $project['upload'];
         $this->title = $project['title'];
         $this->url = $project['url'];
+        // @todo Sanitize body, strip unwanted tags.
         $this->body = $project['body'];
         $this->field_project_components = $project['field_project_components'];
         $this->field_project_changelog = $project['field_project_changelog'];

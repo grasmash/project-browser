@@ -61,14 +61,15 @@ class DrupalOrgProxyController extends ControllerBase
     {
         try {
             $drupal_org_client = new DrupalOrgClient();
-          // Forward query parameters from request to Drupal.org Client.
+            // Forward query parameters from request to Drupal.org Client.
             $query = $request->query->all();
             $query['type'] = 'project_module';
             $query['status'] = '1';
             $query['field_project_type'] = 'full';
-          // @todo Show all but unsupported and obsolete.
+            $query['field_project_has_releases'] = '1';
+            // @todo Show all but unsupported and obsolete.
             $query['taxonomy_vocabulary_' . Vocabularies::MAINTENANCE_STATUS] = MaintenanceStatus::ACTIVELY_MAINTAINED;
-          // taxonomy_vocabulary_6 = Core compatibility
+            // taxonomy_vocabulary_6 = Core compatibility
             $drupal_org_response = $drupal_org_client->getProjects($query);
             $projects = new DrupalOrgProjects($drupal_org_response['list']);
             if ($projects) {
