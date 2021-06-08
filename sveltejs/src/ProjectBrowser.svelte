@@ -2,7 +2,10 @@
     import { onMount } from "svelte";
     import ProjectGrid, { Pagination, Search, Sort } from "./ProjectGrid.svelte";
     import { sortNumber, sortString } from "./sorting.js";
+    import { fetchEntity } from "./Project/project.js";
     import DownloadButton from './DownloadButton.svelte';
+    import SupportingOrganization from './Project/SupportingOrganization.svelte';
+    import Image from './Project/Image.svelte';
 
     let data;
     let rows = [];
@@ -41,17 +44,6 @@
         console.log(data);
         rowsCount = getRowCount(data);
         loading = false;
-    }
-
-    async function getFileUrl(fid) {
-        const response = await fetch("https://www.drupal.org/api-d7/file/" + fid + ".json");
-        if (response.ok) {
-            data = await response.json();
-            return data.url;
-
-        } else {
-            throw new Error('Could not load image');
-        }
     }
 
     /**
@@ -137,6 +129,8 @@
         width: 150px;
         overflow: hidden;
         margin: 0 1em 0 0;
+        background: lightgrey;
+        text-align: center;
     }
     .left img {
         width: 150px;
@@ -147,6 +141,25 @@
     .metadata {
         clear: both;
         padding: 1em;
+    }
+    .categories ul {
+        margin: 0;
+        padding: 0;
+    }
+    .categories li {
+        list-style: none;
+        text-transform: lowercase;
+        display: inline-block;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        margin-right: 5px;
+        padding: 2px 5px;
+        border: 1px solid #d5d5d5;
+        border-radius: 3px;
+        background-color: #f0f0f0;
+    }
+    .more {
+        margin: 1em 0 0 0;
     }
 </style>
 <ProjectGrid {loading} {rows} {pageIndex} {pageSize} let:rows={rows2}>
@@ -159,32 +172,27 @@
             <div class="main">
                 <div class="action">
                     {#if projectIsEnabled(row.field_project_machine_name)}
-                        Installed
+                        <span>Installed</span>
                     {:else if projectIsDownloaded(row.field_project_machine_name)}
-                        <a href="/admin/modules#module-{row.field_project_machine_name}" target="_blank"><button type="button">Install</button></a>
+                        <span><a href="/admin/modules#module-{row.field_project_machine_name}" target="_blank"><button type="button">Install</button></a></span>
                     {:else}
-                        <DownloadButton project={row} />
+                       <span><DownloadButton project={row} /></span>
                     {/if}
                 </div>
                 <div class="left">
-                    {#if typeof row.field_project_images !== "undefined" && row.field_project_images.length}
-                        {#await getFileUrl(row.field_project_images[0].file.id)}}
-                            <p>...waiting</p>
-                        {:then url}
-                            <img src="{url}" alt="{row.field_project_images[0].alt}"/>
-                        {:catch error}
-                            <p style="color: red">{error.message}</p>
-                        {/await}
-                    {/if}
+                    <Image field_project_images={row.field_project_images}/>
                 </div>
                 <div class="right">
-                    <h3>
+                    <h2>
                         <a href="{row.url}" target="_blank">{row.title}</a>
                         {#if row.field_security_advisory_coverage === 'covered'}
                             <span class="security-covered" title="Covered by Drupal Security Team">&#128737;</span>
                         {/if}
-                    </h3>
-                    <div>{@html String(row.body.value).substring(0, 200) + '...'}</div>
+                    </h2>
+                    <div class="body">{@html String(row.body.value).substring(0, 200) + '...'}</div>
+                    <div class="author">By <a href="https://www.drupal.org/user/{row.author.id}" target="_blank">{row.author.name}</a></div>
+                    <SupportingOrganization field_supporting_organizations={row.field_supporting_organizations} />
+                    <div class="more"><a href="{row.url}" target="_blank">More details</a></div>
                 </div>
             </div>
             <div class="metadata">
@@ -202,12 +210,20 @@
                         <span>Unknown</span>
                     {/if}
                 </div>
-                <div data-label="Categories">
-                    <ul>
-                        {#each row.taxonomy_vocabulary_3 || [] as category}
-                            <li class="category">{category.uri}</li>
-                        {/each}
-                    </ul>
+                <div class="categories" data-label="Categories">
+                    {#if typeof row.taxonomy_vocabulary_3 !== "undefined" && row.taxonomy_vocabulary_3.length}
+                        <ul>
+                            {#each row.taxonomy_vocabulary_3 || [] as category}
+                                {#await fetchEntity(category.uri)}
+                                    <p>...waiting</p>
+                                {:then term}
+                                    <li class="category">{term.name}</li>
+                                {:catch error}
+                                    <p style="color: red">{error.message}</p>
+                                {/await}
+                            {/each}
+                        </ul>
+                    {/if}
                 </div>
                 <div data-label="Usage">
                     {#if row.project_usage}
@@ -220,6 +236,7 @@
                         <span>No reported usage.</span>
                     {/if}
                 </div>
+                <div class="latest-release">@todo add last updated or latest release</div>
             </div>
         </div>
     {/each}
