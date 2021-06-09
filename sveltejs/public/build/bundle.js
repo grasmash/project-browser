@@ -1009,7 +1009,7 @@ var app = (function () {
     	let current;
     	let mounted;
     	let dispose;
-    	let if_block = /*state*/ ctx[0].closeButton && create_if_block_1$5(ctx);
+    	let if_block = /*state*/ ctx[0].closeButton && create_if_block_1$6(ctx);
     	var switch_value = /*Component*/ ctx[1];
 
     	function switch_props(ctx) {
@@ -1121,7 +1121,7 @@ var app = (function () {
     						transition_in(if_block, 1);
     					}
     				} else {
-    					if_block = create_if_block_1$5(ctx);
+    					if_block = create_if_block_1$6(ctx);
     					if_block.c();
     					transition_in(if_block, 1);
     					if_block.m(div1, t);
@@ -1226,7 +1226,7 @@ var app = (function () {
     }
 
     // (345:16) {#if state.closeButton}
-    function create_if_block_1$5(ctx) {
+    function create_if_block_1$6(ctx) {
     	let show_if;
     	let current_block_type_index;
     	let if_block;
@@ -1298,7 +1298,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_1$5.name,
+    		id: create_if_block_1$6.name,
     		type: "if",
     		source: "(345:16) {#if state.closeButton}",
     		ctx
@@ -2169,7 +2169,7 @@ var app = (function () {
     }
 
     // (56:27) 
-    function create_if_block_1$4(ctx) {
+    function create_if_block_1$5(ctx) {
     	let span;
     	let raw_value = /*labels*/ ctx[1].desc.html + "";
     	let span_title_value;
@@ -2197,7 +2197,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_1$4.name,
+    		id: create_if_block_1$5.name,
     		type: "if",
     		source: "(56:27) ",
     		ctx
@@ -2251,7 +2251,7 @@ var app = (function () {
 
     	function select_block_type(ctx, dirty) {
     		if (/*dir*/ ctx[0] === "asc") return create_if_block$8;
-    		if (/*dir*/ ctx[0] === "desc") return create_if_block_1$4;
+    		if (/*dir*/ ctx[0] === "desc") return create_if_block_1$5;
     		return create_else_block$5;
     	}
 
@@ -3329,7 +3329,7 @@ var app = (function () {
     }
 
     // (110:39) 
-    function create_if_block_1$3(ctx) {
+    function create_if_block_1$4(ctx) {
     	let div;
     	let raw_value = /*labels*/ ctx[5].empty + "";
 
@@ -3353,7 +3353,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_1$3.name,
+    		id: create_if_block_1$4.name,
     		type: "if",
     		source: "(110:39) ",
     		ctx
@@ -3510,7 +3510,7 @@ var app = (function () {
     	const top_slot_or_fallback = top_slot || fallback_block_1(ctx);
     	const head_slot_template = /*#slots*/ ctx[14].head;
     	const head_slot = create_slot(head_slot_template, ctx, /*$$scope*/ ctx[13], get_head_slot_context);
-    	const if_block_creators = [create_if_block$6, create_if_block_1$3, create_else_block$4];
+    	const if_block_creators = [create_if_block$6, create_if_block_1$4, create_else_block$4];
     	const if_blocks = [];
 
     	function select_block_type(ctx, dirty) {
@@ -4233,7 +4233,7 @@ var app = (function () {
     }
 
     // (49:70) 
-    function create_if_block_1$2(ctx) {
+    function create_if_block_1$3(ctx) {
     	let span;
     	let a;
     	let button;
@@ -4269,7 +4269,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_1$2.name,
+    		id: create_if_block_1$3.name,
     		type: "if",
     		source: "(49:70) ",
     		ctx
@@ -4317,7 +4317,7 @@ var app = (function () {
     		if (show_if == null || dirty & /*project*/ 1) show_if = !!projectIsEnabled(/*project*/ ctx[0].field_project_machine_name);
     		if (show_if) return create_if_block$5;
     		if (show_if_1 == null || dirty & /*project*/ 1) show_if_1 = !!projectIsDownloaded(/*project*/ ctx[0].field_project_machine_name);
-    		if (show_if_1) return create_if_block_1$2;
+    		if (show_if_1) return create_if_block_1$3;
     		return create_else_block$3;
     	}
 
@@ -4491,7 +4491,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (9:0) {#if typeof field_supporting_organizations !== "undefined" && field_supporting_organizations.length}
+    // (11:0) {#if typeof field_supporting_organizations !== "undefined" && field_supporting_organizations.length}
     function create_if_block$4(ctx) {
     	let div;
     	let span;
@@ -4515,9 +4515,9 @@ var app = (function () {
     				each_blocks[i].c();
     			}
 
-    			add_location(span, file$7, 10, 8, 285);
-    			attr_dev(div, "class", "supporting-organizations");
-    			add_location(div, file$7, 9, 4, 238);
+    			add_location(span, file$7, 12, 8, 350);
+    			attr_dev(div, "class", "supporting-organizations svelte-81af9v");
+    			add_location(div, file$7, 11, 4, 303);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -4563,14 +4563,14 @@ var app = (function () {
     		block,
     		id: create_if_block$4.name,
     		type: "if",
-    		source: "(9:0) {#if typeof field_supporting_organizations !== \\\"undefined\\\" && field_supporting_organizations.length}",
+    		source: "(11:0) {#if typeof field_supporting_organizations !== \\\"undefined\\\" && field_supporting_organizations.length}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (21:12) {:catch error}
+    // (23:12) {:catch error}
     function create_catch_block_1(ctx) {
     	let span;
     	let t0_value = /*error*/ ctx[6].message + "";
@@ -4583,7 +4583,7 @@ var app = (function () {
     			t0 = text(t0_value);
     			t1 = space();
     			set_style(span, "color", "red");
-    			add_location(span, file$7, 21, 16, 986);
+    			add_location(span, file$7, 23, 16, 1051);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, span, anchor);
@@ -4603,14 +4603,14 @@ var app = (function () {
     		block,
     		id: create_catch_block_1.name,
     		type: "catch",
-    		source: "(21:12) {:catch error}",
+    		source: "(23:12) {:catch error}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (14:12) {:then item}
+    // (16:12) {:then item}
     function create_then_block$2(ctx) {
     	let promise;
     	let t;
@@ -4660,14 +4660,14 @@ var app = (function () {
     		block,
     		id: create_then_block$2.name,
     		type: "then",
-    		source: "(14:12) {:then item}",
+    		source: "(16:12) {:then item}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (18:16) {:catch error}
+    // (20:16) {:catch error}
     function create_catch_block$2(ctx) {
     	let span;
     	let t_value = /*error*/ ctx[6].message + "";
@@ -4678,7 +4678,7 @@ var app = (function () {
     			span = element("span");
     			t = text(t_value);
     			set_style(span, "color", "red");
-    			add_location(span, file$7, 18, 20, 870);
+    			add_location(span, file$7, 20, 20, 935);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, span, anchor);
@@ -4696,21 +4696,21 @@ var app = (function () {
     		block,
     		id: create_catch_block$2.name,
     		type: "catch",
-    		source: "(18:16) {:catch error}",
+    		source: "(20:16) {:catch error}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (16:16) {:then organization}
+    // (18:16) {:then organization}
     function create_then_block_1(ctx) {
     	let span;
     	let a;
     	let t_value = /*organization*/ ctx[5].title + "";
     	let t;
     	let a_href_value;
-    	let if_block = /*field_supporting_organizations*/ ctx[0][/*field_supporting_organizations*/ ctx[0].length - 1].id !== /*field_collection*/ ctx[1].id && create_if_block_1$1(ctx);
+    	let if_block = /*field_supporting_organizations*/ ctx[0][/*field_supporting_organizations*/ ctx[0].length - 1].id !== /*field_collection*/ ctx[1].id && create_if_block_1$2(ctx);
 
     	const block = {
     		c: function create() {
@@ -4720,9 +4720,9 @@ var app = (function () {
     			if (if_block) if_block.c();
     			attr_dev(a, "href", a_href_value = /*organization*/ ctx[5].url);
     			attr_dev(a, "target", "_blank");
-    			add_location(a, file$7, 16, 47, 630);
+    			add_location(a, file$7, 18, 47, 695);
     			attr_dev(span, "class", "organization");
-    			add_location(span, file$7, 16, 20, 603);
+    			add_location(span, file$7, 18, 20, 668);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, span, anchor);
@@ -4739,7 +4739,7 @@ var app = (function () {
 
     			if (/*field_supporting_organizations*/ ctx[0][/*field_supporting_organizations*/ ctx[0].length - 1].id !== /*field_collection*/ ctx[1].id) {
     				if (if_block) ; else {
-    					if_block = create_if_block_1$1(ctx);
+    					if_block = create_if_block_1$2(ctx);
     					if_block.c();
     					if_block.m(span, null);
     				}
@@ -4758,15 +4758,15 @@ var app = (function () {
     		block,
     		id: create_then_block_1.name,
     		type: "then",
-    		source: "(16:16) {:then organization}",
+    		source: "(18:16) {:then organization}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (17:116) {#if field_supporting_organizations[field_supporting_organizations.length - 1].id !== field_collection.id}
-    function create_if_block_1$1(ctx) {
+    // (19:116) {#if field_supporting_organizations[field_supporting_organizations.length - 1].id !== field_collection.id}
+    function create_if_block_1$2(ctx) {
     	let t;
 
     	const block = {
@@ -4783,16 +4783,16 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_1$1.name,
+    		id: create_if_block_1$2.name,
     		type: "if",
-    		source: "(17:116) {#if field_supporting_organizations[field_supporting_organizations.length - 1].id !== field_collection.id}",
+    		source: "(19:116) {#if field_supporting_organizations[field_supporting_organizations.length - 1].id !== field_collection.id}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (15:76)                  {:then organization}
+    // (17:76)                  {:then organization}
     function create_pending_block_1(ctx) {
     	const block = { c: noop, m: noop, p: noop, d: noop };
 
@@ -4800,14 +4800,14 @@ var app = (function () {
     		block,
     		id: create_pending_block_1.name,
     		type: "pending",
-    		source: "(15:76)                  {:then organization}",
+    		source: "(17:76)                  {:then organization}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (13:54)              {:then item}
+    // (15:54)              {:then item}
     function create_pending_block$2(ctx) {
     	const block = { c: noop, m: noop, p: noop, d: noop };
 
@@ -4815,14 +4815,14 @@ var app = (function () {
     		block,
     		id: create_pending_block$2.name,
     		type: "pending",
-    		source: "(13:54)              {:then item}",
+    		source: "(15:54)              {:then item}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (12:8) {#each field_supporting_organizations || [] as field_collection}
+    // (14:8) {#each field_supporting_organizations || [] as field_collection}
     function create_each_block$3(ctx) {
     	let await_block_anchor;
     	let promise;
@@ -4872,7 +4872,7 @@ var app = (function () {
     		block,
     		id: create_each_block$3.name,
     		type: "each",
-    		source: "(12:8) {#each field_supporting_organizations || [] as field_collection}",
+    		source: "(14:8) {#each field_supporting_organizations || [] as field_collection}",
     		ctx
     	});
 
@@ -4992,20 +4992,22 @@ var app = (function () {
 
     // (13:0) {:else}
     function create_else_block$2(ctx) {
-    	let span;
+    	let img;
+    	let img_src_value;
 
     	const block = {
     		c: function create() {
-    			span = element("span");
-    			span.textContent = "no image";
-    			add_location(span, file$6, 13, 4, 474);
+    			img = element("img");
+    			if (img.src !== (img_src_value = "/" + drupalSettings.project_browser.module_path + "/images/placeholder-image.png")) attr_dev(img, "src", img_src_value);
+    			attr_dev(img, "alt", "Placeholder image");
+    			add_location(img, file$6, 13, 4, 461);
     		},
     		m: function mount(target, anchor) {
-    			insert_dev(target, span, anchor);
+    			insert_dev(target, img, anchor);
     		},
     		p: noop,
     		d: function destroy(detaching) {
-    			if (detaching) detach_dev(span);
+    			if (detaching) detach_dev(img);
     		}
     	};
 
@@ -5088,7 +5090,7 @@ var app = (function () {
     			span = element("span");
     			t = text(t_value);
     			set_style(span, "color", "red");
-    			add_location(span, file$6, 10, 8, 401);
+    			add_location(span, file$6, 10, 8, 388);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, span, anchor);
@@ -5115,23 +5117,19 @@ var app = (function () {
 
     // (8:4) {:then file}
     function create_then_block$1(ctx) {
-    	let span;
     	let img;
     	let img_src_value;
     	let img_alt_value;
 
     	const block = {
     		c: function create() {
-    			span = element("span");
     			img = element("img");
     			if (img.src !== (img_src_value = /*file*/ ctx[1].url)) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", img_alt_value = /*field_project_images*/ ctx[0][0].alt);
-    			add_location(img, file$6, 8, 14, 307);
-    			add_location(span, file$6, 8, 8, 301);
+    			add_location(img, file$6, 8, 8, 301);
     		},
     		m: function mount(target, anchor) {
-    			insert_dev(target, span, anchor);
-    			append_dev(span, img);
+    			insert_dev(target, img, anchor);
     		},
     		p: function update(ctx, dirty) {
     			if (dirty & /*field_project_images*/ 1 && img.src !== (img_src_value = /*file*/ ctx[1].url)) {
@@ -5143,7 +5141,7 @@ var app = (function () {
     			}
     		},
     		d: function destroy(detaching) {
-    			if (detaching) detach_dev(span);
+    			if (detaching) detach_dev(img);
     		}
     	};
 
@@ -5670,7 +5668,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (15:4) {:else}
+    // (17:4) {:else}
     function create_else_block$1(ctx) {
     	let span;
 
@@ -5678,7 +5676,7 @@ var app = (function () {
     		c: function create() {
     			span = element("span");
     			span.textContent = "No reported usage.";
-    			add_location(span, file$4, 15, 8, 472);
+    			add_location(span, file$4, 17, 8, 617);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, span, anchor);
@@ -5693,7 +5691,7 @@ var app = (function () {
     		block,
     		id: create_else_block$1.name,
     		type: "else",
-    		source: "(15:4) {:else}",
+    		source: "(17:4) {:else}",
     		ctx
     	});
 
@@ -5735,7 +5733,7 @@ var app = (function () {
     			}
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*Object, project_usage*/ 1) {
+    			if (dirty & /*Object, project_usage, String, drupalSettings*/ 1) {
     				each_value = Object.entries(/*project_usage*/ ctx[0]);
     				validate_each_argument(each_value);
     				validate_each_keys(ctx, each_value, get_each_context$1, get_key);
@@ -5762,31 +5760,62 @@ var app = (function () {
     	return block;
     }
 
+    // (13:20) {#if String(key).substring(0, 3) === drupalSettings.project_browser.drupal_core_compatibility}
+    function create_if_block_1$1(ctx) {
+    	let t;
+
+    	const block = {
+    		c: function create() {
+    			t = text("✔");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, t, anchor);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(t);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_1$1.name,
+    		type: "if",
+    		source: "(13:20) {#if String(key).substring(0, 3) === drupalSettings.project_browser.drupal_core_compatibility}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
     // (11:12) {#each Object.entries(project_usage) as [key, val] (key) }
     function create_each_block$1(key_1, ctx) {
     	let li;
+    	let show_if = String(/*key*/ ctx[2]).substring(0, 3) === drupalSettings.project_browser.drupal_core_compatibility;
     	let t0_value = /*key*/ ctx[2] + "";
     	let t0;
     	let t1;
     	let t2_value = /*val*/ ctx[3] + "";
     	let t2;
     	let t3;
+    	let if_block = show_if && create_if_block_1$1(ctx);
 
     	const block = {
     		key: key_1,
     		first: null,
     		c: function create() {
     			li = element("li");
+    			if (if_block) if_block.c();
     			t0 = text(t0_value);
     			t1 = text(": ");
     			t2 = text(t2_value);
-    			t3 = text(" active installations");
+    			t3 = text(" active installations\n                ");
     			attr_dev(li, "class", "svelte-gwxzjo");
     			add_location(li, file$4, 11, 16, 375);
     			this.first = li;
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, li, anchor);
+    			if (if_block) if_block.m(li, null);
     			append_dev(li, t0);
     			append_dev(li, t1);
     			append_dev(li, t2);
@@ -5794,11 +5823,25 @@ var app = (function () {
     		},
     		p: function update(new_ctx, dirty) {
     			ctx = new_ctx;
+    			if (dirty & /*project_usage*/ 1) show_if = String(/*key*/ ctx[2]).substring(0, 3) === drupalSettings.project_browser.drupal_core_compatibility;
+
+    			if (show_if) {
+    				if (if_block) ; else {
+    					if_block = create_if_block_1$1(ctx);
+    					if_block.c();
+    					if_block.m(li, t0);
+    				}
+    			} else if (if_block) {
+    				if_block.d(1);
+    				if_block = null;
+    			}
+
     			if (dirty & /*project_usage*/ 1 && t0_value !== (t0_value = /*key*/ ctx[2] + "")) set_data_dev(t0, t0_value);
     			if (dirty & /*project_usage*/ 1 && t2_value !== (t2_value = /*val*/ ctx[3] + "")) set_data_dev(t2, t2_value);
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(li);
+    			if (if_block) if_block.d();
     		}
     	};
 
@@ -6063,7 +6106,7 @@ var app = (function () {
     /* src/Project/Project.svelte generated by Svelte v3.38.2 */
     const file$2 = "src/Project/Project.svelte";
 
-    // (63:16) {#if project.field_security_advisory_coverage === 'covered'}
+    // (65:16) {#if project.field_security_advisory_coverage === 'covered'}
     function create_if_block_2(ctx) {
     	let a;
     	let span;
@@ -6075,10 +6118,10 @@ var app = (function () {
     			span.textContent = "🛡";
     			attr_dev(span, "class", "security-covered");
     			attr_dev(span, "title", "Covered by Drupal Security Team");
-    			add_location(span, file$2, 63, 94, 1544);
+    			add_location(span, file$2, 65, 94, 1590);
     			attr_dev(a, "href", "https://www.drupal.org/security-advisory-policy");
     			attr_dev(a, "target", "_blank");
-    			add_location(a, file$2, 63, 20, 1470);
+    			add_location(a, file$2, 65, 20, 1516);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, a, anchor);
@@ -6093,14 +6136,14 @@ var app = (function () {
     		block,
     		id: create_if_block_2.name,
     		type: "if",
-    		source: "(63:16) {#if project.field_security_advisory_coverage === 'covered'}",
+    		source: "(65:16) {#if project.field_security_advisory_coverage === 'covered'}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (77:12) {:else}
+    // (79:12) {:else}
     function create_else_block_1(ctx) {
     	let span;
 
@@ -6108,7 +6151,7 @@ var app = (function () {
     		c: function create() {
     			span = element("span");
     			span.textContent = "Unknown";
-    			add_location(span, file$2, 77, 16, 2315);
+    			add_location(span, file$2, 79, 16, 2361);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, span, anchor);
@@ -6123,14 +6166,14 @@ var app = (function () {
     		block,
     		id: create_else_block_1.name,
     		type: "else",
-    		source: "(77:12) {:else}",
+    		source: "(79:12) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (75:12) {#if project.taxonomy_vocabulary_44}
+    // (77:12) {#if project.taxonomy_vocabulary_44}
     function create_if_block_1(ctx) {
     	let t_value = /*project*/ ctx[0].maintenance_status + "";
     	let t;
@@ -6154,14 +6197,14 @@ var app = (function () {
     		block,
     		id: create_if_block_1.name,
     		type: "if",
-    		source: "(75:12) {#if project.taxonomy_vocabulary_44}",
+    		source: "(77:12) {#if project.taxonomy_vocabulary_44}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (84:12) {:else}
+    // (86:12) {:else}
     function create_else_block(ctx) {
     	let span;
 
@@ -6169,7 +6212,7 @@ var app = (function () {
     		c: function create() {
     			span = element("span");
     			span.textContent = "Unknown";
-    			add_location(span, file$2, 84, 16, 2545);
+    			add_location(span, file$2, 86, 16, 2591);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, span, anchor);
@@ -6184,14 +6227,14 @@ var app = (function () {
     		block,
     		id: create_else_block.name,
     		type: "else",
-    		source: "(84:12) {:else}",
+    		source: "(86:12) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (82:12) {#if project.taxonomy_vocabulary_46}
+    // (84:12) {#if project.taxonomy_vocabulary_46}
     function create_if_block(ctx) {
     	let t_value = /*project*/ ctx[0].development_status + "";
     	let t;
@@ -6215,7 +6258,7 @@ var app = (function () {
     		block,
     		id: create_if_block.name,
     		type: "if",
-    		source: "(82:12) {#if project.taxonomy_vocabulary_46}",
+    		source: "(84:12) {#if project.taxonomy_vocabulary_46}",
     		ctx
     	});
 
@@ -6364,36 +6407,36 @@ var app = (function () {
     			create_component(usage.$$.fragment);
     			t15 = space();
     			create_component(lastupdated.$$.fragment);
-    			attr_dev(div0, "class", "left svelte-87ze28");
-    			add_location(div0, file$2, 56, 8, 1145);
+    			attr_dev(div0, "class", "left svelte-3hrjse");
+    			add_location(div0, file$2, 58, 8, 1191);
     			attr_dev(a0, "href", a0_href_value = /*project*/ ctx[0].url);
     			attr_dev(a0, "target", "_blank");
-    			add_location(a0, file$2, 61, 16, 1313);
-    			add_location(h2, file$2, 60, 12, 1292);
-    			attr_dev(div1, "class", "body svelte-87ze28");
-    			add_location(div1, file$2, 66, 12, 1688);
+    			add_location(a0, file$2, 63, 16, 1359);
+    			add_location(h2, file$2, 62, 12, 1338);
+    			attr_dev(div1, "class", "body svelte-3hrjse");
+    			add_location(div1, file$2, 68, 12, 1734);
     			attr_dev(a1, "href", a1_href_value = "https://www.drupal.org/user/" + /*project*/ ctx[0].author.id);
     			attr_dev(a1, "target", "_blank");
-    			add_location(a1, file$2, 67, 35, 1776);
+    			add_location(a1, file$2, 69, 35, 1822);
     			attr_dev(div2, "class", "author");
-    			add_location(div2, file$2, 67, 12, 1753);
+    			add_location(div2, file$2, 69, 12, 1799);
     			attr_dev(a2, "href", a2_href_value = /*project*/ ctx[0].url);
     			attr_dev(a2, "target", "_blank");
-    			add_location(a2, file$2, 69, 30, 2023);
-    			attr_dev(div3, "class", "more svelte-87ze28");
-    			add_location(div3, file$2, 69, 12, 2005);
-    			attr_dev(div4, "class", "right svelte-87ze28");
-    			add_location(div4, file$2, 59, 8, 1260);
-    			attr_dev(div5, "class", "main svelte-87ze28");
-    			add_location(div5, file$2, 54, 4, 1076);
+    			add_location(a2, file$2, 71, 30, 2069);
+    			attr_dev(div3, "class", "more svelte-3hrjse");
+    			add_location(div3, file$2, 71, 12, 2051);
+    			attr_dev(div4, "class", "right svelte-3hrjse");
+    			add_location(div4, file$2, 61, 8, 1306);
+    			attr_dev(div5, "class", "main svelte-3hrjse");
+    			add_location(div5, file$2, 56, 4, 1122);
     			attr_dev(div6, "data-label", "Maintenance status");
-    			add_location(div6, file$2, 73, 8, 2147);
+    			add_location(div6, file$2, 75, 8, 2193);
     			attr_dev(div7, "data-label", "Development status");
-    			add_location(div7, file$2, 80, 8, 2377);
-    			attr_dev(div8, "class", "metadata svelte-87ze28");
-    			add_location(div8, file$2, 72, 4, 2116);
-    			attr_dev(div9, "class", "project svelte-87ze28");
-    			add_location(div9, file$2, 53, 0, 1050);
+    			add_location(div7, file$2, 82, 8, 2423);
+    			attr_dev(div8, "class", "metadata svelte-3hrjse");
+    			add_location(div8, file$2, 74, 4, 2162);
+    			attr_dev(div9, "class", "project svelte-3hrjse");
+    			add_location(div9, file$2, 55, 0, 1096);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");

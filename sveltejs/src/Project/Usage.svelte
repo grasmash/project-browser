@@ -9,7 +9,9 @@
     {#if project_usage}
         <ul>
             {#each Object.entries(project_usage) as [key, val] (key) }
-                <li>{key}: {val} active installations</li>
+                <li>
+                    {#if String(key).substring(0, 3) === drupalSettings.project_browser.drupal_core_compatibility}&#x2714;{/if}{key}: {val} active installations
+                </li>
             {/each}
         </ul>
     {:else}

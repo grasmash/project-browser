@@ -31,25 +31,25 @@
 1. Authenticate the IDE with GitHub:
       ```bash
       gh auth login
-       ```
-1. Fork https://github.com/grasmash/project-browser:
+      ```
+2. Fork https://github.com/grasmash/project-browser:
       ```bash
       gh repo fork grasmash/project-browser
       ```
-2. Add your fork to the cloned repo in the IDE:
+3. Add your fork to the cloned repo in the IDE:
       ```bash
       cd /home/ide/project-browser
       git remote add [your-fork-name] [your-fork-url]
       git checkout master
       git branch --set-upstream-to [my-fork-name] master
       ```
-3. Install Svelte dependencies and start a "watch" process~
+4. Install Svelte dependencies and start a "watch" process~
       ```bash
       cd sveltejs
       npm install
       npm run dev  
       ```
-4. Disable Drupal's various caching mechanisms:
+5. Disable Drupal's various caching mechanisms:
    ```bash
       # Disable caching for development.
       chmod 755 docroot/sites/default
@@ -63,7 +63,7 @@
       echo "\$settings['cache']['bins']['dynamic_page_cache'] = 'cache.backend.null';" >> docroot/sites/default/settings.local.php
       drush cset system.logging error_level verbose -y
    ```
-5. Make your changes and commit:
+6. Make your changes and commit:
     ```bash
     # Make sure you complile Svelte files into HTML, CSS, and JS.
     cd sveltejs && npm run build
@@ -75,10 +75,11 @@
 # Changing the HTML, CSS, or JS files
 
 Run:
-    ```bash
-    cd sveltejs
-    npm dev
-    ```
+
+```bash
+cd sveltejs
+npm dev
+```
 
 # Why Svelte?
 

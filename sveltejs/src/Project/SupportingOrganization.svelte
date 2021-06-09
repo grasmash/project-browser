@@ -4,7 +4,9 @@
 </script>
 
 <style>
-
+    .supporting-organizations {
+        font-style: italic;
+    }
 </style>
 {#if typeof field_supporting_organizations !== "undefined" && field_supporting_organizations.length}
     <div class="supporting-organizations">

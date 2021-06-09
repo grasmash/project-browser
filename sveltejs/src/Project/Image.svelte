@@ -6,10 +6,10 @@
     {#await fetchEntity(field_project_images[0].file.uri)}
         <span>...waiting</span>
     {:then file}
-        <span><img src="{file.url}" alt="{field_project_images[0].alt}"/></span>
+        <img src="{file.url}" alt="{field_project_images[0].alt}"/>
     {:catch error}
         <span style="color: red">{error.message}</span>
     {/await}
 {:else}
-    <span>no image</span>
+    <img src="/{drupalSettings.project_browser.module_path}/images/placeholder-image.png" alt="Placeholder image"/>
 {/if}

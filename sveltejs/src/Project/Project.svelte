@@ -30,8 +30,10 @@
     width: 150px;
     overflow: hidden;
     margin: 0 1em 0 0;
-    background: lightgrey;
+    border: 1px dotted #ccc;
     text-align: center;
+    display: flex;
+    align-items: center;
 }
 .left img {
     width: 150px;

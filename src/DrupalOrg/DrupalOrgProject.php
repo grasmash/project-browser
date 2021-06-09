@@ -170,6 +170,6 @@ class DrupalOrgProject
             $this->body['summary'] = $this->body['value'];
         }
         $this->body['summary'] = strip_tags($this->body['summary'], ['p', 'a', 'b', 'i', 'u', 'em', 'strong']);
-        $this->body['summary'] = Unicode::truncate($this->body['summary'], 250, true, true);
+        $this->body['summary'] = Unicode::truncate($this->body['summary'], 200, true, true);
     }
 }

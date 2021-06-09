@@ -59,6 +59,7 @@ class DrupalOrgProxyController extends ControllerBase
      */
     public function getAllProjects(Request $request)
     {
+        // Fire event.
         try {
             $drupal_org_client = new DrupalOrgClient();
             // Forward query parameters from request to Drupal.org Client.
@@ -80,7 +81,6 @@ class DrupalOrgProxyController extends ControllerBase
             // @todo Allow themes and maybe other things.
             $query['type'] = 'project_module';
             $query['status'] = '1';
-
 
             // taxonomy_vocabulary_6 = Core compatibility
             $drupal_org_response = $drupal_org_client->getProjects($query);
