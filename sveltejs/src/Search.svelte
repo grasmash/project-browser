@@ -65,6 +65,7 @@
 <style>
     .search {
         margin-bottom: 1rem;
+        float: right;
     }
     .search input {
         border: 1px solid #eee;

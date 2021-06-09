@@ -40,6 +40,8 @@ class BrowserController extends ControllerBase
               'drupalSettings' => [
                 'project_browser' => [
                   'modules' => $modules_status,
+                  'drupal_version' => \Drupal::VERSION,
+                  'drupal_core_compatibility' => \Drupal::CORE_COMPATIBILITY,
                 ],
               ],
             ],

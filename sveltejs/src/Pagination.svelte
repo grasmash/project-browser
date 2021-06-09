@@ -44,6 +44,9 @@
 </script>
 
 <style>
+    .pagination {
+        clear: both;
+    }
     .active {
         background-color: rgb(150, 150, 235);
         color: white;
@@ -68,7 +71,7 @@
         cursor: pointer;
     }
 </style>
-
+<div class="pagination">
 <ul>
     <li>
         <button disabled={page === 0} on:click={e => onChange(e, 0)}>
@@ -104,4 +107,5 @@
         </button>
     </li>
 </ul>
-<div>{count} total rows</div>
+<div>{count} projects</div>
+</div>

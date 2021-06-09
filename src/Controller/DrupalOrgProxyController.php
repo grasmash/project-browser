@@ -63,12 +63,25 @@ class DrupalOrgProxyController extends ControllerBase
             $drupal_org_client = new DrupalOrgClient();
             // Forward query parameters from request to Drupal.org Client.
             $query = $request->query->all();
+            if ($request->query->has('tab')) {
+                $tab = $query['tab'];
+                unset($query['tab']);
+                switch ($tab) {
+                    case 'recommended':
+                        $query['field_project_type'] = 'full';
+                        $query['field_project_has_releases'] = '1';
+                        $query['taxonomy_vocabulary_' . Vocabularies::MAINTENANCE_STATUS] = MaintenanceStatus::ACTIVELY_MAINTAINED;
+                        $query['field_security_advisory_coverage'] = 'covered';
+                        $query['field_project_has_issue_queue'] = '1';
+                        break;
+                }
+            }
+
+            // @todo Allow themes and maybe other things.
             $query['type'] = 'project_module';
             $query['status'] = '1';
-            $query['field_project_type'] = 'full';
-            $query['field_project_has_releases'] = '1';
-            // @todo Show all but unsupported and obsolete.
-            $query['taxonomy_vocabulary_' . Vocabularies::MAINTENANCE_STATUS] = MaintenanceStatus::ACTIVELY_MAINTAINED;
+
+
             // taxonomy_vocabulary_6 = Core compatibility
             $drupal_org_response = $drupal_org_client->getProjects($query);
             $projects = new DrupalOrgProjects($drupal_org_response['list']);

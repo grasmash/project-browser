@@ -2,6 +2,8 @@
 
 namespace Drupal\project_browser\DrupalOrg;
 
+use Drupal\Component\Utility\Unicode;
+use Drupal\KernelTests\Core\Theme\SafeMarkupTestMarkup;
 use Drupal\project_browser\DrupalOrg\Taxonomy\DevelopmentStatus;
 use Drupal\project_browser\DrupalOrg\Taxonomy\MaintenanceStatus;
 
@@ -107,8 +109,7 @@ class DrupalOrgProject
         $this->upload = $project['upload'];
         $this->title = $project['title'];
         $this->url = $project['url'];
-        // @todo Sanitize body, strip unwanted tags.
-        $this->body = $project['body'];
+        $this->setBody($project['body']);
         $this->field_project_components = $project['field_project_components'];
         $this->field_project_changelog = $project['field_project_changelog'];
         $this->field_project_homepage = $project['field_project_homepage'];
@@ -150,9 +151,25 @@ class DrupalOrgProject
             $this->taxonomy_vocabulary_46 = $project['taxonomy_vocabulary_46'];
             $this->development_status = DevelopmentStatus::getStatusString($this->taxonomy_vocabulary_46['id']);
         }
+    }
 
-        // @todo Add getters.
-        // @todo Add _toArray() method that only returns the data we think we need. Then remove extraneous.
-        // from projectListing.svelte.
+    /**
+     * @param $body
+     */
+    protected function setBody($body): void
+    {
+        $this->body = $body;
+        if (!array_key_exists('value', $this->body)) {
+            $this->body['value'] = '';
+        }
+        if (!array_key_exists('summary', $this->body)) {
+            $this->body['summary'] = '';
+        }
+
+        if (!$this->body['summary']) {
+            $this->body['summary'] = $this->body['value'];
+        }
+        $this->body['summary'] = strip_tags($this->body['summary'], ['p', 'a', 'b', 'i', 'u', 'em', 'strong']);
+        $this->body['summary'] = Unicode::truncate($this->body['summary'], 250, true, true);
     }
 }
