@@ -42,9 +42,11 @@
         <span>No reported usage.</span>
     {/if}
 </div>
-<div class="compatible">
+<div class="compatibility">
     {#if project_is_compatible}
-        &#x2714; This project has a release that is compatible with your Drupal installation
+        <span class="compatible">&#x2714; Compatible with your Drupal installation</span>
+    {:else}
+        <span class="not-compatible">Not compatible with your Drupal installation.</span>
     {/if}
 </div>
 <style>
@@ -52,9 +54,8 @@
         display: none;
     }
     .usage {
-        position: absolute;
-        top: 10px;
-        right: 10px;
+        float: right;
+        clear: right;
     }
     ul {
         margin: 0;
@@ -64,10 +65,17 @@
         list-style: none;
         text-transform: lowercase;
     }
+    .compatibility {
+        font-size: .8em;
+        padding: .25em;
+        float: right;
+        clear: right;
+    }
     .compatible {
         color: green;
-        font-size: .8em;
-        padding: .5em;
+    }
+    .not-compatible {
+        color: red;
     }
     .check {
         color: green;

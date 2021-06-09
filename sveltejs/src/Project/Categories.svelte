@@ -3,6 +3,9 @@
     export let taxonomy_vocabulary_3;
 </script>
 <style>
+    .categories {
+        clear: both;
+    }
     .categories ul {
         margin: 0;
         padding: 0;

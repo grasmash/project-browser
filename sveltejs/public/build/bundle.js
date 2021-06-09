@@ -3951,24 +3951,28 @@ var app = (function () {
     	let t15;
     	let p2;
     	let t17;
-    	let h31;
-    	let t19;
     	let p3;
-    	let t20;
+    	let t18;
     	let a2;
-    	let t21;
-    	let a2_href_value;
+    	let t20;
+    	let h31;
     	let t22;
-    	let t23;
     	let p4;
-    	let t24;
+    	let t23;
     	let a3;
+    	let t24;
+    	let a3_href_value;
+    	let t25;
     	let t26;
+    	let p5;
     	let t27;
-    	let pre1;
-    	let t28;
-    	let t29_value = /*project*/ ctx[0].field_project_machine_name + "";
+    	let a4;
     	let t29;
+    	let t30;
+    	let pre1;
+    	let t31;
+    	let t32_value = /*project*/ ctx[0].field_project_machine_name + "";
+    	let t32;
 
     	const block = {
     		c: function create() {
@@ -3998,49 +4002,58 @@ var app = (function () {
     			p2 = element("p");
     			p2.textContent = "This will download the module to your codebase.";
     			t17 = space();
+    			p3 = element("p");
+    			t18 = text("If you cannot use Composer, you may ");
+    			a2 = element("a");
+    			a2.textContent = "download the module manually through your browser.";
+    			t20 = space();
     			h31 = element("h3");
     			h31.textContent = "2. Install";
-    			t19 = space();
-    			p3 = element("p");
-    			t20 = text("To use the module you must next install/enable it. Visit the ");
-    			a2 = element("a");
-    			t21 = text("modules page");
-    			t22 = text(" to install the module using your web browser.");
-    			t23 = space();
+    			t22 = space();
     			p4 = element("p");
-    			t24 = text("Alternatively, you can use ");
+    			t23 = text("To use the module you must next install/enable it. Visit the ");
     			a3 = element("a");
-    			a3.textContent = "drush";
-    			t26 = text(" to enable it via the CLI:");
-    			t27 = space();
+    			t24 = text("modules page");
+    			t25 = text(" to install the module using your web browser.");
+    			t26 = space();
+    			p5 = element("p");
+    			t27 = text("Alternatively, you can use ");
+    			a4 = element("a");
+    			a4.textContent = "drush";
+    			t29 = text(" to enable it via the CLI:");
+    			t30 = space();
     			pre1 = element("pre");
-    			t28 = text("drush pm-enable ");
-    			t29 = text(t29_value);
+    			t31 = text("drush pm-enable ");
+    			t32 = text(t32_value);
     			attr_dev(h2, "class", "svelte-5u68qx");
-    			add_location(h2, file$a, 29, 0, 619);
-    			add_location(h30, file$a, 31, 0, 645);
+    			add_location(h2, file$a, 30, 0, 674);
+    			add_location(h30, file$a, 32, 0, 700);
     			attr_dev(a0, "href", "https://www.drupal.org/docs/develop/using-composer/using-composer-to-install-drupal-and-manage-dependencies#managing-contributed");
     			attr_dev(a0, "target", "_blank");
-    			add_location(a0, file$a, 33, 7, 674);
+    			add_location(a0, file$a, 34, 7, 729);
     			attr_dev(a1, "href", "https://getcomposer.org/");
     			attr_dev(a1, "target", "_blank");
-    			add_location(a1, file$a, 33, 220, 887);
-    			add_location(p0, file$a, 33, 0, 667);
-    			add_location(p1, file$a, 35, 0, 957);
+    			add_location(a1, file$a, 34, 220, 942);
+    			add_location(p0, file$a, 34, 0, 722);
+    			add_location(p1, file$a, 36, 0, 1012);
     			attr_dev(pre0, "class", "svelte-5u68qx");
-    			add_location(pre0, file$a, 37, 0, 1144);
-    			add_location(p2, file$a, 41, 0, 1247);
-    			add_location(h31, file$a, 43, 0, 1303);
-    			attr_dev(a2, "href", a2_href_value = "/admin/modules#module-" + /*project*/ ctx[0].field_project_machine_name);
+    			add_location(pre0, file$a, 38, 0, 1199);
+    			add_location(p2, file$a, 42, 0, 1302);
+    			attr_dev(a2, "href", "https://www.drupal.org/docs/user_guide/en/extend-module-install.html#s-using-the-administrative-interface");
     			attr_dev(a2, "target", "_blank");
-    			add_location(a2, file$a, 45, 64, 1388);
-    			add_location(p3, file$a, 45, 0, 1324);
-    			attr_dev(a3, "href", "https://www.drush.org/latest/");
+    			add_location(a2, file$a, 44, 39, 1397);
+    			add_location(p3, file$a, 44, 0, 1358);
+    			add_location(h31, file$a, 46, 0, 1589);
+    			attr_dev(a3, "href", a3_href_value = "/admin/modules#module-" + /*project*/ ctx[0].field_project_machine_name);
     			attr_dev(a3, "target", "_blank");
-    			add_location(a3, file$a, 46, 30, 1570);
-    			add_location(p4, file$a, 46, 0, 1540);
+    			add_location(a3, file$a, 48, 64, 1674);
+    			add_location(p4, file$a, 48, 0, 1610);
+    			attr_dev(a4, "href", "https://www.drush.org/latest/");
+    			attr_dev(a4, "target", "_blank");
+    			add_location(a4, file$a, 49, 30, 1856);
+    			add_location(p5, file$a, 49, 0, 1826);
     			attr_dev(pre1, "class", "svelte-5u68qx");
-    			add_location(pre1, file$a, 47, 0, 1666);
+    			add_location(pre1, file$a, 50, 0, 1952);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -4067,32 +4080,36 @@ var app = (function () {
     			insert_dev(target, t15, anchor);
     			insert_dev(target, p2, anchor);
     			insert_dev(target, t17, anchor);
-    			insert_dev(target, h31, anchor);
-    			insert_dev(target, t19, anchor);
     			insert_dev(target, p3, anchor);
-    			append_dev(p3, t20);
+    			append_dev(p3, t18);
     			append_dev(p3, a2);
-    			append_dev(a2, t21);
-    			append_dev(p3, t22);
-    			insert_dev(target, t23, anchor);
+    			insert_dev(target, t20, anchor);
+    			insert_dev(target, h31, anchor);
+    			insert_dev(target, t22, anchor);
     			insert_dev(target, p4, anchor);
-    			append_dev(p4, t24);
+    			append_dev(p4, t23);
     			append_dev(p4, a3);
-    			append_dev(p4, t26);
-    			insert_dev(target, t27, anchor);
+    			append_dev(a3, t24);
+    			append_dev(p4, t25);
+    			insert_dev(target, t26, anchor);
+    			insert_dev(target, p5, anchor);
+    			append_dev(p5, t27);
+    			append_dev(p5, a4);
+    			append_dev(p5, t29);
+    			insert_dev(target, t30, anchor);
     			insert_dev(target, pre1, anchor);
-    			append_dev(pre1, t28);
-    			append_dev(pre1, t29);
+    			append_dev(pre1, t31);
+    			append_dev(pre1, t32);
     		},
     		p: function update(ctx, [dirty]) {
     			if (dirty & /*project*/ 1 && t0_value !== (t0_value = /*project*/ ctx[0].title + "")) set_data_dev(t0, t0_value);
     			if (dirty & /*project*/ 1 && t13_value !== (t13_value = /*project*/ ctx[0].field_project_machine_name + "")) set_data_dev(t13, t13_value);
 
-    			if (dirty & /*project*/ 1 && a2_href_value !== (a2_href_value = "/admin/modules#module-" + /*project*/ ctx[0].field_project_machine_name)) {
-    				attr_dev(a2, "href", a2_href_value);
+    			if (dirty & /*project*/ 1 && a3_href_value !== (a3_href_value = "/admin/modules#module-" + /*project*/ ctx[0].field_project_machine_name)) {
+    				attr_dev(a3, "href", a3_href_value);
     			}
 
-    			if (dirty & /*project*/ 1 && t29_value !== (t29_value = /*project*/ ctx[0].field_project_machine_name + "")) set_data_dev(t29, t29_value);
+    			if (dirty & /*project*/ 1 && t32_value !== (t32_value = /*project*/ ctx[0].field_project_machine_name + "")) set_data_dev(t32, t32_value);
     		},
     		i: noop,
     		o: noop,
@@ -4109,12 +4126,14 @@ var app = (function () {
     			if (detaching) detach_dev(t15);
     			if (detaching) detach_dev(p2);
     			if (detaching) detach_dev(t17);
-    			if (detaching) detach_dev(h31);
-    			if (detaching) detach_dev(t19);
     			if (detaching) detach_dev(p3);
-    			if (detaching) detach_dev(t23);
+    			if (detaching) detach_dev(t20);
+    			if (detaching) detach_dev(h31);
+    			if (detaching) detach_dev(t22);
     			if (detaching) detach_dev(p4);
-    			if (detaching) detach_dev(t27);
+    			if (detaching) detach_dev(t26);
+    			if (detaching) detach_dev(p5);
+    			if (detaching) detach_dev(t30);
     			if (detaching) detach_dev(pre1);
     		}
     	};
@@ -4990,7 +5009,7 @@ var app = (function () {
     /* src/Project/Image.svelte generated by Svelte v3.38.2 */
     const file$7 = "src/Project/Image.svelte";
 
-    // (13:0) {:else}
+    // (19:0) {:else}
     function create_else_block$2(ctx) {
     	let img;
     	let img_src_value;
@@ -5000,7 +5019,8 @@ var app = (function () {
     			img = element("img");
     			if (img.src !== (img_src_value = "/" + drupalSettings.project_browser.module_path + "/images/placeholder-image.png")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "Placeholder image");
-    			add_location(img, file$7, 13, 4, 461);
+    			attr_dev(img, "class", "svelte-1ogqf0s");
+    			add_location(img, file$7, 19, 4, 544);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, img, anchor);
@@ -5015,14 +5035,14 @@ var app = (function () {
     		block,
     		id: create_else_block$2.name,
     		type: "else",
-    		source: "(13:0) {:else}",
+    		source: "(19:0) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (5:0) {#if typeof field_project_images !== "undefined" && field_project_images.length}
+    // (11:0) {#if typeof field_project_images !== "undefined" && field_project_images.length}
     function create_if_block$4(ctx) {
     	let await_block_anchor;
     	let promise;
@@ -5072,14 +5092,14 @@ var app = (function () {
     		block,
     		id: create_if_block$4.name,
     		type: "if",
-    		source: "(5:0) {#if typeof field_project_images !== \\\"undefined\\\" && field_project_images.length}",
+    		source: "(11:0) {#if typeof field_project_images !== \\\"undefined\\\" && field_project_images.length}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (10:4) {:catch error}
+    // (16:4) {:catch error}
     function create_catch_block$1(ctx) {
     	let span;
     	let t_value = /*error*/ ctx[2].message + "";
@@ -5090,7 +5110,7 @@ var app = (function () {
     			span = element("span");
     			t = text(t_value);
     			set_style(span, "color", "red");
-    			add_location(span, file$7, 10, 8, 388);
+    			add_location(span, file$7, 16, 8, 471);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, span, anchor);
@@ -5108,14 +5128,14 @@ var app = (function () {
     		block,
     		id: create_catch_block$1.name,
     		type: "catch",
-    		source: "(10:4) {:catch error}",
+    		source: "(16:4) {:catch error}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (8:4) {:then file}
+    // (14:4) {:then file}
     function create_then_block$1(ctx) {
     	let img;
     	let img_src_value;
@@ -5126,7 +5146,8 @@ var app = (function () {
     			img = element("img");
     			if (img.src !== (img_src_value = /*file*/ ctx[1].url)) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", img_alt_value = /*field_project_images*/ ctx[0][0].alt);
-    			add_location(img, file$7, 8, 8, 301);
+    			attr_dev(img, "class", "svelte-1ogqf0s");
+    			add_location(img, file$7, 14, 8, 384);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, img, anchor);
@@ -5149,14 +5170,14 @@ var app = (function () {
     		block,
     		id: create_then_block$1.name,
     		type: "then",
-    		source: "(8:4) {:then file}",
+    		source: "(14:4) {:then file}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (6:58)          <span>...waiting</span>     {:then file}
+    // (12:58)          <span>...waiting</span>     {:then file}
     function create_pending_block$1(ctx) {
     	let span;
 
@@ -5164,7 +5185,7 @@ var app = (function () {
     		c: function create() {
     			span = element("span");
     			span.textContent = "...waiting";
-    			add_location(span, file$7, 6, 8, 252);
+    			add_location(span, file$7, 12, 8, 335);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, span, anchor);
@@ -5179,7 +5200,7 @@ var app = (function () {
     		block,
     		id: create_pending_block$1.name,
     		type: "pending",
-    		source: "(6:58)          <span>...waiting</span>     {:then file}",
+    		source: "(12:58)          <span>...waiting</span>     {:then file}",
     		ctx
     	});
 
@@ -5306,7 +5327,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (24:4) {#if typeof taxonomy_vocabulary_3 !== "undefined" && taxonomy_vocabulary_3.length}
+    // (27:4) {#if typeof taxonomy_vocabulary_3 !== "undefined" && taxonomy_vocabulary_3.length}
     function create_if_block$3(ctx) {
     	let ul;
     	let each_value = /*taxonomy_vocabulary_3*/ ctx[0] || [];
@@ -5325,8 +5346,8 @@ var app = (function () {
     				each_blocks[i].c();
     			}
 
-    			attr_dev(ul, "class", "svelte-raeq53");
-    			add_location(ul, file$6, 24, 8, 655);
+    			attr_dev(ul, "class", "svelte-gqwnda");
+    			add_location(ul, file$6, 27, 8, 700);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, ul, anchor);
@@ -5370,14 +5391,14 @@ var app = (function () {
     		block,
     		id: create_if_block$3.name,
     		type: "if",
-    		source: "(24:4) {#if typeof taxonomy_vocabulary_3 !== \\\"undefined\\\" && taxonomy_vocabulary_3.length}",
+    		source: "(27:4) {#if typeof taxonomy_vocabulary_3 !== \\\"undefined\\\" && taxonomy_vocabulary_3.length}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (31:16) {:catch error}
+    // (34:16) {:catch error}
     function create_catch_block(ctx) {
     	let p;
     	let t0_value = /*error*/ ctx[5].message + "";
@@ -5390,7 +5411,7 @@ var app = (function () {
     			t0 = text(t0_value);
     			t1 = space();
     			set_style(p, "color", "red");
-    			add_location(p, file$6, 31, 20, 947);
+    			add_location(p, file$6, 34, 20, 992);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
@@ -5410,14 +5431,14 @@ var app = (function () {
     		block,
     		id: create_catch_block.name,
     		type: "catch",
-    		source: "(31:16) {:catch error}",
+    		source: "(34:16) {:catch error}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (29:16) {:then term}
+    // (32:16) {:then term}
     function create_then_block(ctx) {
     	let li;
     	let t0_value = /*term*/ ctx[4].name + "";
@@ -5429,8 +5450,8 @@ var app = (function () {
     			li = element("li");
     			t0 = text(t0_value);
     			t1 = space();
-    			attr_dev(li, "class", "category svelte-raeq53");
-    			add_location(li, file$6, 29, 20, 858);
+    			attr_dev(li, "class", "category svelte-gqwnda");
+    			add_location(li, file$6, 32, 20, 903);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, li, anchor);
@@ -5450,14 +5471,14 @@ var app = (function () {
     		block,
     		id: create_then_block.name,
     		type: "then",
-    		source: "(29:16) {:then term}",
+    		source: "(32:16) {:then term}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (27:50)                      <p>...waiting</p>                 {:then term}
+    // (30:50)                      <p>...waiting</p>                 {:then term}
     function create_pending_block(ctx) {
     	let p;
     	let t1;
@@ -5467,7 +5488,7 @@ var app = (function () {
     			p = element("p");
     			p.textContent = "...waiting";
     			t1 = space();
-    			add_location(p, file$6, 27, 20, 791);
+    			add_location(p, file$6, 30, 20, 836);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
@@ -5484,14 +5505,14 @@ var app = (function () {
     		block,
     		id: create_pending_block.name,
     		type: "pending",
-    		source: "(27:50)                      <p>...waiting</p>                 {:then term}",
+    		source: "(30:50)                      <p>...waiting</p>                 {:then term}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (26:12) {#each taxonomy_vocabulary_3 || [] as category}
+    // (29:12) {#each taxonomy_vocabulary_3 || [] as category}
     function create_each_block$2(ctx) {
     	let await_block_anchor;
     	let promise;
@@ -5541,7 +5562,7 @@ var app = (function () {
     		block,
     		id: create_each_block$2.name,
     		type: "each",
-    		source: "(26:12) {#each taxonomy_vocabulary_3 || [] as category}",
+    		source: "(29:12) {#each taxonomy_vocabulary_3 || [] as category}",
     		ctx
     	});
 
@@ -5556,9 +5577,9 @@ var app = (function () {
     		c: function create() {
     			div = element("div");
     			if (if_block) if_block.c();
-    			attr_dev(div, "class", "categories svelte-raeq53");
+    			attr_dev(div, "class", "categories svelte-gqwnda");
     			attr_dev(div, "data-label", "Categories");
-    			add_location(div, file$6, 22, 0, 511);
+    			add_location(div, file$6, 25, 0, 556);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -5676,7 +5697,7 @@ var app = (function () {
     }
 
     // (41:4) {:else}
-    function create_else_block$1(ctx) {
+    function create_else_block_1$1(ctx) {
     	let span;
 
     	const block = {
@@ -5696,7 +5717,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_else_block$1.name,
+    		id: create_else_block_1$1.name,
     		type: "else",
     		source: "(41:4) {:else}",
     		ctx
@@ -5755,13 +5776,13 @@ var app = (function () {
     				each_blocks[i].c();
     			}
 
-    			attr_dev(ul0, "class", "svelte-1xpblk6");
+    			attr_dev(ul0, "class", "svelte-yuf37j");
     			add_location(ul0, file$5, 21, 12, 692);
     			attr_dev(div0, "class", "short");
     			add_location(div0, file$5, 20, 8, 660);
-    			attr_dev(ul1, "class", "svelte-1xpblk6");
+    			attr_dev(ul1, "class", "svelte-yuf37j");
     			add_location(ul1, file$5, 32, 12, 1102);
-    			attr_dev(div1, "class", "full hidden svelte-1xpblk6");
+    			attr_dev(div1, "class", "full hidden svelte-yuf37j");
     			add_location(div1, file$5, 31, 8, 1064);
     		},
     		m: function mount(target, anchor) {
@@ -5844,9 +5865,9 @@ var app = (function () {
     			t3 = text(": ");
     			t4 = text(t4_value);
     			t5 = text(" active installations\n                        ");
-    			attr_dev(span, "class", "check svelte-1xpblk6");
+    			attr_dev(span, "class", "check svelte-yuf37j");
     			add_location(span, file$5, 25, 28, 873);
-    			attr_dev(li, "class", "svelte-1xpblk6");
+    			attr_dev(li, "class", "svelte-yuf37j");
     			add_location(li, file$5, 24, 24, 840);
     		},
     		m: function mount(target, anchor) {
@@ -5944,7 +5965,7 @@ var app = (function () {
     			span = element("span");
     			span.textContent = "✔";
     			t1 = space();
-    			attr_dev(span, "class", "check svelte-1xpblk6");
+    			attr_dev(span, "class", "check svelte-yuf37j");
     			add_location(span, file$5, 35, 47, 1254);
     		},
     		m: function mount(target, anchor) {
@@ -5990,7 +6011,7 @@ var app = (function () {
     			t1 = text(": ");
     			t2 = text(t2_value);
     			t3 = text(" active installations\n                    ");
-    			attr_dev(li, "class", "svelte-1xpblk6");
+    			attr_dev(li, "class", "svelte-yuf37j");
     			add_location(li, file$5, 34, 20, 1202);
     			this.first = li;
     		},
@@ -6037,19 +6058,52 @@ var app = (function () {
     	return block;
     }
 
-    // (46:4) {#if project_is_compatible}
-    function create_if_block$2(ctx) {
-    	let t;
+    // (48:4) {:else}
+    function create_else_block$1(ctx) {
+    	let span;
 
     	const block = {
     		c: function create() {
-    			t = text("✔ This project has a release that is compatible with your Drupal installation");
+    			span = element("span");
+    			span.textContent = "Not compatible with your Drupal installation.";
+    			attr_dev(span, "class", "not-compatible svelte-yuf37j");
+    			add_location(span, file$5, 48, 8, 1651);
     		},
     		m: function mount(target, anchor) {
-    			insert_dev(target, t, anchor);
+    			insert_dev(target, span, anchor);
     		},
     		d: function destroy(detaching) {
-    			if (detaching) detach_dev(t);
+    			if (detaching) detach_dev(span);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_else_block$1.name,
+    		type: "else",
+    		source: "(48:4) {:else}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (46:4) {#if project_is_compatible}
+    function create_if_block$2(ctx) {
+    	let span;
+
+    	const block = {
+    		c: function create() {
+    			span = element("span");
+    			span.textContent = "✔ Compatible with your Drupal installation";
+    			attr_dev(span, "class", "compatible svelte-yuf37j");
+    			add_location(span, file$5, 46, 8, 1549);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, span, anchor);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(span);
     		}
     	};
 
@@ -6071,12 +6125,19 @@ var app = (function () {
 
     	function select_block_type(ctx, dirty) {
     		if (/*project_usage*/ ctx[0]) return create_if_block_1$1;
-    		return create_else_block$1;
+    		return create_else_block_1$1;
     	}
 
     	let current_block_type = select_block_type(ctx);
     	let if_block0 = current_block_type(ctx);
-    	let if_block1 = /*project_is_compatible*/ ctx[1] && create_if_block$2(ctx);
+
+    	function select_block_type_1(ctx, dirty) {
+    		if (/*project_is_compatible*/ ctx[1]) return create_if_block$2;
+    		return create_else_block$1;
+    	}
+
+    	let current_block_type_1 = select_block_type_1(ctx);
+    	let if_block1 = current_block_type_1(ctx);
 
     	const block = {
     		c: function create() {
@@ -6084,11 +6145,11 @@ var app = (function () {
     			if_block0.c();
     			t = space();
     			div1 = element("div");
-    			if (if_block1) if_block1.c();
-    			attr_dev(div0, "class", "usage svelte-1xpblk6");
+    			if_block1.c();
+    			attr_dev(div0, "class", "usage svelte-yuf37j");
     			attr_dev(div0, "data-label", "Usage");
     			add_location(div0, file$5, 18, 0, 589);
-    			attr_dev(div1, "class", "compatible svelte-1xpblk6");
+    			attr_dev(div1, "class", "compatibility svelte-yuf37j");
     			add_location(div1, file$5, 44, 0, 1481);
     		},
     		l: function claim(nodes) {
@@ -6099,7 +6160,7 @@ var app = (function () {
     			if_block0.m(div0, null);
     			insert_dev(target, t, anchor);
     			insert_dev(target, div1, anchor);
-    			if (if_block1) if_block1.m(div1, null);
+    			if_block1.m(div1, null);
     		},
     		p: function update(ctx, [dirty]) {
     			if (current_block_type === (current_block_type = select_block_type(ctx)) && if_block0) {
@@ -6114,15 +6175,14 @@ var app = (function () {
     				}
     			}
 
-    			if (/*project_is_compatible*/ ctx[1]) {
-    				if (if_block1) ; else {
-    					if_block1 = create_if_block$2(ctx);
+    			if (current_block_type_1 !== (current_block_type_1 = select_block_type_1(ctx))) {
+    				if_block1.d(1);
+    				if_block1 = current_block_type_1(ctx);
+
+    				if (if_block1) {
     					if_block1.c();
     					if_block1.m(div1, null);
     				}
-    			} else if (if_block1) {
-    				if_block1.d(1);
-    				if_block1 = null;
     			}
     		},
     		i: noop,
@@ -6132,7 +6192,7 @@ var app = (function () {
     			if_block0.d();
     			if (detaching) detach_dev(t);
     			if (detaching) detach_dev(div1);
-    			if (if_block1) if_block1.d();
+    			if_block1.d();
     		}
     	};
 
@@ -6501,7 +6561,7 @@ var app = (function () {
     /* src/Project/Project.svelte generated by Svelte v3.38.2 */
     const file$2 = "src/Project/Project.svelte";
 
-    // (75:12) {:else}
+    // (77:12) {:else}
     function create_else_block_1(ctx) {
     	let span;
 
@@ -6509,7 +6569,7 @@ var app = (function () {
     		c: function create() {
     			span = element("span");
     			span.textContent = "Unknown";
-    			add_location(span, file$2, 75, 16, 2207);
+    			add_location(span, file$2, 77, 16, 2272);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, span, anchor);
@@ -6524,14 +6584,14 @@ var app = (function () {
     		block,
     		id: create_else_block_1.name,
     		type: "else",
-    		source: "(75:12) {:else}",
+    		source: "(77:12) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (73:12) {#if project.taxonomy_vocabulary_44}
+    // (75:12) {#if project.taxonomy_vocabulary_44}
     function create_if_block_1(ctx) {
     	let t_value = /*project*/ ctx[0].maintenance_status + "";
     	let t;
@@ -6555,14 +6615,14 @@ var app = (function () {
     		block,
     		id: create_if_block_1.name,
     		type: "if",
-    		source: "(73:12) {#if project.taxonomy_vocabulary_44}",
+    		source: "(75:12) {#if project.taxonomy_vocabulary_44}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (82:12) {:else}
+    // (84:12) {:else}
     function create_else_block(ctx) {
     	let span;
 
@@ -6570,7 +6630,7 @@ var app = (function () {
     		c: function create() {
     			span = element("span");
     			span.textContent = "Unknown";
-    			add_location(span, file$2, 82, 16, 2437);
+    			add_location(span, file$2, 84, 16, 2502);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, span, anchor);
@@ -6585,14 +6645,14 @@ var app = (function () {
     		block,
     		id: create_else_block.name,
     		type: "else",
-    		source: "(82:12) {:else}",
+    		source: "(84:12) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (80:12) {#if project.taxonomy_vocabulary_46}
+    // (82:12) {#if project.taxonomy_vocabulary_46}
     function create_if_block(ctx) {
     	let t_value = /*project*/ ctx[0].development_status + "";
     	let t;
@@ -6616,7 +6676,7 @@ var app = (function () {
     		block,
     		id: create_if_block.name,
     		type: "if",
-    		source: "(80:12) {#if project.taxonomy_vocabulary_46}",
+    		source: "(82:12) {#if project.taxonomy_vocabulary_46}",
     		ctx
     	});
 
@@ -6625,13 +6685,13 @@ var app = (function () {
 
     function create_fragment$2(ctx) {
     	let div10;
-    	let div6;
+    	let div5;
     	let actionbutton;
     	let t0;
     	let div0;
     	let image;
     	let t1;
-    	let div5;
+    	let div4;
     	let h2;
     	let a0;
     	let t2_value = /*project*/ ctx[0].title + "";
@@ -6657,22 +6717,22 @@ var app = (function () {
     	let t10;
     	let a2_href_value;
     	let t11;
-    	let div4;
+    	let div9;
+    	let div6;
     	let t12;
     	let t13_value = /*project*/ ctx[0].flag_project_star_user_count + "";
     	let t13;
     	let t14;
     	let t15;
-    	let div9;
-    	let div7;
-    	let t16;
-    	let div8;
-    	let t17;
-    	let categories;
-    	let t18;
     	let usage;
-    	let t19;
+    	let t16;
+    	let div7;
+    	let t17;
+    	let div8;
+    	let t18;
     	let lastupdated;
+    	let t19;
+    	let categories;
     	let current;
 
     	actionbutton = new ActionButton({
@@ -6701,6 +6761,13 @@ var app = (function () {
     			$$inline: true
     		});
 
+    	usage = new Usage({
+    			props: {
+    				project_usage: /*project*/ ctx[0].project_usage
+    			},
+    			$$inline: true
+    		});
+
     	function select_block_type(ctx, dirty) {
     		if (/*project*/ ctx[0].taxonomy_vocabulary_44) return create_if_block_1;
     		return create_else_block_1;
@@ -6717,6 +6784,11 @@ var app = (function () {
     	let current_block_type_1 = select_block_type_1(ctx);
     	let if_block1 = current_block_type_1(ctx);
 
+    	lastupdated = new LastUpdated({
+    			props: { changed: /*project*/ ctx[0].changed },
+    			$$inline: true
+    		});
+
     	categories = new Categories({
     			props: {
     				taxonomy_vocabulary_3: /*project*/ ctx[0].taxonomy_vocabulary_3
@@ -6724,28 +6796,16 @@ var app = (function () {
     			$$inline: true
     		});
 
-    	usage = new Usage({
-    			props: {
-    				project_usage: /*project*/ ctx[0].project_usage
-    			},
-    			$$inline: true
-    		});
-
-    	lastupdated = new LastUpdated({
-    			props: { changed: /*project*/ ctx[0].changed },
-    			$$inline: true
-    		});
-
     	const block = {
     		c: function create() {
     			div10 = element("div");
-    			div6 = element("div");
+    			div5 = element("div");
     			create_component(actionbutton.$$.fragment);
     			t0 = space();
     			div0 = element("div");
     			create_component(image.$$.fragment);
     			t1 = space();
-    			div5 = element("div");
+    			div4 = element("div");
     			h2 = element("h2");
     			a0 = element("a");
     			t2 = text(t2_value);
@@ -6765,105 +6825,105 @@ var app = (function () {
     			a2 = element("a");
     			t10 = text("More details");
     			t11 = space();
-    			div4 = element("div");
+    			div9 = element("div");
+    			div6 = element("div");
     			t12 = text("Starred by ");
     			t13 = text(t13_value);
     			t14 = text(" users");
     			t15 = space();
-    			div9 = element("div");
+    			create_component(usage.$$.fragment);
+    			t16 = space();
     			div7 = element("div");
     			if_block0.c();
-    			t16 = space();
+    			t17 = space();
     			div8 = element("div");
     			if_block1.c();
-    			t17 = space();
-    			create_component(categories.$$.fragment);
     			t18 = space();
-    			create_component(usage.$$.fragment);
-    			t19 = space();
     			create_component(lastupdated.$$.fragment);
-    			attr_dev(div0, "class", "left svelte-3hrjse");
-    			add_location(div0, file$2, 55, 8, 1141);
+    			t19 = space();
+    			create_component(categories.$$.fragment);
+    			attr_dev(div0, "class", "left svelte-m47tk5");
+    			add_location(div0, file$2, 56, 8, 1155);
     			attr_dev(a0, "href", a0_href_value = /*project*/ ctx[0].url);
     			attr_dev(a0, "target", "_blank");
-    			add_location(a0, file$2, 60, 16, 1309);
-    			add_location(h2, file$2, 59, 12, 1288);
-    			attr_dev(div1, "class", "body svelte-3hrjse");
-    			add_location(div1, file$2, 63, 12, 1487);
+    			add_location(a0, file$2, 61, 16, 1323);
+    			add_location(h2, file$2, 60, 12, 1302);
+    			attr_dev(div1, "class", "body svelte-m47tk5");
+    			add_location(div1, file$2, 64, 12, 1501);
     			attr_dev(a1, "href", a1_href_value = "https://www.drupal.org/user/" + /*project*/ ctx[0].author.id);
     			attr_dev(a1, "target", "_blank");
-    			add_location(a1, file$2, 64, 35, 1575);
+    			add_location(a1, file$2, 65, 35, 1589);
     			attr_dev(div2, "class", "author");
-    			add_location(div2, file$2, 64, 12, 1552);
+    			add_location(div2, file$2, 65, 12, 1566);
     			attr_dev(a2, "href", a2_href_value = /*project*/ ctx[0].url);
     			attr_dev(a2, "target", "_blank");
-    			add_location(a2, file$2, 66, 30, 1822);
-    			attr_dev(div3, "class", "more svelte-3hrjse");
-    			add_location(div3, file$2, 66, 12, 1804);
-    			attr_dev(div4, "class", "stars");
-    			add_location(div4, file$2, 67, 12, 1897);
-    			attr_dev(div5, "class", "right svelte-3hrjse");
-    			add_location(div5, file$2, 58, 8, 1256);
-    			attr_dev(div6, "class", "main svelte-3hrjse");
-    			add_location(div6, file$2, 53, 4, 1072);
+    			add_location(a2, file$2, 67, 30, 1836);
+    			attr_dev(div3, "class", "more svelte-m47tk5");
+    			add_location(div3, file$2, 67, 12, 1818);
+    			attr_dev(div4, "class", "right svelte-m47tk5");
+    			add_location(div4, file$2, 59, 8, 1270);
+    			attr_dev(div5, "class", "main svelte-m47tk5");
+    			add_location(div5, file$2, 54, 4, 1086);
+    			attr_dev(div6, "class", "stars svelte-m47tk5");
+    			add_location(div6, file$2, 71, 8, 1960);
     			attr_dev(div7, "data-label", "Maintenance status");
-    			add_location(div7, file$2, 71, 8, 2039);
+    			add_location(div7, file$2, 73, 8, 2104);
     			attr_dev(div8, "data-label", "Development status");
-    			add_location(div8, file$2, 78, 8, 2269);
-    			attr_dev(div9, "class", "metadata svelte-3hrjse");
-    			add_location(div9, file$2, 70, 4, 2008);
-    			attr_dev(div10, "class", "project svelte-3hrjse");
-    			add_location(div10, file$2, 52, 0, 1046);
+    			add_location(div8, file$2, 80, 8, 2334);
+    			attr_dev(div9, "class", "metadata svelte-m47tk5");
+    			add_location(div9, file$2, 70, 4, 1929);
+    			attr_dev(div10, "class", "project svelte-m47tk5");
+    			add_location(div10, file$2, 53, 0, 1060);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div10, anchor);
-    			append_dev(div10, div6);
-    			mount_component(actionbutton, div6, null);
-    			append_dev(div6, t0);
-    			append_dev(div6, div0);
+    			append_dev(div10, div5);
+    			mount_component(actionbutton, div5, null);
+    			append_dev(div5, t0);
+    			append_dev(div5, div0);
     			mount_component(image, div0, null);
-    			append_dev(div6, t1);
-    			append_dev(div6, div5);
-    			append_dev(div5, h2);
+    			append_dev(div5, t1);
+    			append_dev(div5, div4);
+    			append_dev(div4, h2);
     			append_dev(h2, a0);
     			append_dev(a0, t2);
     			append_dev(h2, t3);
     			mount_component(securitycoverage, h2, null);
-    			append_dev(div5, t4);
-    			append_dev(div5, div1);
+    			append_dev(div4, t4);
+    			append_dev(div4, div1);
     			div1.innerHTML = raw_value;
-    			append_dev(div5, t5);
-    			append_dev(div5, div2);
+    			append_dev(div4, t5);
+    			append_dev(div4, div2);
     			append_dev(div2, t6);
     			append_dev(div2, a1);
     			append_dev(a1, t7);
-    			append_dev(div5, t8);
-    			mount_component(supportingorganization, div5, null);
-    			append_dev(div5, t9);
-    			append_dev(div5, div3);
+    			append_dev(div4, t8);
+    			mount_component(supportingorganization, div4, null);
+    			append_dev(div4, t9);
+    			append_dev(div4, div3);
     			append_dev(div3, a2);
     			append_dev(a2, t10);
-    			append_dev(div5, t11);
-    			append_dev(div5, div4);
-    			append_dev(div4, t12);
-    			append_dev(div4, t13);
-    			append_dev(div4, t14);
-    			append_dev(div10, t15);
+    			append_dev(div10, t11);
     			append_dev(div10, div9);
+    			append_dev(div9, div6);
+    			append_dev(div6, t12);
+    			append_dev(div6, t13);
+    			append_dev(div6, t14);
+    			append_dev(div9, t15);
+    			mount_component(usage, div9, null);
+    			append_dev(div9, t16);
     			append_dev(div9, div7);
     			if_block0.m(div7, null);
-    			append_dev(div9, t16);
+    			append_dev(div9, t17);
     			append_dev(div9, div8);
     			if_block1.m(div8, null);
-    			append_dev(div9, t17);
-    			mount_component(categories, div9, null);
     			append_dev(div9, t18);
-    			mount_component(usage, div9, null);
-    			append_dev(div9, t19);
     			mount_component(lastupdated, div9, null);
+    			append_dev(div9, t19);
+    			mount_component(categories, div9, null);
     			current = true;
     		},
     		p: function update(ctx, [dirty]) {
@@ -6897,6 +6957,9 @@ var app = (function () {
     			}
 
     			if ((!current || dirty & /*project*/ 1) && t13_value !== (t13_value = /*project*/ ctx[0].flag_project_star_user_count + "")) set_data_dev(t13, t13_value);
+    			const usage_changes = {};
+    			if (dirty & /*project*/ 1) usage_changes.project_usage = /*project*/ ctx[0].project_usage;
+    			usage.$set(usage_changes);
 
     			if (current_block_type === (current_block_type = select_block_type(ctx)) && if_block0) {
     				if_block0.p(ctx, dirty);
@@ -6922,15 +6985,12 @@ var app = (function () {
     				}
     			}
 
-    			const categories_changes = {};
-    			if (dirty & /*project*/ 1) categories_changes.taxonomy_vocabulary_3 = /*project*/ ctx[0].taxonomy_vocabulary_3;
-    			categories.$set(categories_changes);
-    			const usage_changes = {};
-    			if (dirty & /*project*/ 1) usage_changes.project_usage = /*project*/ ctx[0].project_usage;
-    			usage.$set(usage_changes);
     			const lastupdated_changes = {};
     			if (dirty & /*project*/ 1) lastupdated_changes.changed = /*project*/ ctx[0].changed;
     			lastupdated.$set(lastupdated_changes);
+    			const categories_changes = {};
+    			if (dirty & /*project*/ 1) categories_changes.taxonomy_vocabulary_3 = /*project*/ ctx[0].taxonomy_vocabulary_3;
+    			categories.$set(categories_changes);
     		},
     		i: function intro(local) {
     			if (current) return;
@@ -6938,9 +6998,9 @@ var app = (function () {
     			transition_in(image.$$.fragment, local);
     			transition_in(securitycoverage.$$.fragment, local);
     			transition_in(supportingorganization.$$.fragment, local);
-    			transition_in(categories.$$.fragment, local);
     			transition_in(usage.$$.fragment, local);
     			transition_in(lastupdated.$$.fragment, local);
+    			transition_in(categories.$$.fragment, local);
     			current = true;
     		},
     		o: function outro(local) {
@@ -6948,9 +7008,9 @@ var app = (function () {
     			transition_out(image.$$.fragment, local);
     			transition_out(securitycoverage.$$.fragment, local);
     			transition_out(supportingorganization.$$.fragment, local);
-    			transition_out(categories.$$.fragment, local);
     			transition_out(usage.$$.fragment, local);
     			transition_out(lastupdated.$$.fragment, local);
+    			transition_out(categories.$$.fragment, local);
     			current = false;
     		},
     		d: function destroy(detaching) {
@@ -6959,11 +7019,11 @@ var app = (function () {
     			destroy_component(image);
     			destroy_component(securitycoverage);
     			destroy_component(supportingorganization);
+    			destroy_component(usage);
     			if_block0.d();
     			if_block1.d();
-    			destroy_component(categories);
-    			destroy_component(usage);
     			destroy_component(lastupdated);
+    			destroy_component(categories);
     		}
     	};
 

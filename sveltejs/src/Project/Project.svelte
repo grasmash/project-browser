@@ -12,6 +12,7 @@
 .project {
     width: 49%;
     border: 1px solid black;
+    border-radius: 5px;
     background: #ccc;
     margin-bottom: 1em;
 }
@@ -27,13 +28,9 @@
     width: 150px;
     overflow: hidden;
     margin: 0 1em 0 0;
-    border: 1px dotted #ccc;
     text-align: center;
     display: flex;
-    align-items: center;
-}
-.left img {
-    width: 150px;
+    align-items: flex-start;
 }
 .right {
     padding: 1em .5em;
@@ -45,6 +42,10 @@
     clear: both;
     padding: 1em;
     position: relative;
+}
+.stars {
+    float: right;
+    clear: right;
 }
 .more {
     margin: 1em 0 0 0;
@@ -65,10 +66,11 @@
             <div class="author">By <a href="https://www.drupal.org/user/{project.author.id}" target="_blank">{project.author.name}</a></div>
             <SupportingOrganization field_supporting_organizations={project.field_supporting_organizations} />
             <div class="more"><a href="{project.url}" target="_blank">More details</a></div>
-            <div class="stars">Starred by {project.flag_project_star_user_count} users</div>
         </div>
     </div>
     <div class="metadata">
+        <div class="stars">Starred by {project.flag_project_star_user_count} users</div>
+        <Usage project_usage={project.project_usage}/>
         <div data-label="Maintenance status">
             {#if project.taxonomy_vocabulary_44}
                 {project.maintenance_status}
@@ -83,8 +85,7 @@
                 <span>Unknown</span>
             {/if}
         </div>
-        <Categories taxonomy_vocabulary_3={project.taxonomy_vocabulary_3}/>
-        <Usage project_usage={project.project_usage}/>
         <LastUpdated changed={project.changed} />
+        <Categories taxonomy_vocabulary_3={project.taxonomy_vocabulary_3}/>
     </div>
 </div>
