@@ -24,6 +24,7 @@ class DrupalOrgProject
     public $field_security_advisory_coverage;
     public $field_project_machine_name;
     public $field_supporting_organizations = [];
+    public $flag_project_star_user_count;
 
     // Module categories.
     public $taxonomy_vocabulary_3;
@@ -92,7 +93,10 @@ class DrupalOrgProject
         $this->is_new = $project['is_new'];
         $this->vid = $project['vid'];
         $this->nid = $project['nid'];
+
         $this->flag_project_star_user = $project['flag_project_star_user'];
+        $this->flag_project_star_user_count = count($this->flag_project_star_user);
+
         $this->field_issue_summary_template = $project['field_issue_summary_template'];
         $this->field_replaced_by = $project['field_replaced_by'];
         $this->field_next_major_version_info = $project['field_next_major_version_info'];

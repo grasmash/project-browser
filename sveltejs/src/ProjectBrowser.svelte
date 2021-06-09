@@ -13,9 +13,9 @@
     // Total result set size.
     let rowsCount = 0;
     let text = '';
-    let sorting = 'title';
-    let sortKeys = 'title';
-    let sortDirection = 'ASC';
+    //let sorting = 'title';
+    //let sortKeys = 'title';
+    //let sortDirection = 'ASC';
     let tab = 'recommended';
 
     /**
@@ -31,7 +31,8 @@
     async function load(_page) {
         loading = true;
         // Additional query parameters are hardcoded in DrupalOrgProxyController::getAll();
-        let url = "http://local.project-browser.com/drupal-org-proxy/project?page=" + _page + "&limit=" + pageSize + "&sort=" + sortKeys + "&direction=" + sortDirection + "&tab=" + tab;
+        let url = "http://local.project-browser.com/drupal-org-proxy/project?page=" + _page + "&limit=" + pageSize + "&tab=" + tab;
+        // "&sort=" + sortKeys + "&direction=" + sortDirection +
         if (text) {
             url = url + "&title=" + text;
         }
@@ -101,10 +102,11 @@
 </style>
 <ProjectGrid {loading} {rows} {pageIndex} {pageSize} let:rows={rows2}>
     <div slot="top">
-        <div>
-            <button class:selected="{tab === 'recommended'}" on:click={showRecommended} title="Recommended projects must be covered by Drupal's security team, have at least one release, be actively maintained, be a full (not sandbox) project, and have an issue queue available.">Recommended projects</button>
+        <div class="smart-filters">
+            <button class:selected="{tab === 'recommended'}" on:click={showRecommended}>Recommended projects</button>
             <button class:selected="{tab === 'all'}" on:click={showAll} title="All published projects">All projects</button>
             <Search on:search={onSearch} />
+            <p>Recommended projects must be covered by Drupal's security team, have at least one release, be actively maintained, be a full (not sandbox) project, and have an issue queue available.</p>
         </div>
         <Pagination {page} {pageSize} count={rowsCount} serverSide={true} on:pageChange={onPageChange} />
     </div>

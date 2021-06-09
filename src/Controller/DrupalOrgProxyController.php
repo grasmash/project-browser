@@ -59,7 +59,6 @@ class DrupalOrgProxyController extends ControllerBase
      */
     public function getAllProjects(Request $request)
     {
-        // Fire event.
         try {
             $drupal_org_client = new DrupalOrgClient();
             // Forward query parameters from request to Drupal.org Client.
@@ -81,18 +80,22 @@ class DrupalOrgProxyController extends ControllerBase
             // @todo Allow themes and maybe other things.
             $query['type'] = 'project_module';
             $query['status'] = '1';
+            //$query['sort'] = 'comment_count';
+            //$query['direction'] = 'DESC';
 
             // taxonomy_vocabulary_6 = Core compatibility
+            // @todo Fire event. Allow altering query.
             $drupal_org_response = $drupal_org_client->getProjects($query);
             $projects = new DrupalOrgProjects($drupal_org_response['list']);
             if ($projects) {
                 // @todo Remove Access-Control-Allow-Origin: * header when not in dev mode.
                 // @todo Add 'count' property.
                 $drupal_org_response['list'] = (array) $projects;
-                $response = new JsonResponse($drupal_org_response, Response::HTTP_ACCEPTED, ['Access-Control-Allow-Origin' => '*']);
+                $response = new JsonResponse($drupal_org_response, Response::HTTP_ACCEPTED);
                 if ($response instanceof CacheableResponseInterface) {
                     $response->addCacheableDependency($projects);
                 }
+                // @todo Fire event. Allow altering response.
                 return $response;
             }
             return new Response('Could not find any projects', 400);

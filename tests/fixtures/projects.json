@@ -1,0 +1,360 @@
+// 20210609155331
+// https://www.drupal.org/api-d7/node.json?field_project_machine_name=payment
+
+{
+  "self": "https://www.drupal.org/api-d7/node?field_project_machine_name=payment",
+  "first": "https://www.drupal.org/api-d7/node?field_project_machine_name=payment&page=0",
+  "last": "https://www.drupal.org/api-d7/node?field_project_machine_name=payment&page=0",
+  "list": [
+    {
+      "taxonomy_vocabulary_44": {
+        "uri": "https://www.drupal.org/api-d7/taxonomy_term/13028",
+        "id": "13028",
+        "resource": "taxonomy_term"
+      },
+      "taxonomy_vocabulary_46": {
+        "uri": "https://www.drupal.org/api-d7/taxonomy_term/9988",
+        "id": "9988",
+        "resource": "taxonomy_term"
+      },
+      "taxonomy_vocabulary_3": [
+        {
+          "uri": "https://www.drupal.org/api-d7/taxonomy_term/55",
+          "id": "55",
+          "resource": "taxonomy_term"
+        },
+        {
+          "uri": "https://www.drupal.org/api-d7/taxonomy_term/104",
+          "id": "104",
+          "resource": "taxonomy_term"
+        },
+        {
+          "uri": "https://www.drupal.org/api-d7/taxonomy_term/52",
+          "id": "52",
+          "resource": "taxonomy_term"
+        }
+      ],
+      "upload": [
+
+      ],
+      "body": {
+        "value": "<p>Payment is a generic payment platform which allows other modules to use any of the payment methods that plug into Payment. With Payment we only need one <strong>one</strong> <a href=\"/project/paypal_payment\" rel=\"nofollow\">Paypal</a>, <strong>one</strong> credit card and <strong>one</strong> <a href=\"/project/ideal\" rel=\"nofollow\">iDEAL</a> module to use with every single webshop or payment form that you want (applies to any payment method that works with Payment). This shortens development time and improves support, because only one instead of three Paypal modules need to be maintained, and simplifies UX, because all payment (method) information is now located in one place.</p>\n<p>For more information</p>\n<ul>\n<li>try the <a href=\"http://simplytest.me/project/payment\" rel=\"nofollow\">demonstration site</a>.</li>\n<li>read the <a href=\"http://drupal.org/node/1807610\" rel=\"nofollow\">Payment handbook</a>.</li>\n<li>follow the <a href=\"https://drupal.org/project/issues/payment?version=8.x\" rel=\"nofollow\">development of version 2</a> and read the <a href=\"https://drupal.org/list-changes/payment?keywords_description=&amp;to_branch=8.x-2.x&amp;version=&amp;created_op=%3E%3D&amp;created[value]=&amp;created[min]=&amp;created[max]=\" rel=\"nofollow\">change records</a>.</li>\n</ul>\n<h2>Project contents</h2>\n<table>\n<tr>\n<th>submodule</th>\n<th>requires</th>\n<th>is enhanced by</th>\n<th>integrates with</th>\n</tr>\n<tr class=\"odd\">\n<td><strong>Payment</strong><br />The main API</td>\n<td>\n<ul>\n<li><a href=\"/project/entity\" rel=\"nofollow\">Entity API</a></li>\n</ul>\n</td>\n<td>\n<ul>\n<li><a href=\"/project/ctools\" rel=\"nofollow\">Ctools</a></li>\n<li><a href=\"/project/currency\" rel=\"nofollow\">Currency 7.x-2.x</a></li>\n<li><a href=\"/project/views\" rel=\"nofollow\">Views</a></li>\n<li><a href=\"/project/payment_uuid\" rel=\"nofollow\">Payment UUID</a></li>\n<li><a href=\"/project/payment_offsite_api\" rel=\"nofollow\">Payment Offsite API</a></li>\n</ul>\n</td>\n<td>\n<ul>\n<li><a href=\"/project/features\" rel=\"nofollow\">Features</a></li>\n<li><a href=\"/documentation/modules/field\" rel=\"nofollow\">Field</a></li>\n<li><a href=\"/project/rules\" rel=\"nofollow\">Rules</a></li>\n<li><a href=\"/documentation/modules/token\" rel=\"nofollow\">Token</a></li>\n<li><a href=\"/project/views\" rel=\"nofollow\">Views</a></li>\n</ul>\n</td>\n</tr>\n<tr class=\"even\">\n<td><strong>Payment Form Field</strong><br />Provides a field to add payment forms to entities.</td>\n<td>\n<ul>\n<li>Payment</li>\n<li><a href=\"/project/currency\" rel=\"nofollow\">Currency API</a></li>\n</ul>\n</td>\n<td>\n    </td>\n<td>\n    </td>\n</tr>\n<tr class=\"odd\">\n<td><strong>Basic Payment Method</strong><br />A 'dumb' payment method type that always successfully executes payments, but never actually transfers money. It can be useful for <em>collect on delivery</em>, free orders, testing, and more.</td>\n<td>\n<ul>\n<li>Payment</li>\n</ul>\n</td>\n<td>\n    </td>\n<td>\n    </td>\n</tr>\n<tr class=\"even\">\n<td><strong>Payment Reference Field</strong><br />Provides a field to add payments to entities.</td>\n<td>\n<ul>\n<li>Payment</li>\n<li><a href=\"/project/currency\" rel=\"nofollow\">Currency API</a></li>\n</ul>\n</td>\n<td>\n    </td>\n<td>\n    </td>\n</tr>\n</table>\n<ul>\n<li><em>is enhanced by</em> means the submodule offers extra features when the listed modules are enabled.</li>\n<li><em>integrates with</em> means the listed modules offer extra features when the submodule is enabled.</li>\n</ul>\n<h2 id=\"payment-types\">Modules that use Payment to transfer money</h2>\n<table>\n<tr>\n<th>module</th>\n<th>requires</th>\n<th>description</th>\n</tr>\n<tr class=\"odd\">\n<td></td>\n<td>Payment Form Field</td>\n<td>Adds a payment form to any entity to let visitors pay when viewing the entity.</td>\n</tr>\n<tr class=\"even\">\n<td></td>\n<td>Payment Reference Field</td>\n<td>Allows/requires users to pay when creating entities.</td>\n</tr>\n<tr class=\"odd\">\n<td><a href=\"/project/commerce\" rel=\"nofollow\">Drupal Commerce</a></td>\n<td><a href=\"/project/payment_commerce\" rel=\"nofollow\">Payment for Drupal Commerce</a></td>\n<td>Makes all payment methods usable within Drupal Commerce.</td>\n</tr>\n<tr class=\"even\">\n<td><a href=\"/project/ubercart\" rel=\"nofollow\">Ubercart</a></td>\n<td><a href=\"/project/payment_ubercart\" rel=\"nofollow\">Payment for Ubercart</a></td>\n<td>Makes all payment methods usable within Ubercart.</td>\n</tr>\n<tr class=\"odd\">\n<td><a href=\"/project/basic_cart\" rel=\"nofollow\">Basic cart</a></td>\n<td><span class=\"project-issue-issue-link project-issue-status-info project-issue-status-1\"><a href=\"/project/basic_cart/issues/1541916\" title=\"Status: Active\">#1541916: Payment/Basic Cart integration</a></span></td>\n<td>Allows orders to be paid from within the webshop (under development)</td>\n</tr>\n<tr class=\"even\">\n<td><a href=\"/project/webform\" rel=\"nofollow\">Webform</a></td>\n<td><a href=\"/project/payment_webform\" rel=\"nofollow\">Payment for Webform</a></td>\n<td>Provides a payment reference component.</td>\n</tr>\n<tr class=\"odd\">\n<td><a href=\"/project/payment_donation\" rel=\"nofollow\">Payment donation form</a></td>\n<td></td>\n<td>Provides a block with a simple donation form.</td>\n</tr>\n</table>\n<h2>Payment methods</h2>\n<ul>\n<li>Basic (Does not transfer any real money. Useful for <em>cash on delivery</em>, <em>no payment required</em> payment methods, or testing. See <a href=\"http://drupal.org/node/1932450\" rel=\"nofollow\">the handbook</a>.)</li>\n<li><a href=\"http://mynameisbart.com/payment-processing#abn-amro-ideal-easy\" rel=\"nofollow\">ABN AMRO iDEAL EASY</a></li>\n<li><a href=\"/project/authnet_payment\" rel=\"nofollow\">Authorize.net</a></li>\n<li><a href=\"/project/braintree_payment\" rel=\"nofollow\">Braintree</a></li>\n<li><a href=\"/project/buckaroo_payment\" rel=\"nofollow\">Buckaroo</a></li>\n<li><a href=\"https://github.com/md-systems/datatrans\" rel=\"nofollow\">Datatrans</a></li>\n<li><a href=\"/project/gocardless_payment\" rel=\"nofollow\">Gocardless</a></li>\n<li><a href=\"/project/ideal\" rel=\"nofollow\">iDEAL</a></li>\n<li><a href=\"/project/ingenico\" rel=\"nofollow\">Ingenico</a> (formerly <a href=\"/project/ogone\" rel=\"nofollow\">Ogone</a>)</li>\n<li><a href=\"/project/mollie_payment\" rel=\"nofollow\">Mollie</a></li>\n<li><a href=\"/project/ogone\" rel=\"nofollow\">Ogone</a></li>\n<li><a href=\"/project/paguelofacil_payment\" rel=\"nofollow\">PagueloFacil</a></li>\n<li><a href=\"/project/payone_payment\" rel=\"nofollow\">PayOne</a></li>\n<li><a href=\"/project/paypal_payment\" rel=\"nofollow\">PayPal (IPN, Express Checkout, PPS/WPS)</a></li>\n<li><a href=\"https://github.com/md-systems/postfinance\" rel=\"nofollow\">Postfinance</a></li>\n<li><a href=\"http://mynameisbart.com/payment-processing#rabo-omnikassa\" rel=\"nofollow\">Rabo OmniKassa</a></li>\n<li><a href=\"/project/robokassa_payment\" rel=\"nofollow\">Robokassa</a></li>\n<li><a href=\"https://github.com/md-systems/saferpay\" rel=\"nofollow\">Saferpay</a></li>\n<li><a href=\"/project/sagepay_payment\" rel=\"nofollow\">Sagepay</a></li>\n<li><a href=\"/project/stripe\" rel=\"nofollow\">Stripe</a> or <a href=\"/project/stripe_payment\" rel=\"nofollow\">Stripe payment</a></li>\n<li><a href=\"/sandbox/niko/2725865\" rel=\"nofollow\">Interkassa</a></li>\n<li><a href=\"/sandbox/niko/2800465\" rel=\"nofollow\">Liqpay</a></li>\n</ul>\n<p>This module is compatible with <a href=\"http://php.net/manual/en/migration70.php\" rel=\"nofollow\">PHP 7</a>.</p>",
+        "summary": "<p>Payment is a generic payment platform which allows other modules to use any of the payment methods that plug into Payment. With Payment we only need one <strong>one</strong> Paypal, <strong>one</strong> credit card and <strong>one</strong> iDEAL module to use with every single webshop or payment form that you want (applies to any payment method that works with Payment). This shortens development time and improves support, because only one instead of three Paypal modules need to be maintained, and simplifies UX, because all payment (method) information is now located in one place.</p>\n<p>For more information</p>\n<ul>\n<li>try the <a href=\"http://simplytest.me/project/payment\" rel=\"nofollow\">demonstration site</a>.</li>\n<li>read the <a href=\"http://drupal.org/node/1807610\" rel=\"nofollow\">Payment handbook</a>.</li>\n<li>follow the <a href=\"https://drupal.org/project/issues/payment?version=8.x\" rel=\"nofollow\">development of version 2</a> and read the <a href=\"https://drupal.org/list-changes/payment?keywords_description=&amp;to_branch=8.x-2.x&amp;version=&amp;created_op=%3E%3D&amp;created[value]=&amp;created[min]=&amp;created[max]=\" rel=\"nofollow\">change records</a>.</li>\n<li>watch the <a href=\"http://www.youtube.com/watch?v=UXFI9UgRnOc\" rel=\"nofollow\">Payment 8.x-2.x session recordings</a> from DrupalCamp Ghent 2014.</li>\n</ul>\n<h2>Project contents</h2>\n<table>\n<tr>\n<th>submodule</th>\n<th>requires</th>\n<th>is enhanced by</th>\n<th>integrates with</th>\n</tr>\n<tr class=\"odd\">\n<td><strong>Payment</strong><br />The main API</td>\n<td>\n<ul>\n</ul></td></tr></table>",
+        "format": "1"
+      },
+      "field_project_type": "full",
+      "field_project_machine_name": "payment",
+      "field_project_has_issue_queue": true,
+      "field_project_components": [
+        "Code",
+        "Documentation",
+        "Miscellaneous",
+        "User interface"
+      ],
+      "field_project_default_component": null,
+      "field_project_issue_guidelines": {
+        "value": "<p>Any changes to the 8.x-2.x code base MUST be submitted as pull requests to <a href=\"https://github.com/bartfeenstra/drupal-payment/\" rel=\"nofollow\">https://github.com/bartfeenstra/drupal-payment/</a>, so Payment's automated tests can be run for them.</p>",
+        "format": "1"
+      },
+      "field_project_has_releases": true,
+      "field_release_version_format": null,
+      "field_project_homepage": [
+
+      ],
+      "field_project_changelog": {
+        "url": "http://drupal.org/list-changes/payment",
+        "attributes": [
+
+        ],
+        "display_url": null
+      },
+      "field_project_demo": {
+        "url": "http://simplytest.me/project/payment",
+        "attributes": [
+
+        ],
+        "display_url": null
+      },
+      "field_project_documentation": {
+        "url": "http://drupal.org/node/1807610",
+        "attributes": [
+
+        ],
+        "display_url": null
+      },
+      "field_project_screenshots": [
+
+      ],
+      "field_project_license": {
+        "url": "http://www.gnu.org/licenses/old-licenses/gpl-2.0.html",
+        "attributes": [
+
+        ],
+        "display_url": null
+      },
+      "field_project_images": [
+        {
+          "file": {
+            "uri": "https://www.drupal.org/api-d7/file/4681405",
+            "id": "4681405",
+            "resource": "file"
+          },
+          "alt": ""
+        },
+        {
+          "file": {
+            "uri": "https://www.drupal.org/api-d7/file/4681409",
+            "id": "4681409",
+            "resource": "file"
+          },
+          "alt": ""
+        }
+      ],
+      "field_supporting_organizations": [
+        {
+          "uri": "https://www.drupal.org/api-d7/field_collection_item/643881",
+          "id": "643881",
+          "resource": "field_collection_item"
+        },
+        {
+          "uri": "https://www.drupal.org/api-d7/field_collection_item/1454237",
+          "id": "1454237",
+          "resource": "field_collection_item"
+        }
+      ],
+      "field_project_docs": [
+
+      ],
+      "field_project_issue_version_opts": [
+        "static",
+        "dynamic"
+      ],
+      "field_security_advisory_coverage": "covered",
+      "field_project_ecosystem": [
+
+      ],
+      "field_next_major_version_info": [
+
+      ],
+      "field_replaced_by": [
+
+      ],
+      "field_issue_summary_template": [
+
+      ],
+      "flag_project_star_user": [
+        {
+          "uri": "https://www.drupal.org/api-d7/user/3597447",
+          "id": 3597447,
+          "resource": "user"
+        },
+        {
+          "uri": "https://www.drupal.org/api-d7/user/3650364",
+          "id": 3650364,
+          "resource": "user"
+        },
+        {
+          "uri": "https://www.drupal.org/api-d7/user/8094",
+          "id": 8094,
+          "resource": "user"
+        },
+        {
+          "uri": "https://www.drupal.org/api-d7/user/1680196",
+          "id": 1680196,
+          "resource": "user"
+        },
+        {
+          "uri": "https://www.drupal.org/api-d7/user/3120199",
+          "id": 3120199,
+          "resource": "user"
+        },
+        {
+          "uri": "https://www.drupal.org/api-d7/user/395239",
+          "id": 395239,
+          "resource": "user"
+        },
+        {
+          "uri": "https://www.drupal.org/api-d7/user/329697",
+          "id": 329697,
+          "resource": "user"
+        },
+        {
+          "uri": "https://www.drupal.org/api-d7/user/2513502",
+          "id": 2513502,
+          "resource": "user"
+        },
+        {
+          "uri": "https://www.drupal.org/api-d7/user/3599881",
+          "id": 3599881,
+          "resource": "user"
+        },
+        {
+          "uri": "https://www.drupal.org/api-d7/user/83549",
+          "id": 83549,
+          "resource": "user"
+        },
+        {
+          "uri": "https://www.drupal.org/api-d7/user/73545",
+          "id": 73545,
+          "resource": "user"
+        },
+        {
+          "uri": "https://www.drupal.org/api-d7/user/3594190",
+          "id": 3594190,
+          "resource": "user"
+        },
+        {
+          "uri": "https://www.drupal.org/api-d7/user/3582842",
+          "id": 3582842,
+          "resource": "user"
+        },
+        {
+          "uri": "https://www.drupal.org/api-d7/user/2698941",
+          "id": 2698941,
+          "resource": "user"
+        },
+        {
+          "uri": "https://www.drupal.org/api-d7/user/3579312",
+          "id": 3579312,
+          "resource": "user"
+        },
+        {
+          "uri": "https://www.drupal.org/api-d7/user/735602",
+          "id": 735602,
+          "resource": "user"
+        },
+        {
+          "uri": "https://www.drupal.org/api-d7/user/2560148",
+          "id": 2560148,
+          "resource": "user"
+        },
+        {
+          "uri": "https://www.drupal.org/api-d7/user/3571535",
+          "id": 3571535,
+          "resource": "user"
+        },
+        {
+          "uri": "https://www.drupal.org/api-d7/user/3564593",
+          "id": 3564593,
+          "resource": "user"
+        },
+        {
+          "uri": "https://www.drupal.org/api-d7/user/655916",
+          "id": 655916,
+          "resource": "user"
+        },
+        {
+          "uri": "https://www.drupal.org/api-d7/user/177429",
+          "id": 177429,
+          "resource": "user"
+        },
+        {
+          "uri": "https://www.drupal.org/api-d7/user/30547",
+          "id": 30547,
+          "resource": "user"
+        },
+        {
+          "uri": "https://www.drupal.org/api-d7/user/58704",
+          "id": 58704,
+          "resource": "user"
+        },
+        {
+          "uri": "https://www.drupal.org/api-d7/user/3509982",
+          "id": 3509982,
+          "resource": "user"
+        },
+        {
+          "uri": "https://www.drupal.org/api-d7/user/1578644",
+          "id": 1578644,
+          "resource": "user"
+        },
+        {
+          "uri": "https://www.drupal.org/api-d7/user/1056720",
+          "id": 1056720,
+          "resource": "user"
+        },
+        {
+          "uri": "https://www.drupal.org/api-d7/user/2295486",
+          "id": 2295486,
+          "resource": "user"
+        },
+        {
+          "uri": "https://www.drupal.org/api-d7/user/3538966",
+          "id": 3538966,
+          "resource": "user"
+        },
+        {
+          "uri": "https://www.drupal.org/api-d7/user/2558230",
+          "id": 2558230,
+          "resource": "user"
+        },
+        {
+          "uri": "https://www.drupal.org/api-d7/user/3281075",
+          "id": 3281075,
+          "resource": "user"
+        },
+        {
+          "uri": "https://www.drupal.org/api-d7/user/159062",
+          "id": 159062,
+          "resource": "user"
+        },
+        {
+          "uri": "https://www.drupal.org/api-d7/user/3363688",
+          "id": 3363688,
+          "resource": "user"
+        },
+        {
+          "uri": "https://www.drupal.org/api-d7/user/220197",
+          "id": 220197,
+          "resource": "user"
+        },
+        {
+          "uri": "https://www.drupal.org/api-d7/user/598310",
+          "id": 598310,
+          "resource": "user"
+        }
+      ],
+      "nid": "1353878",
+      "vid": "12004772",
+      "is_new": false,
+      "type": "project_module",
+      "title": "Payment",
+      "language": "und",
+      "url": "https://www.drupal.org/project/payment",
+      "edit_url": "https://www.drupal.org/node/1353878/edit",
+      "status": "1",
+      "promote": "0",
+      "sticky": "0",
+      "created": "1322403205",
+      "changed": "1595621666",
+      "author": {
+        "uri": "https://www.drupal.org/api-d7/user/865256",
+        "id": "865256",
+        "resource": "user",
+        "name": "torotil"
+      },
+      "book_ancestors": [
+
+      ],
+      "comment": "1",
+      "comments": [
+
+      ],
+      "comment_count": "0",
+      "comment_count_new": false,
+      "feeds_item_guid": null,
+      "feeds_item_url": null,
+      "feed_nid": null,
+      "flag_flag_tracker_follow_user": [
+
+      ],
+      "flag_tracker_follower_count": null,
+      "has_new_content": null,
+      "last_comment_timestamp": "1322403205",
+      "project_usage": {
+        "7.x-1.x": 3374,
+        "8.x-2.x": 666
+      }
+    }
+  ]
+}

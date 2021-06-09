@@ -6,10 +6,7 @@
     import Categories from './Categories.svelte';
     import Usage from './Usage.svelte';
     import LastUpdated from './LastUpdated.svelte';
-
-    function truncate(str, n){
-        return (str.length > n) ? str.substr(0, n-1) + '&hellip;' : str;
-    };
+    import SecurityCoverage from './SecurityCoverage.svelte';
 </script>
 <style>
 .project {
@@ -62,14 +59,13 @@
         <div class="right">
             <h2>
                 <a href="{project.url}" target="_blank">{project.title}</a>
-                {#if project.field_security_advisory_coverage === 'covered'}
-                    <a href="https://www.drupal.org/security-advisory-policy" target="_blank"><span class="security-covered" title="Covered by Drupal Security Team">&#128737;</span></a>
-                {/if}
+                <SecurityCoverage coverage={project.field_security_advisory_coverage}/>
             </h2>
             <div class="body">{@html project.body.summary}</div>
             <div class="author">By <a href="https://www.drupal.org/user/{project.author.id}" target="_blank">{project.author.name}</a></div>
             <SupportingOrganization field_supporting_organizations={project.field_supporting_organizations} />
             <div class="more"><a href="{project.url}" target="_blank">More details</a></div>
+            <div class="stars">Starred by {project.flag_project_star_user_count} users</div>
         </div>
     </div>
     <div class="metadata">
