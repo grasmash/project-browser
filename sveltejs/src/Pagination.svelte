@@ -46,6 +46,7 @@
 <style>
     .pagination {
         clear: both;
+        margin-bottom: 1em;
     }
     .active {
         background-color: rgb(150, 150, 235);

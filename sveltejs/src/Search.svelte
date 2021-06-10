@@ -67,11 +67,6 @@
         margin-bottom: 1rem;
         float: right;
     }
-    .search input {
-        border: 1px solid #eee;
-        border-radius: 3px;
-        padding: 5px 3px;
-    }
 
     @media screen and (max-width: 767px) {
         .search {
@@ -82,6 +77,7 @@
 
 <div class="search">
     <input
+            class="form-element"
             type="search"
             title={labels.placeholder}
             placeholder={labels.placeholder}

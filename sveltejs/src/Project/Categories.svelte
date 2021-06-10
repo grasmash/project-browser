@@ -5,6 +5,7 @@
 <style>
     .categories {
         clear: both;
+        margin-top: 1em;
     }
     .categories ul {
         margin: 0;

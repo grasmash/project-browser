@@ -33,7 +33,7 @@
      * @returns {boolean}
      */
     function projectIsEnabled(project_name) {
-        return typeof drupalSettings !== 'undefined' && project_name in drupalSettings.project_browser.modules && drupalSettings.project_browser.modules === 1;
+        return typeof drupalSettings !== 'undefined' && project_name in drupalSettings.project_browser.modules && drupalSettings.project_browser.modules[project_name] === 1;
     }
 </script>
 <style>
@@ -45,10 +45,10 @@
 </style>
 <div class="action">
     {#if projectIsEnabled(project.field_project_machine_name)}
-        <span>Installed</span>
+        <span><a href="/admin/modules#module-{project.field_project_machine_name}" class="action-link action-link--icon-checkmark" target="_blank">Installed</a></span>
     {:else if projectIsDownloaded(project.field_project_machine_name)}
-        <span><a href="/admin/modules#module-{project.field_project_machine_name}" target="_blank"><button type="button">Install</button></a></span>
+        <span><a href="/admin/modules#module-{project.field_project_machine_name}" target="_blank"><button type="button" class="button button--action button--secondary">Install</button></a></span>
     {:else}
-        <span><button on:click={showPopupWithProps}>Download</button></span>
+        <span><button on:click={showPopupWithProps} class="button button--action button--primary">Download</button></span>
     {/if}
 </div>

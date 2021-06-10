@@ -74,14 +74,14 @@ class DrupalOrgProxyController extends ControllerBase
                         $query['field_security_advisory_coverage'] = 'covered';
                         $query['field_project_has_issue_queue'] = '1';
                         break;
+                 // @todo Call something like project_browser_smart_filter_list() to get all filters and associated
+                 // arguments. Allow other modules to alter the list.
                 }
             }
 
             // @todo Allow themes and maybe other things.
             $query['type'] = 'project_module';
             $query['status'] = '1';
-            //$query['sort'] = 'comment_count';
-            //$query['direction'] = 'DESC';
 
             // taxonomy_vocabulary_6 = Core compatibility
             // @todo Fire event. Allow altering query.

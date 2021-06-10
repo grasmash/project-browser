@@ -7,6 +7,9 @@
     .supporting-organizations {
         font-style: italic;
     }
+    .organization a {
+        text-decoration: none;
+    }
 </style>
 {#if typeof field_supporting_organizations !== "undefined" && field_supporting_organizations.length}
     <div class="supporting-organizations">

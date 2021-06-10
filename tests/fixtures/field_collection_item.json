@@ -1,0 +1,21 @@
+{
+  "field_how_they_helped": "Original R&D, Payment 1 & 2",
+  "field_supporting_organization": {
+    "uri": "https://www.drupal.org/api-d7/node/1832460",
+    "id": "1832460",
+    "resource": "node"
+  },
+  "item_id": "643881",
+  "revision_id": "1627536",
+  "field_name": "field_supporting_organizations",
+  "archived": "0",
+  "url": "https://www.drupal.org/field-collection/field-supporting-organizations/643881",
+  "host_entity": {
+    "uri": "https://www.drupal.org/api-d7/node/1353878",
+    "id": "1353878",
+    "resource": "node"
+  },
+  "feeds_item_guid": null,
+  "feeds_item_url": null,
+  "feed_nid": null
+}

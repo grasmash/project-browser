@@ -1,5 +1,6 @@
 <script>
     export let project_usage;
+    export let project_usage_total;
     let core_compatibility;
     let project_is_compatible;
 
@@ -18,23 +19,15 @@
 </script>
 <div class="usage" data-label="Usage">
     {#if project_usage}
-        <div class="short">
+        <div class="total"><span title="This total includes usage data from versions that are not compatible with your installation and therefore not displayed here">{project_usage_total} active installations [all branches]</span></div>
+        <div class="project-usage">
             <ul>
                 {#each Object.entries(project_usage) as [key, val] (key) }
                     {#if isCompatible(key)}
                         <li>
-                            <span class="check">&#x2714;</span> {key}: {val} active installations
+                            <span class="check">&#x2714;</span>{val} active installations [{key} branch]
                         </li>
                     {/if}
-                {/each}
-            </ul>
-        </div>
-        <div class="full hidden">
-            <ul>
-                {#each Object.entries(project_usage) as [key, val] (key) }
-                    <li>
-                        {#if isCompatible(key)}<span class="check">&#x2714;</span> {/if}{key}: {val} active installations
-                    </li>
                 {/each}
             </ul>
         </div>
@@ -56,6 +49,7 @@
     .usage {
         float: right;
         clear: right;
+        text-align: right;
     }
     ul {
         margin: 0;
@@ -66,7 +60,6 @@
         text-transform: lowercase;
     }
     .compatibility {
-        font-size: .8em;
         padding: .25em;
         float: right;
         clear: right;
@@ -79,5 +72,8 @@
     }
     .check {
         color: green;
+    }
+    .total span {
+        cursor: pointer;
     }
 </style>

@@ -7,19 +7,29 @@
     import Usage from './Usage.svelte';
     import LastUpdated from './LastUpdated.svelte';
     import SecurityCoverage from './SecurityCoverage.svelte';
+    import TaxonomyTerm from "./TaxonomyTerm.svelte";
 </script>
 <style>
 .project {
     width: 49%;
     border: 1px solid black;
-    border-radius: 5px;
-    background: #ccc;
     margin-bottom: 1em;
+    border: 1px solid rgba(212, 212, 218, 0.8);
+    border-radius: 2px;
+    background-color: #f0f5fd;
+    box-shadow: 0 4px 10px rgb(0 0 0 / 10%);
+}
+h3 {
+    margin-right: 5em;
+    margin-top: .25em;
+}
+h3 a {
+    text-decoration: none;
 }
 .main {
     display: flex;
     background: white;
-    height: 250px;
+    min-height: 275px;
     position: relative;
     padding: 1em;
 }
@@ -32,9 +42,6 @@
     display: flex;
     align-items: flex-start;
 }
-.right {
-    padding: 1em .5em;
-}
 .body {
     margin: 0 0 1em 0;
 }
@@ -42,10 +49,18 @@
     clear: both;
     padding: 1em;
     position: relative;
+    font-size: .9em;
 }
-.stars {
+.metadata .right {
     float: right;
     clear: right;
+    text-align: right;
+}
+.suffix {
+    font-size: .9em;
+}
+.author a {
+    text-decoration: none;
 }
 .more {
     margin: 1em 0 0 0;
@@ -58,34 +73,25 @@
             <Image field_project_images={project.field_project_images}/>
         </div>
         <div class="right">
-            <h2>
+            <h3>
                 <a href="{project.url}" target="_blank">{project.title}</a>
                 <SecurityCoverage coverage={project.field_security_advisory_coverage}/>
-            </h2>
+            </h3>
             <div class="body">{@html project.body.summary}</div>
-            <div class="author">By <a href="https://www.drupal.org/user/{project.author.id}" target="_blank">{project.author.name}</a></div>
-            <SupportingOrganization field_supporting_organizations={project.field_supporting_organizations} />
-            <div class="more"><a href="{project.url}" target="_blank">More details</a></div>
+            <div class="suffix">
+                <div class="author">By <a href="https://www.drupal.org/user/{project.author.id}" target="_blank">{project.author.name}</a></div>
+                <SupportingOrganization field_supporting_organizations={project.field_supporting_organizations} />
+            </div>
         </div>
     </div>
     <div class="metadata">
-        <div class="stars">Starred by {project.flag_project_star_user_count} users</div>
-        <Usage project_usage={project.project_usage}/>
-        <div data-label="Maintenance status">
-            {#if project.taxonomy_vocabulary_44}
-                {project.maintenance_status}
-            {:else}
-                <span>Unknown</span>
-            {/if}
+        <div class="right">
+            <Usage project_usage={project.project_usage} project_usage_total={project.project_usage_total} />
         </div>
-        <div data-label="Development status">
-            {#if project.taxonomy_vocabulary_46}
-                {project.development_status}
-            {:else}
-                <span>Unknown</span>
-            {/if}
-        </div>
+        <TaxonomyTerm taxonomy_term_reference={project.taxonomy_vocabulary_44} wrapper_class="maintenance-status" />
+        <TaxonomyTerm taxonomy_term_reference={project.taxonomy_vocabulary_46} wrapper_class="development-status" />
         <LastUpdated changed={project.changed} />
+        <div class="stars"><span title="Starred by {project.flag_project_star_user_count} users">&#11088;&nbsp;&nbsp;{project.flag_project_star_user_count}</span></div>
         <Categories taxonomy_vocabulary_3={project.taxonomy_vocabulary_3}/>
     </div>
 </div>

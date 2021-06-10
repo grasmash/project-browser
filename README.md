@@ -19,7 +19,8 @@
       drush si -y
    
       # Enable the module.
-      drush en project_browser -y
+      drush en project_browser claro -y
+      # @todo set Claro as admin theme.
       drush uli
       # visit /admin/modules/browse 
       # visit /drupal-org-proxy/project to see all projects

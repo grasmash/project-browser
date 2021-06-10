@@ -9,6 +9,7 @@
     }
 </style>
 {#if typeof field_project_images !== "undefined" && field_project_images.length}
+    <!-- @todo make clickable and show all images in modal carousel or something -->
     {#await fetchEntity(field_project_images[0].file.uri)}
         <span>...waiting</span>
     {:then file}

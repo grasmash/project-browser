@@ -20,7 +20,8 @@ class DrupalOrgProject
     public $type;
     public $title;
     public $url;
-    public $project_usage;
+    public $project_usage = [];
+    public $project_usage_total = 0;
     public $field_security_advisory_coverage;
     public $field_project_machine_name;
     public $field_supporting_organizations = [];
@@ -31,11 +32,9 @@ class DrupalOrgProject
 
     // Maintenance status.
     public $taxonomy_vocabulary_44;
-    public ?string $maintenance_status;
 
     // Development status.
     public $taxonomy_vocabulary_46;
-    public ?string $development_status;
 
     // Non-public properties.
     protected $sticky;
@@ -139,6 +138,10 @@ class DrupalOrgProject
 
         if (array_key_exists('project_usage', $project)) {
             $this->project_usage = $project['project_usage'];
+
+            foreach ($this->project_usage as $version => $usage) {
+                $this->project_usage_total += $usage;
+            }
         }
 
         // Module categories
@@ -147,13 +150,11 @@ class DrupalOrgProject
         // Maintenance status
         if (array_key_exists('taxonomy_vocabulary_44', $project) && $project['taxonomy_vocabulary_44']) {
             $this->taxonomy_vocabulary_44 = $project['taxonomy_vocabulary_44'];
-            $this->maintenance_status = MaintenanceStatus::getStatusString($this->taxonomy_vocabulary_44['id']);
         }
 
         // Development status
         if (array_key_exists('taxonomy_vocabulary_46', $project) && $project['taxonomy_vocabulary_46']) {
             $this->taxonomy_vocabulary_46 = $project['taxonomy_vocabulary_46'];
-            $this->development_status = DevelopmentStatus::getStatusString($this->taxonomy_vocabulary_46['id']);
         }
     }
 

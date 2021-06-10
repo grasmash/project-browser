@@ -70,7 +70,7 @@
         clear: both;
         flex-wrap: wrap;
         justify-content: space-between;
-        margin: 2em;
+        margin-top: 1em;
     }
     .center {
         text-align: center;

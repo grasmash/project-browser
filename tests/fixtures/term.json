@@ -1,0 +1,26 @@
+{
+  "tid": "13028",
+  "name": "Actively maintained",
+  "description": "<p>Maintainers strive to actively monitor issues and respond in a timely manner.</p>",
+  "weight": "0",
+  "node_count": 10,
+  "url": "https://www.drupal.org/taxonomy/term/13028",
+  "vocabulary": {
+    "uri": "https://www.drupal.org/api-d7/taxonomy_vocabulary/44",
+    "id": "44",
+    "resource": "taxonomy_vocabulary"
+  },
+  "parent": [
+
+  ],
+  "parents_all": [
+    {
+      "uri": "https://www.drupal.org/api-d7/taxonomy_term/13028",
+      "id": "13028",
+      "resource": "taxonomy_term"
+    }
+  ],
+  "feeds_item_guid": null,
+  "feeds_item_url": null,
+  "feed_nid": null
+}
