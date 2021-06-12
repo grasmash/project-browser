@@ -108,5 +108,9 @@
         </button>
     </li>
 </ul>
-<div>{count} projects</div>
+<div>
+    {#if count}
+        {count} projects
+    {/if}
+</div>
 </div>

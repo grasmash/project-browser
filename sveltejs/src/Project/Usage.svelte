@@ -19,13 +19,13 @@
 </script>
 <div class="usage" data-label="Usage">
     {#if project_usage}
-        <div class="total"><span title="This total includes usage data from versions that are not compatible with your installation and therefore not displayed here">{project_usage_total} active installations [all branches]</span></div>
+        <div class="total"><span title="This total includes usage data from versions that are not compatible with your installation and therefore not displayed here">{new Intl.NumberFormat('en-US').format(project_usage_total)} active installations [all branches]</span></div>
         <div class="project-usage">
             <ul>
                 {#each Object.entries(project_usage) as [key, val] (key) }
                     {#if isCompatible(key)}
                         <li>
-                            <span class="check">&#x2714;</span>{val} active installations [{key} branch]
+                            <span class="check">&#x2714;</span>{new Intl.NumberFormat('en-US').format(val)} active installations [{key} branch]
                         </li>
                     {/if}
                 {/each}

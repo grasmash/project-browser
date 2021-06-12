@@ -20,7 +20,7 @@
    
       # Enable the module.
       drush en project_browser claro -y
-      # @todo set Claro as admin theme.
+      drush cset system.theme admin claro
       drush uli
       # visit /admin/modules/browse 
       # visit /drupal-org-proxy/project to see all projects
@@ -94,12 +94,21 @@ like React or Vue.
 
 ## Issues to address:
 
+### Project Browser
 1. Add a "curated" or "suggested" modules section on top of the full module list.
-1. Get the "search" field to work against multiple fields and partial values.
-1. Add a bunch of filters to the project browser.   
-1. Figure out how to use Drupal.org to:
-    * Filter projects by core compatibility.
-    * Filter projects using a text string.
-    * List project releases without a ton of requests.
-    * Sort using multiple criteria.
-1. Get the URL of a file in field_images
+1. Add a bunch of filters to the project browser as an advanced search option.
+1. Add a lightbox to view multiple project images as full screen carousel
+1. Change pager to match Claro pager style.
+1. Make single column grid for mobile breakpoint.
+1. Move project to project_browser module namespace on Drupal.org.
+1. Stop committing sveltejs/public/build, only commit on tagged releases.
+1. Add testing!
+1. Correct how to determine core compatibility. E.g., 1.0.2 will not show as D9 compatible. @see isCompatible(). Probably need to fetch actual release nodes.
+
+### Blocked by Drupal.org API:
+1. Filter by core compatibility
+1. Sort by stars
+1. Sort by usage
+1. Allow keyword search (not exact title)
+
+@see https://www.drupal.org/project/infrastructure/issues/3218285

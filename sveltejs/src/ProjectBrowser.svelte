@@ -28,6 +28,7 @@
      */
     async function load(_page) {
         loading = true;
+        rowsCount = 0;
         // Additional query parameters are hardcoded in DrupalOrgProxyController::getAll();
         let url = "http://local.project-browser.com/drupal-org-proxy/project?page=" + _page + "&limit=" + pageSize + "&tab=" + tab;
         // "&sort=" + sortKeys + "&direction=" + sortDirection +

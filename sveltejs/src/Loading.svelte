@@ -5,7 +5,7 @@
         border-radius: 50%;
     }
     .loader {
-        margin: 10em auto;
+        margin: 12em auto;
         color: #53B0EB;
         font-size: 11px;
         text-indent: -99999em;
