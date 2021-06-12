@@ -15,13 +15,14 @@
         list-style: none;
         text-transform: lowercase;
         display: inline-block;
-        margin-top: 5px;
-        margin-bottom: 5px;
-        margin-right: 5px;
+        margin-top: 2px;
+        margin-bottom: 2px;
+        margin-right: 2px;
         padding: 2px 5px;
         border: 1px solid #d5d5d5;
         border-radius: 3px;
         background-color: #f0f0f0;
+        font-size: .8em;
     }
 </style>
 <div class="categories" data-label="Categories">

@@ -34,8 +34,8 @@ h3 a {
     padding: 1em;
 }
 .left {
-    min-width: 150px;
-    width: 150px;
+    min-width: 100px;
+    width: 100px;
     overflow: hidden;
     margin: 0 1em 0 0;
     text-align: center;
@@ -79,7 +79,9 @@ h3 a {
             </h3>
             <div class="body">{@html project.body.summary}</div>
             <div class="suffix">
-                <div class="author">By <a href="https://www.drupal.org/user/{project.author.id}" target="_blank">{project.author.name}</a></div>
+                {#if project.author}
+                    <div class="author">By <a href="https://www.drupal.org/user/{project.author.id}" target="_blank">{project.author.name}</a></div>
+                {/if}
                 <SupportingOrganization field_supporting_organizations={project.field_supporting_organizations} />
             </div>
         </div>

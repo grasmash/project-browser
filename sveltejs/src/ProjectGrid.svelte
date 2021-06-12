@@ -4,6 +4,7 @@
     } from "./Pagination.svelte";
     import Search, { setLabels as _setSearchLabels } from "./Search.svelte";
     import Sort, { setLabels as _setSortLabels } from "./Sort.svelte";
+    import Loading from "./Loading.svelte";
     export { Pagination, Search, Sort };
 
     let globalLabels;
@@ -106,7 +107,7 @@
 <div class={'grid ' + $$props.class} class:responsive>
     <slot name="head" />
     {#if loading}
-        <div class="loading">{@html labels.loading}</div>
+        <Loading />
     {:else if visibleRows.length === 0}
         <div>{@html labels.empty}</div>
     {:else}

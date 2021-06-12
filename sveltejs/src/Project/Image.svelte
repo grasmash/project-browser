@@ -4,7 +4,7 @@
 </script>
 <style>
     img {
-        width: 150px;
+        width: 100px;
         border-radius: 5px;
     }
 </style>

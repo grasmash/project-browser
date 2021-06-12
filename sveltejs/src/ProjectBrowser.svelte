@@ -13,9 +13,7 @@
     // Total result set size.
     let rowsCount = 0;
     let text = '';
-    //let sorting = 'title';
-    //let sortKeys = 'title';
-    //let sortDirection = 'ASC';
+    let category;
     let tab = 'recommended';
 
     /**
@@ -36,11 +34,22 @@
         if (text) {
             url = url + "&title=" + text;
         }
+        if (category) {
+            url = url + "&taxonomy_vocabulary_3=" + category;
+        }
+        console.log(url);
         const res = await fetch(url);
-        data = await res.json();
-        rows = data.list;
-        console.log(data);
-        rowsCount = getRowCount(data);
+        if (res.ok) {
+            data = await res.json();
+            rows = data.list;
+            console.log(data);
+            rowsCount = getRowCount(data);
+        }
+        else {
+            rows = [];
+            rowsCount = 0;
+        }
+
         loading = false;
     }
 
@@ -79,10 +88,10 @@
         page = 0;
     }
 
-    async function onSort(event) {
-        sortKeys = event.detail.key;
-        sortDirection = String(event.detail.dir).toUpperCase();
+    async function onSelectCategory(event) {
+        category = event.detail.category;
         await load(page);
+        page = 0;
     }
 
     async function showRecommended() {
@@ -117,7 +126,7 @@
             </ul>
         </div>
         <div class="smart-filter-description"><p>Recommended projects must be covered by Drupal's security team, have at least one release, be actively maintained, be a full (not sandbox) project, and have an issue queue available.</p></div>
-        <Search on:search={onSearch} />
+        <Search on:search={onSearch} on:selectCategory={onSelectCategory} />
         <Pagination {page} {pageSize} count={rowsCount} serverSide={true} on:pageChange={onPageChange} />
     </div>
     {#each rows2 as row, index (row)}

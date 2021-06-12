@@ -3,14 +3,11 @@
 namespace Drupal\project_browser\DrupalOrg;
 
 use Drupal\Component\Utility\Unicode;
-use Drupal\KernelTests\Core\Theme\SafeMarkupTestMarkup;
-use Drupal\project_browser\DrupalOrg\Taxonomy\DevelopmentStatus;
-use Drupal\project_browser\DrupalOrg\Taxonomy\MaintenanceStatus;
 
 class DrupalOrgProject
 {
     // Public properties. These are the properties that are exposed to JS.
-    public $author;
+    public $author = [];
     public $body;
     public $created;
     public $changed;
@@ -134,7 +131,9 @@ class DrupalOrgProject
         $this->comments = $project['comments'];
         $this->comment = $project['comment'];
         $this->book_ancestors = $project['book_ancestors'];
-        $this->author = $project['author'];
+        if (array_key_exists('author', $project)) {
+            $this->author = $project['author'];
+        }
 
         if (array_key_exists('project_usage', $project)) {
             $this->project_usage = $project['project_usage'];

@@ -5,7 +5,6 @@
 
 <style>
     h2 {
-        font-size: 1.25rem;
         margin-bottom: 2em;
     }
     pre {
