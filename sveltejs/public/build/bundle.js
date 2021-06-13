@@ -877,10 +877,6 @@ var app = (function () {
         else
             dispatch_dev('SvelteDOMSetAttribute', { node, attribute, value });
     }
-    function prop_dev(node, property, value) {
-        node[property] = value;
-        dispatch_dev('SvelteDOMSetProperty', { node, property, value });
-    }
     function set_data_dev(text, data) {
         data = '' + data;
         if (text.wholeText === data)
@@ -3090,10 +3086,10 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (88:8) {#if page + button >= 0 && page + button <= pageCount}
+    // (61:12) {#if page + button >= 0 && page + button <= pageCount}
     function create_if_block_1$4(ctx) {
     	let li;
-    	let button;
+    	let a;
     	let t_value = /*page*/ ctx[2] + /*button*/ ctx[15] + 1 + "";
     	let t;
     	let mounted;
@@ -3106,21 +3102,22 @@ var app = (function () {
     	const block = {
     		c: function create() {
     			li = element("li");
-    			button = element("button");
+    			a = element("a");
     			t = text(t_value);
-    			attr_dev(button, "class", "svelte-7cltih");
-    			toggle_class(button, "active", /*page*/ ctx[2] === /*page*/ ctx[2] + /*button*/ ctx[15]);
-    			add_location(button, file$d, 89, 16, 2044);
-    			attr_dev(li, "class", "svelte-7cltih");
-    			add_location(li, file$d, 88, 12, 2023);
+    			attr_dev(a, "class", "pager__link");
+    			toggle_class(a, "is-active", /*page*/ ctx[2] === /*page*/ ctx[2] + /*button*/ ctx[15]);
+    			add_location(a, file$d, 64, 20, 1900);
+    			attr_dev(li, "class", "pager__item pager__item--number");
+    			toggle_class(li, "pager__item--active", /*page*/ ctx[2] === /*page*/ ctx[2] + /*button*/ ctx[15]);
+    			add_location(li, file$d, 61, 16, 1747);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, li, anchor);
-    			append_dev(li, button);
-    			append_dev(button, t);
+    			append_dev(li, a);
+    			append_dev(a, t);
 
     			if (!mounted) {
-    				dispose = listen_dev(button, "click", click_handler_2, false, false, false);
+    				dispose = listen_dev(a, "click", click_handler_2, false, false, false);
     				mounted = true;
     			}
     		},
@@ -3129,7 +3126,11 @@ var app = (function () {
     			if (dirty & /*page, buttons*/ 5 && t_value !== (t_value = /*page*/ ctx[2] + /*button*/ ctx[15] + 1 + "")) set_data_dev(t, t_value);
 
     			if (dirty & /*page, buttons*/ 5) {
-    				toggle_class(button, "active", /*page*/ ctx[2] === /*page*/ ctx[2] + /*button*/ ctx[15]);
+    				toggle_class(a, "is-active", /*page*/ ctx[2] === /*page*/ ctx[2] + /*button*/ ctx[15]);
+    			}
+
+    			if (dirty & /*page, buttons*/ 5) {
+    				toggle_class(li, "pager__item--active", /*page*/ ctx[2] === /*page*/ ctx[2] + /*button*/ ctx[15]);
     			}
     		},
     		d: function destroy(detaching) {
@@ -3143,14 +3144,14 @@ var app = (function () {
     		block,
     		id: create_if_block_1$4.name,
     		type: "if",
-    		source: "(88:8) {#if page + button >= 0 && page + button <= pageCount}",
+    		source: "(61:12) {#if page + button >= 0 && page + button <= pageCount}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (87:4) {#each buttons as button}
+    // (60:8) {#each buttons as button}
     function create_each_block$4(ctx) {
     	let if_block_anchor;
     	let if_block = /*page*/ ctx[2] + /*button*/ ctx[15] >= 0 && /*page*/ ctx[2] + /*button*/ ctx[15] <= /*pageCount*/ ctx[4] && create_if_block_1$4(ctx);
@@ -3188,14 +3189,14 @@ var app = (function () {
     		block,
     		id: create_each_block$4.name,
     		type: "each",
-    		source: "(87:4) {#each buttons as button}",
+    		source: "(60:8) {#each buttons as button}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (112:4) {#if count}
+    // (88:4) {#if count}
     function create_if_block$9(ctx) {
     	let t0;
     	let t1;
@@ -3222,7 +3223,7 @@ var app = (function () {
     		block,
     		id: create_if_block$9.name,
     		type: "if",
-    		source: "(112:4) {#if count}",
+    		source: "(88:4) {#if count}",
     		ctx
     	});
 
@@ -3230,34 +3231,34 @@ var app = (function () {
     }
 
     function create_fragment$d(ctx) {
-    	let div1;
+    	let nav;
     	let ul;
     	let li0;
-    	let button0;
+    	let a0;
     	let t0_value = /*labels*/ ctx[3].first + "";
     	let t0;
-    	let button0_disabled_value;
+    	let a0_disabled_value;
     	let t1;
     	let li1;
-    	let button1;
+    	let a1;
     	let t2_value = /*labels*/ ctx[3].previous + "";
     	let t2;
-    	let button1_disabled_value;
+    	let a1_disabled_value;
     	let t3;
     	let t4;
     	let li2;
-    	let button2;
+    	let a2;
     	let t5_value = /*labels*/ ctx[3].next + "";
     	let t5;
-    	let button2_disabled_value;
+    	let a2_disabled_value;
     	let t6;
     	let li3;
-    	let button3;
+    	let a3;
     	let t7_value = /*labels*/ ctx[3].last + "";
     	let t7;
-    	let button3_disabled_value;
+    	let a3_disabled_value;
     	let t8;
-    	let div0;
+    	let div;
     	let mounted;
     	let dispose;
     	let each_value = /*buttons*/ ctx[0];
@@ -3272,14 +3273,14 @@ var app = (function () {
 
     	const block = {
     		c: function create() {
-    			div1 = element("div");
+    			nav = element("nav");
     			ul = element("ul");
     			li0 = element("li");
-    			button0 = element("button");
+    			a0 = element("a");
     			t0 = text(t0_value);
     			t1 = space();
     			li1 = element("li");
-    			button1 = element("button");
+    			a1 = element("a");
     			t2 = text(t2_value);
     			t3 = space();
 
@@ -3289,54 +3290,53 @@ var app = (function () {
 
     			t4 = space();
     			li2 = element("li");
-    			button2 = element("button");
+    			a2 = element("a");
     			t5 = text(t5_value);
     			t6 = space();
     			li3 = element("li");
-    			button3 = element("button");
+    			a3 = element("a");
     			t7 = text(t7_value);
     			t8 = space();
-    			div0 = element("div");
+    			div = element("div");
     			if (if_block) if_block.c();
-    			button0.disabled = button0_disabled_value = /*page*/ ctx[2] === 0;
-    			attr_dev(button0, "class", "svelte-7cltih");
-    			add_location(button0, file$d, 77, 8, 1657);
-    			attr_dev(li0, "class", "svelte-7cltih");
-    			add_location(li0, file$d, 76, 4, 1644);
-    			button1.disabled = button1_disabled_value = /*page*/ ctx[2] === 0;
-    			attr_dev(button1, "class", "svelte-7cltih");
-    			add_location(button1, file$d, 82, 8, 1791);
-    			attr_dev(li1, "class", "svelte-7cltih");
-    			add_location(li1, file$d, 81, 4, 1778);
-    			button2.disabled = button2_disabled_value = /*page*/ ctx[2] > /*pageCount*/ ctx[4] - 1;
-    			attr_dev(button2, "class", "svelte-7cltih");
-    			add_location(button2, file$d, 98, 8, 2309);
-    			attr_dev(li2, "class", "svelte-7cltih");
-    			add_location(li2, file$d, 97, 4, 2296);
-    			button3.disabled = button3_disabled_value = /*page*/ ctx[2] >= /*pageCount*/ ctx[4];
-    			attr_dev(button3, "class", "svelte-7cltih");
-    			add_location(button3, file$d, 105, 8, 2491);
-    			attr_dev(li3, "class", "svelte-7cltih");
-    			add_location(li3, file$d, 104, 4, 2478);
-    			attr_dev(ul, "class", "svelte-7cltih");
-    			add_location(ul, file$d, 75, 0, 1635);
-    			add_location(div0, file$d, 110, 0, 2628);
-    			attr_dev(div1, "class", "pagination svelte-7cltih");
-    			add_location(div1, file$d, 74, 0, 1610);
+    			attr_dev(a0, "class", "pager__link");
+    			attr_dev(a0, "disabled", a0_disabled_value = /*page*/ ctx[2] === 0);
+    			add_location(a0, file$d, 50, 12, 1289);
+    			attr_dev(li0, "class", "pager__item pager__item--number");
+    			add_location(li0, file$d, 49, 8, 1232);
+    			attr_dev(a1, "class", "pager__link");
+    			attr_dev(a1, "disabled", a1_disabled_value = /*page*/ ctx[2] === 0);
+    			add_location(a1, file$d, 55, 8, 1489);
+    			attr_dev(li1, "class", "pager__item pager__item--number");
+    			add_location(li1, file$d, 54, 8, 1436);
+    			attr_dev(a2, "class", "pager__link");
+    			attr_dev(a2, "disabled", a2_disabled_value = /*page*/ ctx[2] > /*pageCount*/ ctx[4] - 1);
+    			add_location(a2, file$d, 73, 12, 2214);
+    			add_location(li2, file$d, 72, 8, 2197);
+    			attr_dev(a3, "class", "pager__link");
+    			attr_dev(a3, "disabled", a3_disabled_value = /*page*/ ctx[2] >= /*pageCount*/ ctx[4]);
+    			add_location(a3, file$d, 80, 12, 2479);
+    			attr_dev(li3, "class", "pager__item pager__item--number");
+    			add_location(li3, file$d, 79, 8, 2422);
+    			attr_dev(ul, "class", "pager__items js-pager__items");
+    			add_location(ul, file$d, 48, 4, 1182);
+    			add_location(div, file$d, 86, 0, 2667);
+    			attr_dev(nav, "class", "pagination pager");
+    			add_location(nav, file$d, 47, 0, 1147);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
     		},
     		m: function mount(target, anchor) {
-    			insert_dev(target, div1, anchor);
-    			append_dev(div1, ul);
+    			insert_dev(target, nav, anchor);
+    			append_dev(nav, ul);
     			append_dev(ul, li0);
-    			append_dev(li0, button0);
-    			append_dev(button0, t0);
+    			append_dev(li0, a0);
+    			append_dev(a0, t0);
     			append_dev(ul, t1);
     			append_dev(ul, li1);
-    			append_dev(li1, button1);
-    			append_dev(button1, t2);
+    			append_dev(li1, a1);
+    			append_dev(a1, t2);
     			append_dev(ul, t3);
 
     			for (let i = 0; i < each_blocks.length; i += 1) {
@@ -3345,22 +3345,22 @@ var app = (function () {
 
     			append_dev(ul, t4);
     			append_dev(ul, li2);
-    			append_dev(li2, button2);
-    			append_dev(button2, t5);
+    			append_dev(li2, a2);
+    			append_dev(a2, t5);
     			append_dev(ul, t6);
     			append_dev(ul, li3);
-    			append_dev(li3, button3);
-    			append_dev(button3, t7);
-    			append_dev(div1, t8);
-    			append_dev(div1, div0);
-    			if (if_block) if_block.m(div0, null);
+    			append_dev(li3, a3);
+    			append_dev(a3, t7);
+    			append_dev(nav, t8);
+    			append_dev(nav, div);
+    			if (if_block) if_block.m(div, null);
 
     			if (!mounted) {
     				dispose = [
-    					listen_dev(button0, "click", /*click_handler*/ ctx[8], false, false, false),
-    					listen_dev(button1, "click", /*click_handler_1*/ ctx[9], false, false, false),
-    					listen_dev(button2, "click", /*click_handler_3*/ ctx[11], false, false, false),
-    					listen_dev(button3, "click", /*click_handler_4*/ ctx[12], false, false, false)
+    					listen_dev(a0, "click", /*click_handler*/ ctx[8], false, false, false),
+    					listen_dev(a1, "click", /*click_handler_1*/ ctx[9], false, false, false),
+    					listen_dev(a2, "click", /*click_handler_3*/ ctx[11], false, false, false),
+    					listen_dev(a3, "click", /*click_handler_4*/ ctx[12], false, false, false)
     				];
 
     				mounted = true;
@@ -3369,14 +3369,14 @@ var app = (function () {
     		p: function update(ctx, [dirty]) {
     			if (dirty & /*labels*/ 8 && t0_value !== (t0_value = /*labels*/ ctx[3].first + "")) set_data_dev(t0, t0_value);
 
-    			if (dirty & /*page*/ 4 && button0_disabled_value !== (button0_disabled_value = /*page*/ ctx[2] === 0)) {
-    				prop_dev(button0, "disabled", button0_disabled_value);
+    			if (dirty & /*page*/ 4 && a0_disabled_value !== (a0_disabled_value = /*page*/ ctx[2] === 0)) {
+    				attr_dev(a0, "disabled", a0_disabled_value);
     			}
 
     			if (dirty & /*labels*/ 8 && t2_value !== (t2_value = /*labels*/ ctx[3].previous + "")) set_data_dev(t2, t2_value);
 
-    			if (dirty & /*page*/ 4 && button1_disabled_value !== (button1_disabled_value = /*page*/ ctx[2] === 0)) {
-    				prop_dev(button1, "disabled", button1_disabled_value);
+    			if (dirty & /*page*/ 4 && a1_disabled_value !== (a1_disabled_value = /*page*/ ctx[2] === 0)) {
+    				attr_dev(a1, "disabled", a1_disabled_value);
     			}
 
     			if (dirty & /*page, buttons, onChange, pageCount*/ 53) {
@@ -3405,14 +3405,14 @@ var app = (function () {
 
     			if (dirty & /*labels*/ 8 && t5_value !== (t5_value = /*labels*/ ctx[3].next + "")) set_data_dev(t5, t5_value);
 
-    			if (dirty & /*page, pageCount*/ 20 && button2_disabled_value !== (button2_disabled_value = /*page*/ ctx[2] > /*pageCount*/ ctx[4] - 1)) {
-    				prop_dev(button2, "disabled", button2_disabled_value);
+    			if (dirty & /*page, pageCount*/ 20 && a2_disabled_value !== (a2_disabled_value = /*page*/ ctx[2] > /*pageCount*/ ctx[4] - 1)) {
+    				attr_dev(a2, "disabled", a2_disabled_value);
     			}
 
     			if (dirty & /*labels*/ 8 && t7_value !== (t7_value = /*labels*/ ctx[3].last + "")) set_data_dev(t7, t7_value);
 
-    			if (dirty & /*page, pageCount*/ 20 && button3_disabled_value !== (button3_disabled_value = /*page*/ ctx[2] >= /*pageCount*/ ctx[4])) {
-    				prop_dev(button3, "disabled", button3_disabled_value);
+    			if (dirty & /*page, pageCount*/ 20 && a3_disabled_value !== (a3_disabled_value = /*page*/ ctx[2] >= /*pageCount*/ ctx[4])) {
+    				attr_dev(a3, "disabled", a3_disabled_value);
     			}
 
     			if (/*count*/ ctx[1]) {
@@ -3421,7 +3421,7 @@ var app = (function () {
     				} else {
     					if_block = create_if_block$9(ctx);
     					if_block.c();
-    					if_block.m(div0, null);
+    					if_block.m(div, null);
     				}
     			} else if (if_block) {
     				if_block.d(1);
@@ -3431,7 +3431,7 @@ var app = (function () {
     		i: noop,
     		o: noop,
     		d: function destroy(detaching) {
-    			if (detaching) detach_dev(div1);
+    			if (detaching) detach_dev(nav);
     			destroy_each(each_blocks, detaching);
     			if (if_block) if_block.d();
     			mounted = false;
@@ -4426,24 +4426,28 @@ var app = (function () {
     	let t18;
     	let a2;
     	let t20;
-    	let h31;
-    	let t22;
     	let p4;
-    	let t23;
+    	let t21;
     	let a3;
-    	let t24;
-    	let a3_href_value;
+    	let t23;
+    	let h31;
     	let t25;
-    	let t26;
     	let p5;
-    	let t27;
+    	let t26;
     	let a4;
+    	let t27;
+    	let a4_href_value;
+    	let t28;
     	let t29;
+    	let p6;
     	let t30;
-    	let pre1;
-    	let t31;
-    	let t32_value = /*project*/ ctx[0].field_project_machine_name + "";
+    	let a5;
     	let t32;
+    	let t33;
+    	let pre1;
+    	let t34;
+    	let t35_value = /*project*/ ctx[0].field_project_machine_name + "";
+    	let t35;
 
     	const block = {
     		c: function create() {
@@ -4474,28 +4478,33 @@ var app = (function () {
     			p2.textContent = "This will download the module to your codebase.";
     			t17 = space();
     			p3 = element("p");
-    			t18 = text("If you cannot use Composer, you may ");
+    			t18 = text("Didn't work? ");
     			a2 = element("a");
-    			a2.textContent = "download the module manually through your browser.";
+    			a2.textContent = "Learn how to troubleshoot Composer.";
     			t20 = space();
+    			p4 = element("p");
+    			t21 = text("If you cannot use Composer, you may ");
+    			a3 = element("a");
+    			a3.textContent = "download the module manually through your browser.";
+    			t23 = space();
     			h31 = element("h3");
     			h31.textContent = "2. Install";
-    			t22 = space();
-    			p4 = element("p");
-    			t23 = text("To use the module you must next install/enable it. Visit the ");
-    			a3 = element("a");
-    			t24 = text("modules page");
-    			t25 = text(" to install the module using your web browser.");
-    			t26 = space();
+    			t25 = space();
     			p5 = element("p");
-    			t27 = text("Alternatively, you can use ");
+    			t26 = text("To use the module you must next install/enable it. Visit the ");
     			a4 = element("a");
-    			a4.textContent = "drush";
-    			t29 = text(" to enable it via the CLI:");
-    			t30 = space();
+    			t27 = text("modules page");
+    			t28 = text(" to install the module using your web browser.");
+    			t29 = space();
+    			p6 = element("p");
+    			t30 = text("Alternatively, you can use ");
+    			a5 = element("a");
+    			a5.textContent = "drush";
+    			t32 = text(" to enable it via the CLI:");
+    			t33 = space();
     			pre1 = element("pre");
-    			t31 = text("drush pm-enable ");
-    			t32 = text(t32_value);
+    			t34 = text("drush pm-enable ");
+    			t35 = text(t35_value);
     			attr_dev(h2, "class", "svelte-1y5u94f");
     			add_location(h2, file$b, 29, 0, 646);
     			add_location(h30, file$b, 31, 0, 672);
@@ -4510,21 +4519,23 @@ var app = (function () {
     			attr_dev(pre0, "class", "svelte-1y5u94f");
     			add_location(pre0, file$b, 37, 0, 1171);
     			add_location(p2, file$b, 41, 0, 1274);
-    			attr_dev(a2, "href", "https://www.drupal.org/docs/user_guide/en/extend-module-install.html#s-using-the-administrative-interface");
-    			attr_dev(a2, "target", "_blank");
-    			add_location(a2, file$b, 43, 39, 1369);
-    			add_location(p3, file$b, 43, 0, 1330);
-    			add_location(h31, file$b, 45, 0, 1561);
-    			attr_dev(a3, "href", a3_href_value = "/admin/modules#module-" + /*project*/ ctx[0].field_project_machine_name);
+    			add_location(a2, file$b, 42, 16, 1345);
+    			add_location(p3, file$b, 42, 0, 1329);
+    			attr_dev(a3, "href", "https://www.drupal.org/docs/user_guide/en/extend-module-install.html#s-using-the-administrative-interface");
     			attr_dev(a3, "target", "_blank");
-    			add_location(a3, file$b, 47, 64, 1646);
-    			add_location(p4, file$b, 47, 0, 1582);
-    			attr_dev(a4, "href", "https://www.drush.org/latest/");
+    			add_location(a3, file$b, 44, 39, 1432);
+    			add_location(p4, file$b, 44, 0, 1393);
+    			add_location(h31, file$b, 46, 0, 1624);
+    			attr_dev(a4, "href", a4_href_value = "/admin/modules#module-" + /*project*/ ctx[0].field_project_machine_name);
     			attr_dev(a4, "target", "_blank");
-    			add_location(a4, file$b, 48, 30, 1828);
-    			add_location(p5, file$b, 48, 0, 1798);
+    			add_location(a4, file$b, 48, 64, 1709);
+    			add_location(p5, file$b, 48, 0, 1645);
+    			attr_dev(a5, "href", "https://www.drush.org/latest/");
+    			attr_dev(a5, "target", "_blank");
+    			add_location(a5, file$b, 49, 30, 1891);
+    			add_location(p6, file$b, 49, 0, 1861);
     			attr_dev(pre1, "class", "svelte-1y5u94f");
-    			add_location(pre1, file$b, 49, 0, 1924);
+    			add_location(pre1, file$b, 50, 0, 1987);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -4555,32 +4566,36 @@ var app = (function () {
     			append_dev(p3, t18);
     			append_dev(p3, a2);
     			insert_dev(target, t20, anchor);
-    			insert_dev(target, h31, anchor);
-    			insert_dev(target, t22, anchor);
     			insert_dev(target, p4, anchor);
-    			append_dev(p4, t23);
+    			append_dev(p4, t21);
     			append_dev(p4, a3);
-    			append_dev(a3, t24);
-    			append_dev(p4, t25);
-    			insert_dev(target, t26, anchor);
+    			insert_dev(target, t23, anchor);
+    			insert_dev(target, h31, anchor);
+    			insert_dev(target, t25, anchor);
     			insert_dev(target, p5, anchor);
-    			append_dev(p5, t27);
+    			append_dev(p5, t26);
     			append_dev(p5, a4);
-    			append_dev(p5, t29);
-    			insert_dev(target, t30, anchor);
+    			append_dev(a4, t27);
+    			append_dev(p5, t28);
+    			insert_dev(target, t29, anchor);
+    			insert_dev(target, p6, anchor);
+    			append_dev(p6, t30);
+    			append_dev(p6, a5);
+    			append_dev(p6, t32);
+    			insert_dev(target, t33, anchor);
     			insert_dev(target, pre1, anchor);
-    			append_dev(pre1, t31);
-    			append_dev(pre1, t32);
+    			append_dev(pre1, t34);
+    			append_dev(pre1, t35);
     		},
     		p: function update(ctx, [dirty]) {
     			if (dirty & /*project*/ 1 && t0_value !== (t0_value = /*project*/ ctx[0].title + "")) set_data_dev(t0, t0_value);
     			if (dirty & /*project*/ 1 && t13_value !== (t13_value = /*project*/ ctx[0].field_project_machine_name + "")) set_data_dev(t13, t13_value);
 
-    			if (dirty & /*project*/ 1 && a3_href_value !== (a3_href_value = "/admin/modules#module-" + /*project*/ ctx[0].field_project_machine_name)) {
-    				attr_dev(a3, "href", a3_href_value);
+    			if (dirty & /*project*/ 1 && a4_href_value !== (a4_href_value = "/admin/modules#module-" + /*project*/ ctx[0].field_project_machine_name)) {
+    				attr_dev(a4, "href", a4_href_value);
     			}
 
-    			if (dirty & /*project*/ 1 && t32_value !== (t32_value = /*project*/ ctx[0].field_project_machine_name + "")) set_data_dev(t32, t32_value);
+    			if (dirty & /*project*/ 1 && t35_value !== (t35_value = /*project*/ ctx[0].field_project_machine_name + "")) set_data_dev(t35, t35_value);
     		},
     		i: noop,
     		o: noop,
@@ -4599,12 +4614,14 @@ var app = (function () {
     			if (detaching) detach_dev(t17);
     			if (detaching) detach_dev(p3);
     			if (detaching) detach_dev(t20);
-    			if (detaching) detach_dev(h31);
-    			if (detaching) detach_dev(t22);
     			if (detaching) detach_dev(p4);
-    			if (detaching) detach_dev(t26);
+    			if (detaching) detach_dev(t23);
+    			if (detaching) detach_dev(h31);
+    			if (detaching) detach_dev(t25);
     			if (detaching) detach_dev(p5);
-    			if (detaching) detach_dev(t30);
+    			if (detaching) detach_dev(t29);
+    			if (detaching) detach_dev(p6);
+    			if (detaching) detach_dev(t33);
     			if (detaching) detach_dev(pre1);
     		}
     	};
@@ -5485,7 +5502,7 @@ var app = (function () {
     /* src/Project/Image.svelte generated by Svelte v3.38.2 */
     const file$8 = "src/Project/Image.svelte";
 
-    // (20:0) {:else}
+    // (27:0) {:else}
     function create_else_block$1(ctx) {
     	let img;
     	let img_src_value;
@@ -5495,8 +5512,8 @@ var app = (function () {
     			img = element("img");
     			if (img.src !== (img_src_value = "/" + drupalSettings.project_browser.module_path + "/images/placeholder-image.png")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "Placeholder image");
-    			attr_dev(img, "class", "svelte-6y8ufr");
-    			add_location(img, file$8, 20, 4, 629);
+    			attr_dev(img, "class", "svelte-rnky1o");
+    			add_location(img, file$8, 27, 4, 840);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, img, anchor);
@@ -5511,14 +5528,14 @@ var app = (function () {
     		block,
     		id: create_else_block$1.name,
     		type: "else",
-    		source: "(20:0) {:else}",
+    		source: "(27:0) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (11:0) {#if typeof field_project_images !== "undefined" && field_project_images.length}
+    // (18:0) {#if typeof field_project_images !== "undefined" && field_project_images.length}
     function create_if_block$5(ctx) {
     	let await_block_anchor;
     	let promise;
@@ -5568,14 +5585,14 @@ var app = (function () {
     		block,
     		id: create_if_block$5.name,
     		type: "if",
-    		source: "(11:0) {#if typeof field_project_images !== \\\"undefined\\\" && field_project_images.length}",
+    		source: "(18:0) {#if typeof field_project_images !== \\\"undefined\\\" && field_project_images.length}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (17:4) {:catch error}
+    // (24:4) {:catch error}
     function create_catch_block$2(ctx) {
     	let span;
     	let t_value = /*error*/ ctx[2].message + "";
@@ -5586,7 +5603,7 @@ var app = (function () {
     			span = element("span");
     			t = text(t_value);
     			set_style(span, "color", "red");
-    			add_location(span, file$8, 17, 8, 556);
+    			add_location(span, file$8, 24, 8, 767);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, span, anchor);
@@ -5604,14 +5621,14 @@ var app = (function () {
     		block,
     		id: create_catch_block$2.name,
     		type: "catch",
-    		source: "(17:4) {:catch error}",
+    		source: "(24:4) {:catch error}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (15:4) {:then file}
+    // (22:4) {:then file}
     function create_then_block$2(ctx) {
     	let img;
     	let img_src_value;
@@ -5622,8 +5639,8 @@ var app = (function () {
     			img = element("img");
     			if (img.src !== (img_src_value = /*file*/ ctx[1].url)) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", img_alt_value = /*field_project_images*/ ctx[0][0].alt);
-    			attr_dev(img, "class", "svelte-6y8ufr");
-    			add_location(img, file$8, 15, 8, 469);
+    			attr_dev(img, "class", "svelte-rnky1o");
+    			add_location(img, file$8, 22, 8, 680);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, img, anchor);
@@ -5646,14 +5663,14 @@ var app = (function () {
     		block,
     		id: create_then_block$2.name,
     		type: "then",
-    		source: "(15:4) {:then file}",
+    		source: "(22:4) {:then file}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (13:58)          <span>...waiting</span>     {:then file}
+    // (20:58)          <span>...waiting</span>     {:then file}
     function create_pending_block$2(ctx) {
     	let span;
 
@@ -5661,7 +5678,7 @@ var app = (function () {
     		c: function create() {
     			span = element("span");
     			span.textContent = "...waiting";
-    			add_location(span, file$8, 13, 8, 420);
+    			add_location(span, file$8, 20, 8, 631);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, span, anchor);
@@ -5676,7 +5693,7 @@ var app = (function () {
     		block,
     		id: create_pending_block$2.name,
     		type: "pending",
-    		source: "(13:58)          <span>...waiting</span>     {:then file}",
+    		source: "(20:58)          <span>...waiting</span>     {:then file}",
     		ctx
     	});
 
@@ -6233,11 +6250,11 @@ var app = (function () {
     			}
 
     			attr_dev(span, "title", "This total includes usage data from versions that are not compatible with your installation and therefore not displayed here");
-    			attr_dev(span, "class", "svelte-fv0p7z");
+    			attr_dev(span, "class", "svelte-prs358");
     			add_location(span, file$6, 21, 27, 715);
-    			attr_dev(div0, "class", "total svelte-fv0p7z");
+    			attr_dev(div0, "class", "total svelte-prs358");
     			add_location(div0, file$6, 21, 8, 696);
-    			attr_dev(ul, "class", "svelte-fv0p7z");
+    			attr_dev(ul, "class", "svelte-prs358");
     			add_location(ul, file$6, 23, 12, 1012);
     			attr_dev(div1, "class", "project-usage");
     			add_location(div1, file$6, 22, 8, 972);
@@ -6307,9 +6324,9 @@ var app = (function () {
     			t2 = text(" active installations [");
     			t3 = text(t3_value);
     			t4 = text(" branch]\n                        ");
-    			attr_dev(span, "class", "check svelte-fv0p7z");
+    			attr_dev(span, "class", "check svelte-prs358");
     			add_location(span, file$6, 27, 28, 1193);
-    			attr_dev(li, "class", "svelte-fv0p7z");
+    			attr_dev(li, "class", "svelte-prs358");
     			add_location(li, file$6, 26, 24, 1160);
     		},
     		m: function mount(target, anchor) {
@@ -6404,7 +6421,7 @@ var app = (function () {
     		c: function create() {
     			span = element("span");
     			span.textContent = "Not compatible with your Drupal installation.";
-    			attr_dev(span, "class", "not-compatible svelte-fv0p7z");
+    			attr_dev(span, "class", "not-compatible svelte-prs358");
     			add_location(span, file$6, 41, 8, 1661);
     		},
     		m: function mount(target, anchor) {
@@ -6434,7 +6451,7 @@ var app = (function () {
     		c: function create() {
     			span = element("span");
     			span.textContent = "✔ Compatible with your Drupal installation";
-    			attr_dev(span, "class", "compatible svelte-fv0p7z");
+    			attr_dev(span, "class", "compatible svelte-prs358");
     			add_location(span, file$6, 39, 8, 1559);
     		},
     		m: function mount(target, anchor) {
@@ -6484,10 +6501,10 @@ var app = (function () {
     			t = space();
     			div1 = element("div");
     			if_block1.c();
-    			attr_dev(div0, "class", "usage svelte-fv0p7z");
+    			attr_dev(div0, "class", "usage");
     			attr_dev(div0, "data-label", "Usage");
     			add_location(div0, file$6, 19, 0, 625);
-    			attr_dev(div1, "class", "compatibility svelte-fv0p7z");
+    			attr_dev(div1, "class", "compatibility svelte-prs358");
     			add_location(div1, file$6, 37, 0, 1491);
     		},
     		l: function claim(nodes) {
@@ -7229,7 +7246,7 @@ var app = (function () {
     /* src/Project/Project.svelte generated by Svelte v3.38.2 */
     const file$2 = "src/Project/Project.svelte";
 
-    // (82:16) {#if project.author}
+    // (92:16) {#if project.author}
     function create_if_block(ctx) {
     	let div;
     	let t0;
@@ -7246,10 +7263,10 @@ var app = (function () {
     			t1 = text(t1_value);
     			attr_dev(a, "href", a_href_value = "https://www.drupal.org/user/" + /*project*/ ctx[0].author.id);
     			attr_dev(a, "target", "_blank");
-    			attr_dev(a, "class", "svelte-5ifiip");
-    			add_location(a, file$2, 82, 43, 2010);
-    			attr_dev(div, "class", "author svelte-5ifiip");
-    			add_location(div, file$2, 82, 20, 1987);
+    			attr_dev(a, "class", "svelte-1r1oj19");
+    			add_location(a, file$2, 92, 43, 2409);
+    			attr_dev(div, "class", "author svelte-1r1oj19");
+    			add_location(div, file$2, 92, 20, 2386);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -7273,7 +7290,7 @@ var app = (function () {
     		block,
     		id: create_if_block.name,
     		type: "if",
-    		source: "(82:16) {#if project.author}",
+    		source: "(92:16) {#if project.author}",
     		ctx
     	});
 
@@ -7427,32 +7444,32 @@ var app = (function () {
     			t13 = text(t13_value);
     			t14 = space();
     			create_component(categories.$$.fragment);
-    			attr_dev(div0, "class", "left svelte-5ifiip");
-    			add_location(div0, file$2, 71, 8, 1498);
+    			attr_dev(div0, "class", "left svelte-1r1oj19");
+    			add_location(div0, file$2, 81, 8, 1897);
     			attr_dev(a, "href", a_href_value = /*project*/ ctx[0].url);
     			attr_dev(a, "target", "_blank");
-    			attr_dev(a, "class", "svelte-5ifiip");
-    			add_location(a, file$2, 76, 16, 1666);
-    			attr_dev(h3, "class", "svelte-5ifiip");
-    			add_location(h3, file$2, 75, 12, 1645);
-    			attr_dev(div1, "class", "body svelte-5ifiip");
-    			add_location(div1, file$2, 79, 12, 1844);
-    			attr_dev(div2, "class", "suffix svelte-5ifiip");
-    			add_location(div2, file$2, 80, 12, 1909);
+    			attr_dev(a, "class", "svelte-1r1oj19");
+    			add_location(a, file$2, 86, 16, 2065);
+    			attr_dev(h3, "class", "svelte-1r1oj19");
+    			add_location(h3, file$2, 85, 12, 2044);
+    			attr_dev(div1, "class", "body svelte-1r1oj19");
+    			add_location(div1, file$2, 89, 12, 2243);
+    			attr_dev(div2, "class", "suffix svelte-1r1oj19");
+    			add_location(div2, file$2, 90, 12, 2308);
     			attr_dev(div3, "class", "right");
-    			add_location(div3, file$2, 74, 8, 1613);
-    			attr_dev(div4, "class", "main svelte-5ifiip");
-    			add_location(div4, file$2, 69, 4, 1429);
-    			attr_dev(div5, "class", "right svelte-5ifiip");
-    			add_location(div5, file$2, 89, 8, 2333);
+    			add_location(div3, file$2, 84, 8, 2012);
+    			attr_dev(div4, "class", "main svelte-1r1oj19");
+    			add_location(div4, file$2, 79, 4, 1828);
+    			attr_dev(div5, "class", "right svelte-1r1oj19");
+    			add_location(div5, file$2, 99, 8, 2732);
     			attr_dev(span, "title", span_title_value = "Starred by " + /*project*/ ctx[0].flag_project_star_user_count + " users");
-    			add_location(span, file$2, 95, 27, 2789);
+    			add_location(span, file$2, 105, 27, 3188);
     			attr_dev(div6, "class", "stars");
-    			add_location(div6, file$2, 95, 8, 2770);
-    			attr_dev(div7, "class", "metadata svelte-5ifiip");
-    			add_location(div7, file$2, 88, 4, 2302);
-    			attr_dev(div8, "class", "project svelte-5ifiip");
-    			add_location(div8, file$2, 68, 0, 1403);
+    			add_location(div6, file$2, 105, 8, 3169);
+    			attr_dev(div7, "class", "metadata svelte-1r1oj19");
+    			add_location(div7, file$2, 98, 4, 2701);
+    			attr_dev(div8, "class", "project svelte-1r1oj19");
+    			add_location(div8, file$2, 78, 0, 1802);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");

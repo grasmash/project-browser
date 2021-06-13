@@ -43,14 +43,6 @@
     {/if}
 </div>
 <style>
-    .hidden {
-        display: none;
-    }
-    .usage {
-        float: right;
-        clear: right;
-        text-align: right;
-    }
     ul {
         margin: 0;
         padding: 0;
@@ -60,9 +52,6 @@
         text-transform: lowercase;
     }
     .compatibility {
-        padding: .25em;
-        float: right;
-        clear: right;
     }
     .compatible {
         color: green;

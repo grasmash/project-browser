@@ -10,8 +10,35 @@
     import TaxonomyTerm from "./TaxonomyTerm.svelte";
 </script>
 <style>
+    .project {
+        width: 100%;
+    }
+
+    /* Small devices (portrait tablets and large phones, 600px and up) */
+    @media only screen and (min-width: 600px) {
+        .left {
+            min-width: 100px;
+            width: 100px;
+            overflow: hidden;
+            margin: 0 1em 0 0;
+            text-align: center;
+            display: flex;
+            align-items: flex-start;
+        }
+        .metadata .right {
+            float: right;
+            clear: right;
+            text-align: right;
+        }
+    }
+
+    /* Large devices (laptops/desktops, 992px and up) */
+    @media only screen and (min-width: 992px) {
+        .project {
+            width: 49%;
+        }
+    }
 .project {
-    width: 49%;
     border: 1px solid black;
     margin-bottom: 1em;
     border: 1px solid rgba(212, 212, 218, 0.8);
@@ -33,15 +60,6 @@ h3 a {
     position: relative;
     padding: 1em;
 }
-.left {
-    min-width: 100px;
-    width: 100px;
-    overflow: hidden;
-    margin: 0 1em 0 0;
-    text-align: center;
-    display: flex;
-    align-items: flex-start;
-}
 .body {
     margin: 0 0 1em 0;
 }
@@ -51,19 +69,11 @@ h3 a {
     position: relative;
     font-size: .9em;
 }
-.metadata .right {
-    float: right;
-    clear: right;
-    text-align: right;
-}
 .suffix {
     font-size: .9em;
 }
 .author a {
     text-decoration: none;
-}
-.more {
-    margin: 1em 0 0 0;
 }
 </style>
 <div class="project">

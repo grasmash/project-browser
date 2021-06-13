@@ -44,73 +44,49 @@
 </script>
 
 <style>
-    .pagination {
-        clear: both;
-        margin-bottom: 1em;
-    }
-    .active {
-        background-color: rgb(150, 150, 235);
-        color: white;
-    }
-
-    ul {
-        flex: 1;
-        float: right;
-        list-style: none;
-    }
-
-    li {
-        float: left;
-    }
-
-    button {
-        background: transparent;
-        border: 1px solid #ccc;
-        padding: 5px 10px;
-        margin-left: 3px;
-        float: left;
-        cursor: pointer;
-    }
 </style>
-<div class="pagination">
-<ul>
-    <li>
-        <button disabled={page === 0} on:click={e => onChange(e, 0)}>
-            {labels.first}
-        </button>
-    </li>
-    <li>
-        <button disabled={page === 0} on:click={e => onChange(e, page - 1)}>
+<nav class="pagination pager">
+    <ul class="pager__items js-pager__items">
+        <li class="pager__item pager__item--number">
+            <a class="pager__link" disabled={page === 0} on:click={e => onChange(e, 0)}>
+                {labels.first}
+            </a>
+        </li>
+        <li class="pager__item pager__item--number">
+        <a class="pager__link" disabled={page === 0} on:click={e => onChange(e, page - 1)}>
             {labels.previous}
-        </button>
-    </li>
-    {#each buttons as button}
-        {#if page + button >= 0 && page + button <= pageCount}
-            <li>
-                <button
-                        class:active={page === page + button}
-                        on:click={e => onChange(e, page + button)}>
-                    {page + button + 1}
-                </button>
-            </li>
-        {/if}
-    {/each}
-    <li>
-        <button
-                disabled={page > pageCount - 1}
-                on:click={e => onChange(e, page + 1)}>
-            {labels.next}
-        </button>
-    </li>
-    <li>
-        <button disabled={page >= pageCount} on:click={e => onChange(e, pageCount)}>
-            {labels.last}
-        </button>
-    </li>
-</ul>
+        </a>
+        </li>
+        {#each buttons as button}
+            {#if page + button >= 0 && page + button <= pageCount}
+                <li class="pager__item pager__item--number"
+                    class:pager__item--active={page === page + button}
+                >
+                    <a class="pager__link"
+                            class:is-active={page === page + button}
+                            on:click={e => onChange(e, page + button)}>
+                        {page + button + 1}
+                    </a>
+                </li>
+            {/if}
+        {/each}
+        <li>
+            <a      class="pager__link"
+                    disabled={page > pageCount - 1}
+                    on:click={e => onChange(e, page + 1)}>
+                {labels.next}
+            </a>
+        </li>
+        <li class="pager__item pager__item--number">
+            <a      class="pager__link"
+                    disabled={page >= pageCount} on:click={e => onChange(e, pageCount)}>
+                {labels.last}
+            </a>
+        </li>
+    </ul>
 <div>
     {#if count}
         {count} projects
     {/if}
 </div>
-</div>
+</nav>

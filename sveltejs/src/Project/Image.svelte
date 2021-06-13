@@ -4,8 +4,15 @@
 </script>
 <style>
     img {
-        width: 100px;
-        border-radius: 5px;
+        display: none;
+    }
+    /* Small devices (portrait tablets and large phones, 600px and up) */
+    @media only screen and (min-width: 600px) {
+        img {
+            display: block;
+            width: 100px;
+            border-radius: 5px;
+        }
     }
 </style>
 {#if typeof field_project_images !== "undefined" && field_project_images.length}

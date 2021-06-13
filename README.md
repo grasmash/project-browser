@@ -98,7 +98,8 @@ like React or Vue.
 1. Add a "curated" or "suggested" modules section on top of the full module list.
 1. Add a bunch of filters to the project browser as an advanced search option.
 1. Add a lightbox to view multiple project images as full screen carousel
-1. Change pager to match Claro pager style.
+1. Fire event in DrupalOrgProxy allowing query to be modified before request to D.O.
+1. Fire event in DrupalOrgProxy allowing projects to be modified sending response.
 1. Make single column grid for mobile breakpoint.
 1. Move project to project_browser module namespace on Drupal.org.
 1. Stop committing sveltejs/public/build, only commit on tagged releases.

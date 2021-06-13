@@ -40,6 +40,7 @@ for your application:</p>
 </pre>
 
 <p>This will download the module to your codebase.</p>
+<p>Didn't work? <a>Learn how to troubleshoot Composer.</a></p>
 
 <p>If you cannot use Composer, you may <a href="https://www.drupal.org/docs/user_guide/en/extend-module-install.html#s-using-the-administrative-interface" target="_blank">download the module manually through your browser.</a></p>
 
