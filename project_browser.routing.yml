@@ -11,6 +11,19 @@ project_browser.api_project_get_all:
     _access: 'TRUE'
   #options:
   #  no_cache: 'TRUE'
+project_browser.api_project_get_releases:
+  path: '/drupal-org-proxy/project/releases'
+  methods: [GET]
+  defaults:
+    _controller: '\Drupal\project_browser\Controller\DrupalOrgProxyController::getProjectReleases'
+    _title: 'Get all project releases'
+  requirements:
+    #_permission: 'manage own subscriptions+administer subscriptions'
+    #_user_is_logged_in: 'TRUE'
+    # @todo Undo this access bypass!
+    _access: 'TRUE'
+  #options:
+  #  no_cache: 'TRUE'
 project_browser.browse:
   path: '/admin/modules/browse'
   defaults:

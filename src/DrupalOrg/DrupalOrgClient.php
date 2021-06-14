@@ -94,4 +94,74 @@ class DrupalOrgClient
 
         return $body;
     }
+
+
+    /**
+     * Requests a node from the Drupal.org API.
+     *
+     * @param string $project
+     *   The Drupal.org project to get the releases from.
+     *
+     * @return array
+     *   An array releases.
+     *
+     * @throws \GuzzleHttp\Exception\GuzzleException Thrown if request is unsuccessful.
+     */
+    public function getProjectReleases(string $project) {
+        if ($project === 'drupal/core') {
+            $project = 'drupal';
+        }
+        else {
+            $project = str_replace(['drupal/', 'acquia/'], '', $project);
+        }
+        $response = $this->requestProjectReleases($project);
+        if (array_key_exists('releases', $response)) {
+            // Only one release.
+            if (array_key_exists('name', $response['releases']['release'])) {
+                $response['releases'] = [$response['releases']['release']];
+            }
+            // Multiple releases.
+            else {
+                $response['releases'] = $response['releases']['release'];
+            }
+        }
+        // No releases.
+        else {
+            $response['releases'] = [];
+        }
+
+        return $response;
+    }
+
+    /**
+     * Requests a node from the Drupal.org API.
+     *
+     * @param string $project
+     *   The Drupal.org project name.
+     *
+     * @return array The response object.
+     *   The response object.
+     *
+     * @throws \GuzzleHttp\Exception\GuzzleException Thrown if request is unsuccessful.
+     * @see https://www.drupal.org/drupalorg/docs/apis/rest-and-other-apis#s-releases
+     * @see https://www.drupal.org/drupalorg/docs/apis/update-status-xml
+     */
+    protected function requestProjectReleases(string $project): array
+    {
+        $url = "https://updates.drupal.org/release-history/$project/current";
+        $client = $this->getGuzzleClient();
+        $response = $client->request('GET', $url);
+        if ($response->getStatusCode() !== 200) {
+            throw new \RuntimeException("Request to $url failed, returned {$response->getStatusCode()} with reason: {$response->getReasonPhrase()}");
+        }
+        $body = $response->getBody()->getContents();
+        if (strpos($body, 'No release history was found for the requested project') !== FALSE) {
+            return [];
+        }
+
+        $xml = simplexml_load_string($body);
+        $json = json_decode(json_encode($xml), TRUE);
+
+        return $json;
+    }
 }

@@ -30,7 +30,7 @@
         loading = true;
         rowsCount = 0;
         // Additional query parameters are hardcoded in DrupalOrgProxyController::getAll();
-        let url = "http://local.project-browser.com/drupal-org-proxy/project?page=" + _page + "&limit=" + pageSize + "&tab=" + tab;
+        let url = "/drupal-org-proxy/project?page=" + _page + "&limit=" + pageSize + "&tab=" + tab;
         // "&sort=" + sortKeys + "&direction=" + sortDirection +
         if (text) {
             url = url + "&title=" + text;
@@ -108,9 +108,6 @@
 <style>
     .js-tab:hover {
         cursor: pointer;
-    }
-    .smart-filter-description {
-        float: left;
     }
 </style>
 <ProjectGrid {loading} {rows} {pageIndex} {pageSize} let:rows={rows2}>

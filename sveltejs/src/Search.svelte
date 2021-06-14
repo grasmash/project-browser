@@ -68,8 +68,6 @@
         const state = stateContext.getState();
         const detail = {
             originalEvent: event,
-            filter,
-            index,
             category: category,
             page: state.page,
             pageIndex: state.pageIndex,

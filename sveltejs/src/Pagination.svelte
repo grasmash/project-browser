@@ -42,17 +42,19 @@
         }
     }
 </script>
-
 <style>
+    a.pager__link:hover {
+        cursor: pointer;
+    }
 </style>
 <nav class="pagination pager">
     <ul class="pager__items js-pager__items">
-        <li class="pager__item pager__item--number">
+        <li class="pager__item">
             <a class="pager__link" disabled={page === 0} on:click={e => onChange(e, 0)}>
                 {labels.first}
             </a>
         </li>
-        <li class="pager__item pager__item--number">
+        <li class="pager__item">
         <a class="pager__link" disabled={page === 0} on:click={e => onChange(e, page - 1)}>
             {labels.previous}
         </a>
@@ -77,7 +79,7 @@
                 {labels.next}
             </a>
         </li>
-        <li class="pager__item pager__item--number">
+        <li class="pager__item">
             <a      class="pager__link"
                     disabled={page >= pageCount} on:click={e => onChange(e, pageCount)}>
                 {labels.last}

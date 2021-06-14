@@ -3,6 +3,7 @@
 namespace Drupal\project_browser\Controller;
 
 use Drupal\project_browser\DrupalOrg\DrupalOrgProjects;
+use Drupal\project_browser\DrupalOrg\DrupalOrgReleases;
 use Drupal\project_browser\DrupalOrg\Taxonomy\MaintenanceStatus;
 use Drupal\project_browser\DrupalOrg\Taxonomy\Vocabularies;
 use Symfony\Component\HttpFoundation\Request;
@@ -88,7 +89,6 @@ class DrupalOrgProxyController extends ControllerBase
             $drupal_org_response = $drupal_org_client->getProjects($query);
             $projects = new DrupalOrgProjects($drupal_org_response['list']);
             if ($projects) {
-                // @todo Remove Access-Control-Allow-Origin: * header when not in dev mode.
                 // @todo Add 'count' property.
                 $drupal_org_response['list'] = (array) $projects;
                 $response = new JsonResponse($drupal_org_response, Response::HTTP_ACCEPTED);
@@ -99,6 +99,37 @@ class DrupalOrgProxyController extends ControllerBase
                 return $response;
             }
             return new Response('Could not find any projects', 400);
+        } catch (\Exception $exception) {
+            $this->logger->error($exception->getMessage());
+            return new Response($exception->getMessage(), Response::HTTP_BAD_REQUEST);
+        }
+    }
+
+
+    /**
+     * Responds to GET requests.
+     *
+     * Returns a list of bundles for specified entity.
+     *
+     * @param \Symfony\Component\HttpFoundation\Request $request
+     */
+    public function getProjectReleases(Request $request) {
+        try {
+            $drupal_org_client = new DrupalOrgClient();
+            // Forward query parameters from request to Drupal.org Client.
+            $drupal_org_response = $drupal_org_client->getProjectReleases($request->query->get('project'));
+            $releases = new DrupalOrgReleases($drupal_org_response['releases']);
+            if (count($releases)) {
+                $response = new JsonResponse((array) $releases, Response::HTTP_ACCEPTED);
+                if ($response instanceof CacheableResponseInterface) {
+                    $response->addCacheableDependency($releases);
+                }
+
+                return $response;
+            }
+            else {
+                return new JsonResponse([], Response::HTTP_ACCEPTED);
+            }
         } catch (\Exception $exception) {
             $this->logger->error($exception->getMessage());
             return new Response($exception->getMessage(), Response::HTTP_BAD_REQUEST);

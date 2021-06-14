@@ -8,6 +8,7 @@
     import LastUpdated from './LastUpdated.svelte';
     import SecurityCoverage from './SecurityCoverage.svelte';
     import TaxonomyTerm from "./TaxonomyTerm.svelte";
+    import Releases from "./Releases.svelte";
 </script>
 <style>
     .project {
@@ -29,6 +30,7 @@
             float: right;
             clear: right;
             text-align: right;
+            width: 50%;
         }
     }
 
@@ -98,7 +100,8 @@ h3 a {
     </div>
     <div class="metadata">
         <div class="right">
-            <Usage project_usage={project.project_usage} project_usage_total={project.project_usage_total} />
+            <Usage project_usage={project.project_usage} project_usage_total={project.project_usage_total} project={project} />
+            <Releases project_name={project.field_project_machine_name} />
         </div>
         <TaxonomyTerm taxonomy_term_reference={project.taxonomy_vocabulary_44} wrapper_class="maintenance-status" />
         <TaxonomyTerm taxonomy_term_reference={project.taxonomy_vocabulary_46} wrapper_class="development-status" />

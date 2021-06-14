@@ -6,7 +6,6 @@
     import Sort, { setLabels as _setSortLabels } from "./Sort.svelte";
     import Loading from "./Loading.svelte";
     export { Pagination, Search, Sort };
-
     let globalLabels;
 
     export function setTableLabels(labels) {
