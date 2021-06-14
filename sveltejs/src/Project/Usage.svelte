@@ -36,7 +36,7 @@
     .check {
         color: green;
     }
-    .total span {
-        cursor: pointer;
+    a {
+        text-decoration: none;
     }
 </style>

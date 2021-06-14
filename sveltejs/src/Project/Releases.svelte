@@ -12,7 +12,8 @@
         const response = await fetch("/drupal-org-proxy/project/releases?project=" + project_name);
         if (response.ok) {
             releases = await response.json();
-            releases.forEach(checkCompatibility);
+            releases = releases.filter(filterCompatibleReleases);
+            console.log(releases);
             return releases;
 
         } else {
@@ -20,10 +21,12 @@
         }
     }
 
-    function checkCompatibility(release, index) {
+    function filterCompatibleReleases(release) {
         if (release.is_compatible) {
             project_is_compatible = true;
+            return true;
         }
+        return false;
     }
 </script>
 <style>
@@ -32,6 +35,9 @@
     }
     .not-compatible {
         color: red;
+    }
+    a {
+        text-decoration: none;
     }
 </style>
 <div class="compatibility">
@@ -46,9 +52,7 @@
         <span>Loading...</span>
     {:then releases}
         {#each releases || [] as release}
-            {#if release.is_compatible}
-                <span><a href="{release.release_link}" target="_blank">{release.version}</a>&nbsp;</span>
-            {/if}
+            <span><a href="{release.release_link}" target="_blank">{release.version}</a>{#if releases[releases.length - 1].tag !== release.tag},{/if}&nbsp;</span>
         {/each}
     {:catch error}
         <span style="color: red">{error.message}</span>
