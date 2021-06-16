@@ -11,6 +11,7 @@ class DrupalOrgProject
     public $body;
     public $created;
     public $changed;
+    public $changed_ago;
     public $field_project_images = [];
     public $nid;
     public $status;
@@ -80,6 +81,13 @@ class DrupalOrgProject
     {
         $this->created = $project['created'];
         $this->changed = $project['changed'];
+        /** @var \Drupal\Core\Datetime\DateFormatter $datedate_formatter */
+        $date_formatter = \Drupal::service('date.formatter');
+        $changed_ago = $date_formatter->formatTimeDiffSince($this->changed, [
+          'granularity' => 2,
+          'return_as_object' => TRUE,
+        ])->toRenderable();
+        $this->changed_ago = $changed_ago['#markup'] . t(' ago');
         $this->sticky = $project['sticky'];
         $this->promote = $project['promote'];
         $this->status = $project['status'];
@@ -89,10 +97,8 @@ class DrupalOrgProject
         $this->is_new = $project['is_new'];
         $this->vid = $project['vid'];
         $this->nid = $project['nid'];
-
         $this->flag_project_star_user = $project['flag_project_star_user'];
         $this->flag_project_star_user_count = count($this->flag_project_star_user);
-
         $this->field_issue_summary_template = $project['field_issue_summary_template'];
         $this->field_replaced_by = $project['field_replaced_by'];
         $this->field_next_major_version_info = $project['field_next_major_version_info'];

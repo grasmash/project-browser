@@ -1,0 +1,47 @@
+name: "Drupal.org Projects"
+machine_name: drupal_org_projects
+description: "Modules and themes hosted on Drupal.org"
+project:
+  base_uri: https://www.drupal.org/api-d7/node.json
+  fields:
+    author: author
+    summary: summary
+    created: created
+    changed: changed
+    images: field_project_images
+    nid: nid
+    status: status
+    type: type
+    title: title
+    url: url
+    usage_total: project_usage_total
+    security_advisory_coverage: field_security_advisory_coverage
+    machine_name: field_project_machine_name
+    supporting_organizations: field_supporting_organizations
+    stars: flag_project_star_user_count
+    categories: taxonomy_vocabulary_3
+    maintenance_status: taxonomy_vocabulary_44
+    development_status: taxonomy_vocabulary_46
+releases:
+  # @todo How to handle arguments like $project?
+  base_uri: https://updates.drupal.org/release-history/$project/current
+  fields:
+    version: version
+    tag: tag
+    url: release_link
+    date: date
+    is_compatible: is_compatible
+supporting_organizations:
+  base_uri: https://www.drupal.org/api-d7/node/$nid.json
+  fields:
+    title: title
+    url: url
+term:
+  base_uri: https://www.drupal.org/taxonomy/term/$tid.json
+  fields:
+    name: name
+    description: description
+file:
+  base_uri: https://www.drupal.org/api-d7/file/$fid.json
+  fields:
+    url: url

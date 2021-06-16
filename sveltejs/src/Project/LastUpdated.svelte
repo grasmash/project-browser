@@ -36,5 +36,5 @@
     }
 </script>
 <div class="latest-release">
-    Updated {timeDifference(new Date().getTime() / 1000, parseInt(changed))}
+    Updated {changed}
 </div>

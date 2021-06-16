@@ -22,7 +22,7 @@
     }
 
     function filterCompatibleReleases(release) {
-        if (release.is_compatible) {
+        if (release.is_compatible && release.hasOwnProperty('version')) {
             project_is_compatible = true;
             return true;
         }
@@ -43,7 +43,7 @@
 <div class="compatibility">
     {#if project_is_compatible}
         <span class="compatible"><span class="check">&#x2714;</span> Compatible with your Drupal installation</span>
-    {:else}
+    {:else if project_is_compatible === false}
         <span class="not-compatible">Not compatible with your Drupal installation.</span>
     {/if}
 </div>
@@ -51,9 +51,9 @@
     {#await fetchReleases(project_name)}
         <span>Loading...</span>
     {:then releases}
-        {#each releases || [] as release}
-            <span><a href="{release.release_link}" target="_blank">{release.version}</a>{#if releases[releases.length - 1].tag !== release.tag},{/if}&nbsp;</span>
-        {/each}
+        {#if releases.length}
+            <span>Latest release: <a href="{releases[0].release_link}" target="_blank">{releases[0].version}</a> ({releases[0].date_ago})</span>
+        {/if}
     {:catch error}
         <span style="color: red">{error.message}</span>
     {/await}

@@ -6,18 +6,19 @@ use Composer\Semver\Semver;
 
 class DrupalOrgRelease
 {
-
-    public $name;
     public $version;
-    public $tag;
     public $release_link;
-    public $download_link;
     public $date;
-    public $files = [];
-    public $terms = [];
-    public $security;
-    public $core_compatibility;
+    public $date_ago;
     public bool $is_compatible;
+
+    protected $name = '';
+    protected $tag = '';
+    protected $download_link = '';
+    protected $files = [];
+    protected $terms = [];
+    protected $security = '';
+    protected $core_compatibility = '';
 
     /**
      * @param array $release
@@ -30,12 +31,22 @@ class DrupalOrgRelease
         $this->release_link = $release['release_link'];
         $this->download_link = $release['download_link'];
         $this->date = $release['date'];
+        /** @var \Drupal\Core\Datetime\DateFormatter $datedate_formatter */
+        $date_formatter = \Drupal::service('date.formatter');
+        $date_ago = $date_formatter->formatTimeDiffSince($this->date, [
+          'granularity' => 2,
+          'return_as_object' => TRUE,
+        ])->toRenderable();
+        $this->date_ago = $date_ago['#markup'] . t(' ago');
+
         $this->files = $release['files'];
         if (array_key_exists('terms', $release)) {
             $this->terms = $release['terms'];
         }
         $this->security = $release['security'];
-        $this->core_compatibility = $release['core_compatibility'];
-        $this->is_compatible = Semver::satisfies(\Drupal::VERSION, $this->core_compatibility);
+        if (array_key_exists('core_compatibility', $release)) {
+            $this->core_compatibility = $release['core_compatibility'];
+            $this->is_compatible = Semver::satisfies(\Drupal::VERSION, $this->core_compatibility);
+        }
     }
 }

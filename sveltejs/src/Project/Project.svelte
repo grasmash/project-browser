@@ -105,7 +105,7 @@ h3 a {
         </div>
         <TaxonomyTerm taxonomy_term_reference={project.taxonomy_vocabulary_44} wrapper_class="maintenance-status" />
         <TaxonomyTerm taxonomy_term_reference={project.taxonomy_vocabulary_46} wrapper_class="development-status" />
-        <LastUpdated changed={project.changed} />
+        <!--        <LastUpdated changed={project.changed_ago} />-->
         <div class="stars"><span title="Starred by {project.flag_project_star_user_count} users">&#11088;&nbsp;&nbsp;{project.flag_project_star_user_count}</span></div>
         <Categories taxonomy_vocabulary_3={project.taxonomy_vocabulary_3}/>
     </div>

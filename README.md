@@ -102,6 +102,7 @@ like React or Vue.
 1. Move project to project_browser module namespace on Drupal.org.
 1. Add a bunch of filters to the project browser as an advanced search option.
 1. Add a "curated" or "suggested" modules section on top of the full module list.
+1. Add date to release
 
 ### Blocked by Drupal.org API:
 1. Filter by core compatibility

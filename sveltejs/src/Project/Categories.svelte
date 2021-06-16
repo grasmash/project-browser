@@ -30,7 +30,6 @@
         <ul>
             {#each taxonomy_vocabulary_3 || [] as category}
                 {#await fetchEntity(category.uri)}
-                    <p>...waiting</p>
                 {:then term}
                     <li class="category">{term.name}</li>
                 {:catch error}

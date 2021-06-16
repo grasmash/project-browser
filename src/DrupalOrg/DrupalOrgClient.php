@@ -5,6 +5,7 @@ namespace Drupal\project_browser\DrupalOrg;
 use Composer\Semver\Comparator;
 use Composer\Semver\VersionParser;
 use Doctrine\Common\Cache\FilesystemCache;
+use Drupal\project_browser\ProjectBrowserEndpointInterface;
 use GuzzleHttp\Client;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\TransferStats;
@@ -15,8 +16,7 @@ use Kevinrob\GuzzleCache\Strategy\PrivateCacheStrategy;
 /**
  * Retrieves releases and information about releases from Drupal.org.
  */
-class DrupalOrgClient
-{
+class DrupalOrgClient {
 
   /**
    * The Guzzle client.
